@@ -1,0 +1,50 @@
+/* ─── Work Marquee Strip ─────────────────────────────────────── */
+.wm-strip {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.wm-strip::-webkit-scrollbar { display: none; }
+.wm-strip:active { cursor: grabbing; }
+
+.wm-track {
+  display: flex;
+  flex-direction: row;
+  height: 280px;
+  animation: wm-scroll 420s linear infinite;
+  width: max-content;
+}
+
+.wm-strip:hover .wm-track { animation-play-state: paused; }
+
+.wm-item {
+  flex-shrink: 0;
+  aspect-ratio: 16 / 9;
+  height: 100%;
+  margin-right: 4px;
+  overflow: hidden;
+}
+
+.wm-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  background: #edeae4;
+  transition: transform 0.4s ease;
+}
+
+.wm-item:hover img {
+  transform: scale(1.03);
+}
+
+@keyframes wm-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

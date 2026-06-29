@@ -1,0 +1,52 @@
+.contact {
+  padding: 160px 48px;
+  text-align: center;
+  border-top: 1px solid rgba(237,233,227,0.1);
+}
+
+.contact-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.contact h2 {
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 100px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--fg);
+}
+
+.contact h2 em {
+  font-style: italic;
+  color: var(--fg-dim);
+}
+
+.contact p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--fg-dim);
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  border: 1px solid rgba(237,233,227,0.3);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg);
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.contact-btn:hover {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+@media (max-width: 768px) {
+  .contact { padding: 100px 24px; }
+}

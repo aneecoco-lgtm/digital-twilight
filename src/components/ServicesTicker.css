@@ -1,0 +1,50 @@
+/* ─── Services Ticker Strip ─────────────────────────────────────── */
+.st-outer {
+  width: 100%;
+  overflow: hidden;
+  background: #0a0a0a;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 40px 0;
+  user-select: none;
+}
+
+.st-track {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: max-content;
+  animation: st-scroll 28s linear infinite;
+}
+
+.st-outer:hover .st-track {
+  animation-play-state: paused;
+}
+
+.st-item {
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  white-space: nowrap;
+  padding: 0 8px;
+  transition: color 0.2s ease;
+}
+
+.st-sep {
+  display: inline-block;
+  margin: 0 24px;
+  color: rgba(255,255,255,0.2);
+  font-weight: 300;
+}
+
+.st-outer:hover .st-item {
+  color: rgba(255,255,255,0.8);
+}
+
+@keyframes st-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}

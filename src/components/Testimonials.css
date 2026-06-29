@@ -1,0 +1,159 @@
+/* ─── Testimonials — horizontal drag carousel ───────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+.tm {
+  background: #f5f3ef;
+  padding: 80px 0 100px;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.tm-header {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 0 56px 48px;
+}
+.tm-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  flex-shrink: 0;
+}
+.tm-sub {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.2);
+}
+
+/* ── Track ── */
+.tm-track {
+  display: flex;
+  gap: 20px;
+  padding: 20px 56px 40px;
+  overflow-x: scroll;
+  overflow-y: visible;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  align-items: flex-start; /* allows vertical offset */
+  user-select: none;
+  -webkit-user-select: none;
+}
+.tm-track::-webkit-scrollbar { display: none; }
+.tm-track--dragging { cursor: grabbing; }
+
+/* ── Card ── */
+.tm-card {
+  flex-shrink: 0;
+  width: 360px;
+  background: #141414;
+  border-radius: 16px;
+  padding: 36px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.tm-card:hover { transform: translateY(-4px); }
+
+/* Stagger cards vertically for a loose, lively feel */
+.tm-card--offset-0 { margin-top: 0px; }
+.tm-card--offset-1 { margin-top: 40px; }
+.tm-card--offset-2 { margin-top: 16px; }
+
+/* ── Quote text ── */
+.tm-quote {
+  font-family: var(--display, 'Inter', sans-serif);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #f0ede8;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Credit row ── */
+.tm-credit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  position: relative;
+}
+.tm-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.tm-credit-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tm-name {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+.tm-role {
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.tm-company {
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Big decorative quote mark */
+.tm-bigquote {
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  font-size: 64px;
+  line-height: 1;
+  color: rgba(255,255,255,0.06);
+  font-family: Georgia, serif;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Drag pill ── */
+.tm-drag-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin: 0 auto;
+  background: #141414;
+  color: #f0ede8;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .tm-header { padding-left: 24px; padding-right: 24px; }
+  .tm-track { padding-left: 24px; }
+  .tm-card { width: 300px; }
+}

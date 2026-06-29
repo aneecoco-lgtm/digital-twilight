@@ -1,0 +1,255 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Hero video background */
+.carousel-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+}
+
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.80) 0%,
+    rgba(0,0,0,0.20) 50%,
+    rgba(0,0,0,0.10) 100%
+  );
+}
+
+/* Fixed brand name — "MADE THOUGHT" treatment */
+.carousel-brand-name {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-54%);
+  z-index: 2;
+  padding: 0 32px;
+}
+.carousel-founder-name {
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: clamp(11px, 1.1vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin: 0 0 18px 4px;
+}
+
+.carousel-agency-title {
+  font-family: var(--display);
+  font-size: clamp(80px, 13.5vw, 210px);
+  font-weight: 300;
+  line-height: 0.87;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  overflow: hidden;
+}
+.carousel-agency-line {
+  display: inline-block;
+  animation: heroSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.carousel-brand-rule {
+  width: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.35);
+  margin-top: 20px;
+  animation: heroRuleExpand 0.9s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.carousel-agency-sub {
+  font-family: var(--sans);
+  font-size: clamp(12px, 1.2vw, 16px);
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-top: 18px;
+  opacity: 0;
+  animation: heroFadeIn 0.8s 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroSlideUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroRuleExpand {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Cycling content */
+.carousel-content {
+  position: absolute;
+  bottom: 100px;
+  left: 40px;
+  right: 280px;
+  z-index: 2;
+}
+
+.carousel-meta {
+  margin-bottom: 16px;
+}
+
+.carousel-category {
+  color: rgba(255,255,255,0.6);
+}
+
+.carousel-title {
+  /* Neue Haas Grotesk Display — 45 Light, +20 tracking, 87% leading */
+  font-family: var(--display);
+  font-size: clamp(64px, 8.5vw, 128px);
+  font-weight: 300;
+  line-height: var(--display-leading);     /* 87% */
+  letter-spacing: var(--display-tracking); /* +20 */
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  animation: fadeUp 0.7s cubic-bezier(0.25,0.1,0.25,1) both;
+}
+
+.carousel-subtitle {
+  display: block;
+  font-family: var(--sans);
+  font-size: clamp(13px, 1.2vw, 16px);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-top: 12px;
+}
+
+.carousel-tagline {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.6);
+  max-width: 440px;
+  animation: fadeUp 0.7s 0.1s cubic-bezier(0.25,0.1,0.25,1) both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Controls */
+.carousel-controls {
+  position: absolute;
+  bottom: 100px;
+  right: 40px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.carousel-btn {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.carousel-btn:hover {
+  border-color: rgba(255,255,255,0.7);
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+}
+
+/* Counter */
+.carousel-counter {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+}
+.carousel-current {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  font-weight: 400;
+}
+.carousel-sep { opacity: 0.3; font-size: 10px; }
+
+/* Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-dot {
+  width: 24px;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, width 0.3s;
+  padding: 0;
+}
+.carousel-dot.is-active {
+  background: rgba(255,255,255,0.9);
+  width: 40px;
+}
+
+/* Progress */
+.carousel-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  z-index: 10;
+}
+.carousel-progress-fill {
+  height: 100%;
+  background: rgba(255,255,255,0.4);
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
+@media (max-width: 700px) {
+  .carousel-brand-name { padding: 0 20px; }
+  .carousel-content {
+    left: 24px;
+    right: 24px;
+    bottom: 80px;
+  }
+  .carousel-controls { display: none; }
+  .carousel-counter { display: none; }
+  .carousel-dots { left: 24px; bottom: 36px; }
+}

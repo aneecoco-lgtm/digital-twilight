@@ -1,0 +1,76 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 48px 80px;
+  position: relative;
+}
+
+.hero-eyebrow {
+  margin-bottom: 28px;
+}
+
+.hero-headline {
+  font-family: var(--serif);
+  font-size: clamp(52px, 7vw, 108px);
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  margin-bottom: 48px;
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--fg-dim);
+}
+
+.hero-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-name {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+}
+
+.hero-role {
+  font-size: 12px;
+  color: var(--fg-dim);
+  letter-spacing: 0.04em;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 48px;
+  right: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 60px;
+  background: var(--fg-dim);
+  animation: scrollDrop 2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes scrollDrop {
+  0% { transform: scaleY(0); opacity: 0; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 0 24px 60px; }
+  .hero-scroll { display: none; }
+}

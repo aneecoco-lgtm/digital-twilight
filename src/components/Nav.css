@@ -1,0 +1,136 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  height: 64px;
+  transition: background 0.4s ease;
+}
+
+.nav--solid {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-right: auto;
+  text-decoration: none;
+}
+
+/* Clip wrapper — shows only the D icon mark, hides "DIGITAL TWILIGHT" text rows */
+.nav-logo-icon-wrap {
+  display: block;
+  width: 36px;
+  height: 30px;   /* icon mark = top ~58% of img; at width 44px height is 54.8px → 58% = 31.8px → 30px is safely above text */
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+.nav-logo-icon {
+  display: block;
+  width: 44px;    /* height auto → 54.8px; "DIGITAL" starts at ~32px → 30px clip clears it */
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Invert dark charcoal + pink → white for dark nav */
+  filter: brightness(0) invert(1);
+  opacity: 0.90;
+}
+
+.nav-logo-text {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fg);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--fg); }
+
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 40px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.nav-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.nav-burger { display: none; }
+.nav-mobile { display: none; }
+
+@media (max-width: 700px) {
+  .nav { padding: 0 24px; }
+  .nav-links, .nav-status { display: none; }
+  .nav-burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 4px;
+  }
+  .nav-burger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--fg);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-burger.open span:first-child { transform: translateY(3px) rotate(45deg); }
+  .nav-burger.open span:last-child  { transform: translateY(-3px) rotate(-45deg); }
+
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 64px 0 0 0;
+    background: var(--bg);
+    padding: 48px 24px;
+    gap: 32px;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.77,0,0.18,1);
+    z-index: 190;
+  }
+  .nav-mobile--open { transform: none; }
+  .nav-mobile a {
+    font-size: 28px;
+    font-family: var(--serif);
+    color: var(--fg);
+  }
+}

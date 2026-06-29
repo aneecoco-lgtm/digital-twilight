@@ -1,0 +1,21 @@
+.statement {
+  padding: 160px 48px;
+  text-align: center;
+}
+
+.statement p {
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 88px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--fg);
+}
+
+.statement em {
+  font-style: italic;
+  color: var(--fg-dim);
+}
+
+@media (max-width: 768px) {
+  .statement { padding: 100px 24px; }
+}

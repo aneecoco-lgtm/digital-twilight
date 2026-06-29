@@ -1,0 +1,837 @@
+/* ─── Case Study: Yoga on Art ───────────────────────────────── */
+/* Resolution notes embedded as comments throughout              */
+
+.ycs {
+  background: #ffffff;
+  color: #0a0a0a;
+  min-height: 100vh;
+}
+
+/* ── Nav ── */
+.ycs-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 64px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.ycs-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ycs-back:hover { color: #0a0a0a; }
+.ycs-nav-title {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.3);
+}
+
+/* ── Hero — 5712×4284px source, fully safe full-bleed ── */
+.ycs-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+}
+.ycs-hero-img {
+  position: absolute;
+  inset: 0;
+}
+.ycs-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 65%;
+}
+.ycs-hero-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.78) 0%,
+    rgba(0,0,0,0.2) 55%,
+    rgba(0,0,0,0.05) 100%
+  );
+}
+.ycs-hero-content {
+  position: absolute;
+  bottom: 80px;
+  left: 48px;
+  z-index: 2;
+}
+.ycs-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.ycs-hero-meta { margin-bottom: 16px; }
+.ycs-hero-title {
+  font-family: var(--display);
+  font-size: clamp(72px, 10vw, 140px);
+  font-weight: 300;
+  line-height: var(--display-leading);
+  letter-spacing: var(--display-tracking);
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* ── Intro ── */
+.ycs-intro {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  padding: 96px 48px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.ycs-intro-left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 6px;
+}
+.ycs-detail-block { display: flex; flex-direction: column; gap: 4px; }
+.ycs-detail-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+}
+.ycs-detail-value {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(0,0,0,0.75);
+}
+.ycs-intro-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 680px;
+}
+.ycs-lead {
+  font-family: var(--display);
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  color: #0a0a0a;
+}
+.ycs-body {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(0,0,0,0.55);
+}
+
+/* ── Full-bleed images — only used with 5712px source files ── */
+.ycs-full-img {
+  width: 100%;
+  line-height: 0;
+  background: #d8d4ce;
+}
+.ycs-full-img--sand { background: #c8b89a; }
+.ycs-full-img img {
+  width: 100%;
+  /* Landscape crops from 5712×4284: show at 16/6 ratio = ~500px tall on desktop */
+  aspect-ratio: 16 / 6;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Text blocks ── */
+.ycs-text-block {
+  padding: 88px 48px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.ycs-text-inner { max-width: 720px; }
+.ycs-section-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.28);
+  margin-bottom: 24px;
+}
+.ycs-section-title {
+  font-family: var(--display);
+  font-size: clamp(32px, 4vw, 58px);
+  font-weight: 300;
+  line-height: var(--display-leading);
+  letter-spacing: var(--display-tracking);
+  text-transform: uppercase;
+  color: #0a0a0a;
+  margin-bottom: 28px;
+}
+.ycs-text-inner .ycs-body + .ycs-body { margin-top: 14px; }
+
+/* ── Two-up — 1414×~1270px source, 50% columns (~700px max display = sharp) ── */
+.ycs-two-up {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: #e8e4de;
+}
+.ycs-two-up-item {
+  overflow: hidden;
+  background: #f2f0ec;
+  line-height: 0;
+  min-height: 0;
+}
+.ycs-two-up-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.9s cubic-bezier(0.25,0.1,0.25,1);
+  vertical-align: bottom;
+}
+.ycs-two-up-item:hover img { transform: scale(1.03); }
+
+/* ── Three-up
+   pose-child (2126×1416): 1/3 col ≈ 500px → well within 1063px natural half
+   artist-brushes (1742×1166): same
+   beach-woman-2 (1068×1430): 1/3 col ≈ 500px < 534px natural half → safe ── */
+.ycs-three-up {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: #e0dcd6;
+}
+.ycs-three-item {
+  overflow: hidden;
+  background: #ebe8e3;
+  line-height: 0;
+  aspect-ratio: 3 / 4;
+}
+.ycs-three-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.9s ease;
+}
+.ycs-three-item:hover img { transform: scale(1.04); }
+
+/* ── Split: meditation (1024×1536) + artwork-dark (550×1484)
+   Meditation shown in ~60% column — max ~700px on 1200px viewport = 68% of 1024px natural ✓
+   Artwork-dark shown at max 360px — well below 550px natural ── */
+.ycs-split-wide {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 0;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: #f5f3ef;
+}
+.ycs-split-main {
+  overflow: hidden;
+  line-height: 0;
+  background: #ebe8e2;
+}
+.ycs-split-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  /* max display ≈ 700px on large screen — 1024px source at 68% = crisp */
+  min-height: 560px;
+}
+.ycs-split-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+  background: #f5f3ef;
+  gap: 40px;
+}
+.ycs-split-artwork {
+  /* artwork-dark: 550×1484px — displayed max 360px wide, always sharp */
+  max-width: 360px;
+  line-height: 0;
+  align-self: center;
+}
+.ycs-split-artwork img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.ycs-split-text {
+  padding-top: 8px;
+}
+.ycs-split-text .ycs-section-label { margin-bottom: 16px; }
+
+/* ── Video section
+   720×1280 portrait — displayed at max 480px wide → never stretched ── */
+.ycs-video-section {
+  padding: 88px 48px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.ycs-video-header { max-width: 480px; }
+.ycs-video-header .ycs-section-title { margin-bottom: 20px; }
+.ycs-video-wrap {
+  display: flex;
+  justify-content: center;
+}
+.ycs-video {
+  /* 720×1280 portrait — capped at 480px wide, auto height = 853px displayed */
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  background: #0a0a0a;
+}
+
+/* ── Closing split: cobra (974×1474) in ~40% col ≈ 480px < 487px natural ✓ ── */
+.ycs-closing-split {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  align-items: center;
+  gap: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: #f7f5f2;
+}
+.ycs-closing-img {
+  overflow: hidden;
+  line-height: 0;
+  background: #ebe8e2;
+  /* cobra: 974×1474 — at 40% of 1200px = 480px, just under 487px natural half ✓ */
+  align-self: stretch;
+}
+.ycs-closing-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  min-height: 520px;
+}
+.ycs-closing-text {
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.ycs-quote {
+  font-family: var(--display);
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-weight: 300;
+  line-height: var(--display-leading);
+  letter-spacing: var(--display-tracking);
+  text-transform: uppercase;
+  color: #0a0a0a;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.ycs-closing-meta {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(0,0,0,0.25);
+}
+
+/* ── Back nav ── */
+.ycs-next { padding: 64px 48px; }
+.ycs-next-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.38);
+  text-decoration: none;
+  transition: color 0.2s, gap 0.3s;
+}
+.ycs-next-link:hover { color: #0a0a0a; gap: 18px; }
+
+/* ── Reveal animation ── */
+.ycs-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.ycs-reveal.ycs-visible { opacity: 1; transform: none; }
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .ycs-video-section {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 64px 24px;
+  }
+  .ycs-split-wide { grid-template-columns: 1fr; }
+  .ycs-split-side { padding: 32px 24px; flex-direction: row; flex-wrap: wrap; }
+  .ycs-split-artwork { max-width: 240px; }
+  .ycs-closing-split { grid-template-columns: 1fr; }
+  .ycs-closing-text { padding: 56px 24px; }
+}
+@media (max-width: 800px) {
+  .ycs-nav { padding: 0 24px; }
+  .ycs-hero-content { left: 24px; bottom: 60px; }
+  .ycs-intro { grid-template-columns: 1fr; gap: 48px; padding: 64px 24px; }
+  .ycs-intro-left { flex-direction: row; flex-wrap: wrap; gap: 20px 40px; }
+  .ycs-text-block { padding: 64px 24px; }
+  .ycs-three-up { grid-template-columns: 1fr 1fr; }
+  .ycs-next { padding: 48px 24px; }
+}
+@media (max-width: 500px) {
+  .ycs-two-up { grid-template-columns: 1fr; }
+  .ycs-three-up { grid-template-columns: 1fr; }
+  .ycs-nav-title { display: none; }
+}
+
+/* ── Chapter label ── */
+.ycs-chapter-label {
+  padding: 56px 48px 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.ycs-chapter-label span {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.3);
+}
+
+/* ── Pitch two-up: 16:9 slides, no crop ── */
+.ycs-two-up--pitch {
+  align-items: start;
+  background: #e8e2d9;
+}
+.ycs-two-up--pitch .ycs-two-up-item {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  background: #e8e2d9;
+}
+.ycs-two-up--pitch .ycs-two-up-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+}
+
+/* ── Taller full-img for portrait/double-exposure ── */
+.ycs-full-img--tall {
+  height: 80vh;
+  min-height: 500px;
+}
+.ycs-full-img--tall img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Making Of — single phone ── */
+.ycs-making-of {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 80px;
+  align-items: center;
+  padding: 120px 80px;
+  background: #1a1a16;
+}
+
+.ycs-making-of-text .ycs-section-label { color: rgba(255,255,255,0.35); }
+.ycs-making-of-text .ycs-section-title { color: #ffffff; }
+.ycs-making-of-text .ycs-body { color: rgba(255,255,255,0.45); }
+
+.ycs-making-of-phone {
+  display: flex;
+  justify-content: center;
+}
+
+/* Phone shell */
+.ycs-phone-shell {
+  position: relative;
+  width: 280px;
+  height: 590px;
+  background: #111;
+  border-radius: 46px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.1),
+    0 0 0 8px #0a0a0a,
+    0 0 0 9px rgba(255,255,255,0.07),
+    0 32px 90px rgba(0,0,0,0.8),
+    0 12px 32px rgba(0,0,0,0.5);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ycs-phone-notch {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 28px;
+  background: #0a0a0a;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.ycs-phone-screen {
+  position: absolute;
+  inset: 0;
+  border-radius: 46px;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.ycs-phone-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.ycs-phone-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.4) 0%,
+    transparent 35%,
+    transparent 65%,
+    rgba(0,0,0,0.55) 100%
+  );
+  z-index: 1;
+}
+
+.ycs-phone-progress {
+  position: absolute;
+  top: 52px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 2px;
+  z-index: 5;
+  overflow: hidden;
+}
+.ycs-phone-progress-fill {
+  height: 100%;
+  width: 45%;
+  background: #ffffff;
+  border-radius: 2px;
+  animation: ps-progress 8s linear infinite;
+}
+
+.ycs-phone-profile {
+  position: absolute;
+  top: 62px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 5;
+}
+.ycs-phone-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  overflow: hidden;
+  background: #1a1a16;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ycs-phone-avatar img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.ycs-phone-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.ycs-phone-handle {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1;
+}
+.ycs-phone-time {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.55);
+}
+
+.ycs-phone-caption {
+  position: absolute;
+  bottom: 36px;
+  left: 16px;
+  z-index: 5;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+.ycs-phone-home-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 4px;
+  z-index: 6;
+}
+
+@media (max-width: 900px) {
+  .ycs-making-of {
+    grid-template-columns: 1fr;
+    padding: 80px 24px;
+    gap: 56px;
+  }
+  .ycs-making-of-phone { order: -1; }
+}
+
+/* ── Split text standalone (no artwork image above) ── */
+.ycs-split-text--standalone {
+  padding: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  background: #f5f3ef;
+}
+
+/* ── Slide full-width: show complete 16:9 slide without cropping ── */
+.ycs-full-img--slide img {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: inherit;
+}
+
+/* ── Hero video ── */
+.ycs-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Closing solo (text only, no image) ── */
+.ycs-closing-solo {
+  padding: 120px 80px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  max-width: 900px;
+}
+@media (max-width: 800px) {
+  .ycs-closing-solo { padding: 80px 24px; }
+}
+
+/* ── Intro + Concept with right video panel ── */
+.ycs-intro-video-wrap {
+  display: grid;
+  grid-template-columns: 1fr 38%;
+  align-items: stretch;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.ycs-intro-video-left {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(0,0,0,0.08);
+}
+/* Override border-bottom on child sections so they don't double-border */
+.ycs-intro-video-left .ycs-intro,
+.ycs-intro-video-left .ycs-text-block {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.ycs-intro-video-left .ycs-text-block:last-child {
+  border-bottom: none;
+  flex: 1;
+}
+.ycs-intro-video-right {
+  position: sticky;
+  top: 64px; /* height of nav */
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  background: #0a0a0a;
+}
+.ycs-intro-vid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+  display: block;
+}
+@media (max-width: 900px) {
+  .ycs-intro-video-wrap {
+    grid-template-columns: 1fr;
+  }
+  .ycs-intro-video-right {
+    position: relative;
+    top: 0;
+    height: 60vw;
+    min-height: 320px;
+  }
+  .ycs-intro-video-left {
+    border-right: none;
+  }
+}
+
+/* ── Hero contain variant — shows full image, no crop ── */
+.ycs-hero--contain {
+  height: auto;
+  min-height: unset;
+  background: #8fa89a; /* matches the teal/sage of pitch-02 */
+}
+.ycs-hero--contain .ycs-hero-img {
+  position: relative;
+  line-height: 0;
+}
+.ycs-hero-img-contain {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+/* Overlay and text still sit on top */
+.ycs-hero--contain .ycs-hero-img::after {
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65) 0%,
+    rgba(0,0,0,0.05) 50%,
+    transparent 100%
+  );
+}
+.ycs-hero--contain .ycs-hero-content {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+}
+
+/* ── Yoga Mat horizontal strip — 6 equal columns, no crop ── */
+.ycs-mat-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  background: #f0ede8;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.ycs-mat-item {
+  overflow: hidden;
+  line-height: 0;
+  background: #f0ede8;
+}
+.ycs-mat-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.8s ease;
+}
+.ycs-mat-item:hover img {
+  transform: scale(1.04);
+}
+@media (max-width: 700px) {
+  .ycs-mat-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Double-exposure accent — small, centred ── */
+.ycs-accent-img {
+  display: flex;
+  justify-content: center;
+  padding: 64px 48px;
+  background: #f5f3ef;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.ycs-accent-img img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  transform: scale(1.09);
+  overflow: hidden;
+}
+
+/* ── Closing split — text left, image right ── */
+.ycs-closing-split-final {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  align-items: center;
+  gap: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: #ffffff;
+}
+.ycs-closing-split-final .ycs-closing-text {
+  padding: 100px 64px;
+}
+.ycs-closing-img-right {
+  height: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.ycs-closing-img-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.06);
+}
+@media (max-width: 900px) {
+  .ycs-closing-split-final {
+    grid-template-columns: 1fr;
+  }
+  .ycs-closing-img-right {
+    height: 500px;
+  }
+}

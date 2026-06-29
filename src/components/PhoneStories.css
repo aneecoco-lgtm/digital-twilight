@@ -1,0 +1,294 @@
+/* ─── Phone Stories Section ──────────────────────────────────── */
+
+.ps-section {
+  background: #1a1a16;
+  padding: 120px 48px 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.ps-section.ps-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Header ── */
+.ps-header {
+  text-align: center;
+  max-width: 560px;
+}
+
+.ps-eyebrow {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 20px;
+}
+
+.ps-title {
+  font-family: var(--display);
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 300;
+  line-height: var(--display-leading, 1.05);
+  letter-spacing: var(--display-tracking, 0.02em);
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+
+.ps-sub {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.38);
+  margin: 0;
+}
+
+/* ── Phones row ── */
+.ps-phones {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* ── Individual phone ── */
+.ps-phone {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition:
+    opacity 0.9s ease calc(var(--delay, 0s) + 0.2s),
+    transform 0.9s ease calc(var(--delay, 0s) + 0.2s);
+}
+
+.ps-section.ps-visible .ps-phone {
+  opacity: 1;
+  transform: none;
+}
+
+/* Centre phone is taller */
+.ps-phones .ps-phone:nth-child(2) .ps-shell {
+  height: 620px;
+}
+
+/* ── Phone shell ── */
+.ps-shell {
+  position: relative;
+  width: 270px;
+  height: 560px;
+  background: #111;
+  border-radius: 44px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.1),
+    0 0 0 8px #0a0a0a,
+    0 0 0 9px rgba(255,255,255,0.07),
+    0 30px 80px rgba(0,0,0,0.7),
+    0 10px 30px rgba(0,0,0,0.5);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* ── Notch ── */
+.ps-notch {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 28px;
+  background: #0a0a0a;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+/* ── Screen ── */
+.ps-screen {
+  position: absolute;
+  inset: 0;
+  border-radius: 44px;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+/* ── Video ── */
+.ps-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Dim overlay ── */
+.ps-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.45) 0%,
+    rgba(0,0,0,0.05) 40%,
+    rgba(0,0,0,0.05) 60%,
+    rgba(0,0,0,0.6) 100%
+  );
+  z-index: 1;
+}
+
+/* ── Stories progress bar ── */
+.ps-progress-bar {
+  position: absolute;
+  top: 52px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 2px;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.ps-progress-fill {
+  height: 100%;
+  width: 60%;
+  background: #ffffff;
+  border-radius: 2px;
+  animation: ps-progress 6s linear infinite;
+}
+
+@keyframes ps-progress {
+  0%   { width: 0% }
+  100% { width: 100% }
+}
+
+/* ── Profile header ── */
+.ps-profile {
+  position: absolute;
+  top: 62px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 5;
+}
+
+.ps-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  overflow: hidden;
+  background: #1a1a16;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ps-avatar img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.ps-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.ps-handle {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.ps-time {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.55);
+  line-height: 1;
+}
+
+/* ── Bottom caption ── */
+.ps-caption {
+  position: absolute;
+  bottom: 36px;
+  left: 16px;
+  right: 16px;
+  z-index: 5;
+}
+
+.ps-caption-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ── Home indicator ── */
+.ps-home-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 4px;
+  z-index: 6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .ps-section { padding: 80px 24px 100px; }
+
+  .ps-phones {
+    gap: 12px;
+  }
+
+  .ps-shell {
+    width: 200px;
+    height: 420px;
+    border-radius: 34px;
+  }
+
+  .ps-phones .ps-phone:nth-child(2) .ps-shell {
+    height: 460px;
+  }
+
+  .ps-shell { border-radius: 34px; }
+  .ps-screen { border-radius: 34px; }
+  .ps-notch { width: 70px; height: 22px; top: 10px; }
+  .ps-progress-bar { top: 40px; }
+  .ps-profile { top: 48px; }
+}
+
+@media (max-width: 640px) {
+  .ps-phones .ps-phone:nth-child(1),
+  .ps-phones .ps-phone:nth-child(3) {
+    display: none;
+  }
+
+  .ps-shell {
+    width: 260px;
+    height: 520px;
+  }
+}

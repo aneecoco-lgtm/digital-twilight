@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Vercel
+.vercel
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor
+.claude/
+*.mhtml
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# ── All video files — upload separately to Hostpoint ──
+# Keep only tiny <2MB videos in repo (brain-spin, flower, x3)
+public/videos/esnr-annual-2024.mp4
+public/videos/yoa-hero.mp4
+public/videos/yoa-intro-video.mp4
+public/videos/yoa-making-of.mp4
+public/videos/yoa-promo.mp4
+public/videos/evolve-film.mp4
+public/videos/evolve-official.mp4
+public/videos/hero-bg.mp4
+public/videos/x1.mp4
+public/videos/x2.mp4
+public/videos/portofino.mp4
+public/videos/ai/ai-vid-01.mp4
+public/videos/ai/ai-vid-02.mp4
+public/videos/ai/ai-vid-03.mp4
+public/images/wim/wim-film-final.mp4
+public/images/wim/wim-street.mp4
+public/images/wim/wim-outro.mp4
+public/images/wim/wim-carosello.mp4
+public/images/wim/wim-media.mp4
+public/images/wim/wim-noch3.mp4
+public/images/wim/wim-outro-1.mp4
+public/images/wim/wim-outro-2.mp4
+public/images/wim/wim-outro-3.mp4
+public/images/wim/wim-outro-4.mp4
+public/images/wim/wim-outro-5.mp4
+public/images/wim/wim-outro-7.mp4
+public/images/wim/wim-scene1.mp4
+-images:/
+-css:/
