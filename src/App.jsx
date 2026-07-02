@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Nav from './components/Nav'
 import Carousel from './components/Carousel'
 import Tagline from './components/Tagline'
@@ -15,6 +16,13 @@ import EvolveCaseStudy from './pages/EvolveCaseStudy'
 import WerIstMigrantCaseStudy from './pages/WerIstMigrantCaseStudy'
 import AiStorytelling from './pages/AiStorytelling'
 import './App.css'
+
+// Reset scroll when navigating between pages (hash links within a page are unaffected)
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }) }, [pathname])
+  return null
+}
 
 function Home() {
   return (
@@ -34,14 +42,18 @@ function Home() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/work/hswiss-nexus" element={<HswissCaseStudy />} />
-      <Route path="/work/esnr" element={<EsnrCaseStudy />} />
-      <Route path="/work/yoga-on-art" element={<YoaCaseStudy />} />
-      <Route path="/work/evolve" element={<EvolveCaseStudy />} />
-      <Route path="/work/wer-ist-migrant" element={<WerIstMigrantCaseStudy />} />
-      <Route path="/work/ai-storytelling" element={<AiStorytelling />} />
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/work/hswiss-nexus" element={<HswissCaseStudy />} />
+        <Route path="/work/esnr" element={<EsnrCaseStudy />} />
+        <Route path="/work/yoga-on-art" element={<YoaCaseStudy />} />
+        <Route path="/work/evolve" element={<EvolveCaseStudy />} />
+        <Route path="/work/wer-ist-migrant" element={<WerIstMigrantCaseStudy />} />
+        <Route path="/work/ai-storytelling" element={<AiStorytelling />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
   )
 }

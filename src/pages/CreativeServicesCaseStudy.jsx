@@ -17,27 +17,27 @@ const marqueeImages = [
   '/images/cs/mock-business_cards.jpg',
   '/images/cs/mock-graphic_design_magazine.jpg',
   // 7
-  '/images/cs/mock-Esnr,juniors_connect,_Digital_Twilight_switzerland.png',
+  '/images/cs/mock-Esnr,juniors_connect,_Digital_Twilight_switzerland.jpg',
   '/images/cs/mock-Notepad_Mockup_Wed.jpg.jpg.jpg.jpg',
   // 10
   '/images/cs/mock-10-untitled.jpg',
   '/images/cs/mock-10-Screenshot_2026-06-19.png',
   // 11
-  '/images/cs/mock-11.png',
+  '/images/cs/mock-11.jpg',
   // 12
   '/images/cs/mock-smida.jpg.jpg.jpg.jpg',
   // unnumbered
   '/images/cs/mock-MAGAZINE_MOCK_UP.jpg',
-  '/images/cs/mock-REZZONICO_MOCKUP_BAGS.png',
-  '/images/cs/mock-ROLL_UP_mockup_esnr.png',
-  '/images/cs/mock-banner_Mockup_20.png',
+  '/images/cs/mock-REZZONICO_MOCKUP_BAGS.jpg',
+  '/images/cs/mock-ROLL_UP_mockup_esnr.jpg',
+  '/images/cs/mock-banner_Mockup_20.jpg',
   '/images/cs/mock-bsiness_cards_vforvisible.jpg',
   '/images/cs/mock-digital_twilight_ribbon.jpg',
-  '/images/cs/mock-website_creation_digital_twilight.png',
+  '/images/cs/mock-website_creation_digital_twilight.jpg',
   // previously included extras
   '/images/cs/mock-PORTOFINO_PRESENTAZIONE_ESTERNA.jpg',
   '/images/cs/mock-ESNR__FOTOBRAIN_FOR_WEB.jpg',
-  '/images/cs/mock-EVOLVE_moonbre__logo_mock_up.png',
+  '/images/cs/mock-EVOLVE_moonbre__logo_mock_up.jpg',
   '/images/cs/mock-Screenshot_2023-12-05_at_19.26.13.png',
   '/images/cs/mock-Screenshot_2026-03-26_at_12.27.43.png',
   '/images/cs/mock-Screenshot_2026-03-26_at_12.27.53.png',
@@ -184,7 +184,7 @@ export default function CreativeServicesCaseStudy() {
       </header>
 
       {/* ── CATEGORY SECTIONS ── */}
-      {categories.map((cat, ci) => (
+      {categories.map((cat) => (
         <section className="csp-section" key={cat.num}>
 
           {/* Section header — editorial index bar */}
