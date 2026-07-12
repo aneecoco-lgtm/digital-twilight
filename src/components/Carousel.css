@@ -52,7 +52,7 @@
 
 .carousel-agency-title {
   font-family: var(--display);
-  font-size: clamp(80px, 13.5vw, 210px);
+  font-size: clamp(44px, 13.5vw, 210px);
   font-weight: 300;
   line-height: 0.87;
   letter-spacing: 0.01em;
@@ -244,6 +244,11 @@
 
 @media (max-width: 700px) {
   .carousel-brand-name { padding: 0 20px; }
+  .carousel-agency-title {
+    font-size: clamp(40px, 12.5vw, 96px);
+    letter-spacing: 0;
+  }
+  .carousel-agency-sub { letter-spacing: 0.2em; }
   .carousel-content {
     left: 24px;
     right: 24px;
@@ -252,4 +257,10 @@
   .carousel-controls { display: none; }
   .carousel-counter { display: none; }
   .carousel-dots { left: 24px; bottom: 36px; }
+}
+
+@media (max-width: 380px) {
+  .carousel-brand-name { padding: 0 16px; }
+  .carousel-agency-title { font-size: 11.5vw; }
+  .carousel-agency-sub { letter-spacing: 0.14em; font-size: 11px; }
 }
