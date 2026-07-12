@@ -38,7 +38,7 @@ export default function About() {
           </div>
           <div className="fact">
             <span className="fact-k label">Languages</span>
-            <span className="fact-v">Italian · English · French</span>
+            <span className="fact-v">Italian · English</span>
           </div>
           <div className="fact">
             <span className="fact-k label">Availability</span>
