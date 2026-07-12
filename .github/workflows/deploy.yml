@@ -41,7 +41,7 @@ jobs:
       # touched or deleted. Do NOT set dangerous-clean-slate to true —
       # that would wipe the whole target folder, videos included.
       - name: Deploy to Hostpoint via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
