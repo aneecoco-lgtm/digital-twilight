@@ -51,3 +51,10 @@ public/images/wim/wim-outro-7.mp4
 public/images/wim/wim-scene1.mp4
 -images:/
 -css:/
+
+# Local deploy artifacts (not part of the site)
+UPLOAD/
+UPLOAD-TO-HOSTPOINT/
+dist-upload.zip
+dt-update.zip
+hostpoint-upload-*.zip
