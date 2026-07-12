@@ -363,9 +363,21 @@
 }
 .evo-collateral-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
+.evo-collateral-item {
+  overflow: hidden;
+  border-radius: 4px;
+  background: #111;
+}
+.evo-collateral-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.25,0.1,0.25,1);
+}
+.evo-collateral-item:hover img { transform: scale(1.03); }
 .evo-placeholder {
   display: flex;
   flex-direction: column;
@@ -460,5 +472,5 @@
   .evo-craft-section,
   .evo-collateral-section { padding: 64px 24px; }
   .evo-footer { padding: 64px 24px; }
-  .evo-collateral-grid { grid-template-columns: 1fr 1fr; }
+  .evo-collateral-grid { grid-template-columns: 1fr; }
 }

@@ -27,15 +27,6 @@ function Reveal({ children, delay = 0, tag = 'div', className = '' }) {
   )
 }
 
-function Placeholder({ label, aspect = '4/3' }) {
-  return (
-    <div className="evo-placeholder" style={{ aspectRatio: aspect }}>
-      <span className="evo-placeholder-label">{label}</span>
-      <span className="evo-placeholder-icon">+</span>
-    </div>
-  )
-}
-
 export default function EvolveCaseStudy() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
@@ -199,12 +190,12 @@ export default function EvolveCaseStudy() {
           </p>
         </Reveal>
         <div className="evo-collateral-grid">
-          <Reveal delay={60}><Placeholder label="Poster — Campaign A4" aspect="3/4" /></Reveal>
-          <Reveal delay={100}><Placeholder label="Social Media Template" aspect="1/1" /></Reveal>
-          <Reveal delay={140}><Placeholder label="Price List / Menu" aspect="3/4" /></Reveal>
-          <Reveal delay={180}><Placeholder label="Gift Card" aspect="16/9" /></Reveal>
-          <Reveal delay={220}><Placeholder label="Story Template" aspect="9/16" /></Reveal>
-          <Reveal delay={260}><Placeholder label="Loyalty Card" aspect="16/9" /></Reveal>
+          <Reveal delay={60} className="evo-collateral-item">
+            <img src="/images/evolve/collateral-posters.jpg" alt="Evolve campaign posters — Winter Moonshine & Winter Relax" loading="lazy" />
+          </Reveal>
+          <Reveal delay={140} className="evo-collateral-item">
+            <img src="/images/evolve/collateral-grid.jpg" alt="Evolve brand collateral — brochure, gift card, voucher, stationery, packaging" loading="lazy" />
+          </Reveal>
         </div>
       </section>
 
