@@ -242,7 +242,7 @@ export default function CreativeServicesCaseStudy() {
           <p className="csp-close-body">
             Whether it is a congress banner, a brand film or a logo — the standard does not change. Craft, intention and clarity. Always.
           </p>
-          <a href="mailto:hello@digitaltwilight.com" className="csp-cta">
+          <a href="mailto:info@digital-twilight.com" className="csp-cta">
             Get in touch
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M2 8H14M8 2L14 8L8 14" stroke="currentColor" strokeWidth="1.1"/>

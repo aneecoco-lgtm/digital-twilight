@@ -13,8 +13,8 @@ export default function SiteFooter() {
             I take on a limited number of projects each year.<br />
             Not because of capacity. Because of quality.
           </p>
-          <a href="mailto:hello@digital-twilight.com" className="footer-email">
-            hello@digital-twilight.com
+          <a href="mailto:info@digital-twilight.com" className="footer-email">
+            info@digital-twilight.com
           </a>
         </div>
 
