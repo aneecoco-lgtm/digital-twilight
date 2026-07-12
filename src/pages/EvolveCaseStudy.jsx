@@ -126,16 +126,6 @@ export default function EvolveCaseStudy() {
               className="evo-video"
             />
           </div>
-          <div className="evo-film-video-side">
-            <video
-              src="/videos/evolve-official.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="evo-video-side"
-            />
-          </div>
         </Reveal>
       </section>
 
