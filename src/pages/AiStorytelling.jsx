@@ -71,7 +71,7 @@ export default function AiStorytelling() {
     const ro = new ResizeObserver(measure); ro.observe(track)
 
     const drag = { active: false, lastY: 0, moved: 0 }
-    const speed = 0.4                   // px/frame auto-scroll
+    const speed = 0.75                  // px/frame auto-scroll
     let raf
 
     const frame = () => {
