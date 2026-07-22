@@ -6,6 +6,7 @@ import Tagline from './components/Tagline'
 import SelectedWork from './components/SelectedWork'
 import About from './components/About'
 import SiteFooter from './components/SiteFooter'
+import Seo from './components/Seo'
 import Testimonials from './components/Testimonials'
 import WorkMarquee from './components/WorkMarquee'
 import ServicesTicker from './components/ServicesTicker'
@@ -44,6 +45,7 @@ function Home() {
 export default function App() {
   return (
     <>
+      <Seo />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
