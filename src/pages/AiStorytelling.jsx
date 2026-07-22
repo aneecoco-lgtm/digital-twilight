@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './AiStorytelling.css'
 
@@ -39,7 +39,7 @@ const projects = [
   },
 ]
 
-function MediaCard({ project }) {
+function MediaCard({ project, idx }) {
   const live = project.to && project.to !== '#'
   const inner = (
     <div className={`ais-media-card${live ? '' : ' ais-media-card--soon'}`}>
@@ -48,8 +48,8 @@ function MediaCard({ project }) {
     </div>
   )
   return live
-    ? <Link to={project.to} className="ais-media-link">{inner}</Link>
-    : <div className="ais-media-link">{inner}</div>
+    ? <Link to={project.to} className="ais-media-link" data-idx={idx}>{inner}</Link>
+    : <div className="ais-media-link" data-idx={idx}>{inner}</div>
 }
 
 function ProjectRow({ project }) {
@@ -69,7 +69,33 @@ function ProjectRow({ project }) {
 }
 
 export default function AiStorytelling() {
+  const mediaRef = useRef(null)
+  const [active, setActive] = useState(0)
+
   useEffect(() => { window.scrollTo(0, 0) }, [])
+
+  // Track which media card is passing the centre of the box and surface its title.
+  useEffect(() => {
+    const container = mediaRef.current
+    if (!container) return
+    let raf
+    const tick = () => {
+      const box = container.getBoundingClientRect()
+      const cy = box.top + box.height / 2
+      let best = 0, bestDist = Infinity
+      container.querySelectorAll('[data-idx]').forEach((card) => {
+        const r = card.getBoundingClientRect()
+        const d = Math.abs(r.top + r.height / 2 - cy)
+        if (d < bestDist) { bestDist = d; best = Number(card.dataset.idx) }
+      })
+      setActive((prev) => (prev === best ? prev : best))
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [])
+
+  const current = projects[active]
 
   return (
     <div className="ais-page">
@@ -90,15 +116,15 @@ export default function AiStorytelling() {
       <section className="ais-stage">
 
         {/* LEFT — auto-scrolling image box */}
-        <div className="ais-stage-media">
+        <div className="ais-stage-media" ref={mediaRef}>
           <div className="ais-media-track">
-            {projects.map((p) => <MediaCard key={p.num} project={p} />)}
+            {projects.map((p, i) => <MediaCard key={p.num} project={p} idx={i} />)}
             {/* Duplicate set for a seamless upward loop */}
-            {projects.map((p) => <MediaCard key={`dup-${p.num}`} project={p} />)}
+            {projects.map((p, i) => <MediaCard key={`dup-${p.num}`} project={p} idx={i} />)}
           </div>
         </div>
 
-        {/* RIGHT — title top, projects below */}
+        {/* RIGHT — title top, live current-project title (centre), projects below */}
         <div className="ais-stage-content">
           <div className="ais-stage-head">
             <span className="ais-eyebrow">AI · Generative Storytelling</span>
@@ -108,6 +134,12 @@ export default function AiStorytelling() {
               narrative — images, sequences and stories built with, and through,
               machine perception.
             </p>
+          </div>
+
+          <div className="ais-stage-current">
+            <span className="ais-current-num" key={`n-${active}`}>{current.num}</span>
+            <span className="ais-current-title" key={`t-${active}`}>{current.title}</span>
+            <span className="ais-current-scope" key={`s-${active}`}>{current.scope}</span>
           </div>
 
           <div className="ais-proj-list">
