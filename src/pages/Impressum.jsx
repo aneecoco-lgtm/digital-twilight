@@ -35,10 +35,7 @@ export default function Impressum() {
         <section className="imp-block">
           <span className="imp-block-label">Contact</span>
           <p className="imp-block-body">
-            <a href="mailto:info@digital-twilight.com">info@digital-twilight.com</a><br />
-            <a href="https://www.instagram.com/_digitaltwilight_" target="_blank" rel="noopener">
-              Instagram
-            </a>
+            <a href="mailto:info@digital-twilight.com">info@digital-twilight.com</a>
           </p>
         </section>
 
