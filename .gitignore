@@ -33,7 +33,7 @@ public/videos/hero-bg.mp4
 public/videos/x1.mp4
 public/videos/x2.mp4
 public/videos/portofino.mp4
-public/videos/ai/ai-vid-01.mp4
+# ai-vid-01 used on the AI Storytelling page — kept in repo (small, ~2MB)
 public/videos/ai/ai-vid-02.mp4
 public/videos/ai/ai-vid-03.mp4
 public/images/wim/wim-film-final.mp4

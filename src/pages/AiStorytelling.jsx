@@ -32,19 +32,24 @@ const projects = [
   {
     num: '04',
     title: 'Project Four',
-    scope: 'AI Portrait · Coming Soon',
+    scope: 'AI Portrait',
     year: '2025',
     img: '/images/wim/wim-gap-face.png',
+    video: '/videos/ai/ai-vid-01.mp4',
     to: '#',
   },
 ]
 
 function MediaCard({ project, idx }) {
   const live = project.to && project.to !== '#'
+  const soon = !live && !project.video
+  const media = project.video
+    ? <video src={project.video} autoPlay muted loop playsInline preload="metadata" />
+    : <img src={project.img} alt={project.title} loading="lazy" />
   const inner = (
-    <div className={`ais-media-card${live ? '' : ' ais-media-card--soon'}`}>
-      <img src={project.img} alt={project.title} loading="lazy" />
-      {!live && <span className="ais-media-soon">Coming Soon</span>}
+    <div className={`ais-media-card${soon ? ' ais-media-card--soon' : ''}`}>
+      {media}
+      {soon && <span className="ais-media-soon">Coming Soon</span>}
     </div>
   )
   return live

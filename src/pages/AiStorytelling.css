@@ -117,7 +117,8 @@
   padding: 32px;
   will-change: transform;
 }
-.ais-media-track img { -webkit-user-drag: none; user-select: none; pointer-events: none; }
+.ais-media-track img,
+.ais-media-track video { -webkit-user-drag: none; user-select: none; pointer-events: none; }
 .ais-media-link { display: block; text-decoration: none; }
 .ais-media-card {
   position: relative;
@@ -126,7 +127,8 @@
   aspect-ratio: 4/3;
   border-radius: 3px;
 }
-.ais-media-card img {
+.ais-media-card img,
+.ais-media-card video {
   width: 100%;
   height: 100%;
   object-fit: cover;
