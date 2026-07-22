@@ -64,24 +64,13 @@ const projects = [
   },
 ]
 
-function ProjectBlock({ project, index }) {
+function ProjectBlock({ project }) {
   const live = project.to && project.to !== '#'
 
   const inner = (
     <>
-      <div className="ais-proj-head">
-        <span className="ais-proj-title">
-          <span className="ais-proj-num">{project.num}</span>
-          {project.title}
-        </span>
-        <span className="ais-proj-scope">{project.scope}</span>
-      </div>
-      <div
-        className="ais-proj-media"
-        role="img"
-        aria-label={project.title}
-        style={{ backgroundImage: `url(${project.img})` }}
-      >
+      <div className="ais-proj-media">
+        <img src={project.img} alt={project.title} loading="lazy" />
         {!live && <span className="ais-proj-soon">Coming Soon</span>}
         {live && (
           <span className="ais-proj-view">
@@ -92,17 +81,20 @@ function ProjectBlock({ project, index }) {
           </span>
         )}
       </div>
+      <div className="ais-proj-head">
+        <span className="ais-proj-title">
+          <span className="ais-proj-num">{project.num}</span>
+          {project.title}
+        </span>
+        <span className="ais-proj-scope">{project.scope}</span>
+      </div>
     </>
   )
 
-  return (
-    <Reveal delay={index * 60} className="ais-proj-reveal">
-      {live ? (
-        <Link to={project.to} className="ais-proj ais-proj--live">{inner}</Link>
-      ) : (
-        <div className="ais-proj ais-proj--soon">{inner}</div>
-      )}
-    </Reveal>
+  return live ? (
+    <Link to={project.to} className="ais-proj ais-proj--live">{inner}</Link>
+  ) : (
+    <div className="ais-proj ais-proj--soon">{inner}</div>
   )
 }
 
@@ -149,10 +141,16 @@ export default function AiStorytelling() {
         <Reveal className="ais-projects-header">
           <span className="ais-label">Selected Projects</span>
         </Reveal>
-        <div className="ais-projects-list">
-          {projects.map((p, i) => (
-            <ProjectBlock key={p.num} project={p} index={i} />
-          ))}
+        <div className="ais-projects-viewport">
+          <div className="ais-projects-track">
+            {projects.map((p) => (
+              <ProjectBlock key={p.num} project={p} />
+            ))}
+            {/* Duplicate set for a seamless upward loop */}
+            {projects.map((p) => (
+              <ProjectBlock key={`dup-${p.num}`} project={p} />
+            ))}
+          </div>
         </div>
       </section>
 
