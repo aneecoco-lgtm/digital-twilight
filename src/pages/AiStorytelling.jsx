@@ -52,22 +52,6 @@ function MediaCard({ project, idx }) {
     : <div className="ais-media-link" data-idx={idx}>{inner}</div>
 }
 
-function ProjectRow({ project }) {
-  const live = project.to && project.to !== '#'
-  const inner = (
-    <>
-      <span className="ais-row-title">
-        <span className="ais-row-num">{project.num}</span>
-        {project.title}
-      </span>
-      <span className="ais-row-scope">{project.scope}</span>
-    </>
-  )
-  return live
-    ? <Link to={project.to} className="ais-row ais-row--live">{inner}</Link>
-    : <div className="ais-row ais-row--soon">{inner}</div>
-}
-
 export default function AiStorytelling() {
   const mediaRef = useRef(null)
   const [active, setActive] = useState(0)
@@ -136,15 +120,9 @@ export default function AiStorytelling() {
             </p>
           </div>
 
-          <div className="ais-stage-current">
-            <span className="ais-current-num" key={`n-${active}`}>{current.num}</span>
-            <span className="ais-current-title" key={`t-${active}`}>{current.title}</span>
-            <span className="ais-current-scope" key={`s-${active}`}>{current.scope}</span>
-          </div>
-
-          <div className="ais-proj-list">
-            <span className="ais-label">Selected Projects</span>
-            {projects.map((p) => <ProjectRow key={p.num} project={p} />)}
+          <div className="ais-stage-current" key={active}>
+            <span className="ais-current-title">{current.title}</span>
+            <span className="ais-current-scope">{current.scope}</span>
           </div>
         </div>
 
