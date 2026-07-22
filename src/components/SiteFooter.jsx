@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './SiteFooter.css'
 
 export default function SiteFooter() {
@@ -40,6 +41,7 @@ export default function SiteFooter() {
       <div className="footer-bottom">
         <span className="footer-logo">Digital Twilight</span>
         <span className="footer-copy">© 2025 Annalisa Cosentino</span>
+        <Link to="/impressum" className="footer-impressum">Impressum</Link>
       </div>
     </footer>
   )
