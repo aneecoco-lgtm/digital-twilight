@@ -201,28 +201,36 @@
 .ais-proj-media {
   position: relative;
   overflow: hidden;
-  background: #111;
+  background-color: #111;
   aspect-ratio: 16/9;
   border-radius: 3px;
+  /* Fixed-attachment reveal: image stays pinned to the viewport while the
+     block frame slides up and unveils it — like the reference. */
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-.ais-proj-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 1.1s cubic-bezier(0.25,0.1,0.25,1), filter 0.5s;
+.ais-proj-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transition: background 0.5s;
 }
-.ais-proj--live .ais-proj-media img { filter: grayscale(0.15); }
-.ais-proj--live:hover .ais-proj-media img {
-  transform: scale(1.035);
-  filter: grayscale(0);
-}
-.ais-proj--soon .ais-proj-media img {
-  filter: grayscale(0.6) brightness(0.55);
+.ais-proj--live .ais-proj-media::after { background: rgba(10,10,15,0.12); }
+.ais-proj--live:hover .ais-proj-media::after { background: rgba(10,10,15,0); }
+.ais-proj--soon .ais-proj-media::after { background: rgba(10,10,15,0.6); }
+
+/* Mobile / touch: fixed attachment is unsupported or janky — fall back to
+   a normal, cleanly-filled image. */
+@media (hover: none), (max-width: 860px) {
+  .ais-proj-media { background-attachment: scroll; }
 }
 .ais-proj-soon,
 .ais-proj-view {
   position: absolute;
+  z-index: 2;
   font-family: var(--sans);
   letter-spacing: 0.18em;
   text-transform: uppercase;

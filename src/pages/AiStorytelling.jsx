@@ -76,8 +76,12 @@ function ProjectBlock({ project, index }) {
         </span>
         <span className="ais-proj-scope">{project.scope}</span>
       </div>
-      <div className="ais-proj-media">
-        <img src={project.img} alt={project.title} loading="lazy" />
+      <div
+        className="ais-proj-media"
+        role="img"
+        aria-label={project.title}
+        style={{ backgroundImage: `url(${project.img})` }}
+      >
         {!live && <span className="ais-proj-soon">Coming Soon</span>}
         {live && (
           <span className="ais-proj-view">
