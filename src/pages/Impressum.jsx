@@ -22,7 +22,7 @@ export default function Impressum() {
         <h1 className="imp-title">Impressum</h1>
 
         <section className="imp-block">
-          <span className="imp-block-label">Responsible for this website</span>
+          <span className="imp-block-label">Company / Owner</span>
           <p className="imp-block-body">
             Digital Twilight<br />
             Annalisa Cosentino<br />
