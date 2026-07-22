@@ -99,7 +99,6 @@ export default function AiStorytelling() {
     const onDown = (e) => {
       drag.active = true; drag.moved = 0
       drag.lastY = e.clientY
-      container.setPointerCapture?.(e.pointerId)
       container.classList.add('is-dragging')
     }
     const onMove = (e) => {
@@ -119,17 +118,17 @@ export default function AiStorytelling() {
     }
 
     container.addEventListener('pointerdown', onDown)
-    container.addEventListener('pointermove', onMove)
-    container.addEventListener('pointerup', onUp)
-    container.addEventListener('pointercancel', onUp)
+    window.addEventListener('pointermove', onMove)
+    window.addEventListener('pointerup', onUp)
+    window.addEventListener('pointercancel', onUp)
     container.addEventListener('click', onClickCapture, true)
 
     return () => {
       cancelAnimationFrame(raf); ro.disconnect()
       container.removeEventListener('pointerdown', onDown)
-      container.removeEventListener('pointermove', onMove)
-      container.removeEventListener('pointerup', onUp)
-      container.removeEventListener('pointercancel', onUp)
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerup', onUp)
+      window.removeEventListener('pointercancel', onUp)
       container.removeEventListener('click', onClickCapture, true)
     }
   }, [])
