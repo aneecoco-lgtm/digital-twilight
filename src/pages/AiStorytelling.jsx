@@ -1,31 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './AiStorytelling.css'
-
-function useReveal(threshold = 0.08) {
-  const ref = useRef(null)
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { el.classList.add('ais-visible'); obs.disconnect() } },
-      { threshold }
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [threshold])
-  return ref
-}
-
-function Reveal({ children, className = '', delay = 0, tag = 'div' }) {
-  const ref = useReveal()
-  const Tag = tag
-  return (
-    <Tag ref={ref} className={`ais-reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>
-      {children}
-    </Tag>
-  )
-}
 
 // ── Projects ──  Edit this list to add / rename / relink projects.
 // `to` is the internal link. Leave it as '#' for a slot that isn't live yet.
@@ -64,38 +39,33 @@ const projects = [
   },
 ]
 
-function ProjectBlock({ project }) {
+function MediaCard({ project }) {
   const live = project.to && project.to !== '#'
+  const inner = (
+    <div className={`ais-media-card${live ? '' : ' ais-media-card--soon'}`}>
+      <img src={project.img} alt={project.title} loading="lazy" />
+      {!live && <span className="ais-media-soon">Coming Soon</span>}
+    </div>
+  )
+  return live
+    ? <Link to={project.to} className="ais-media-link">{inner}</Link>
+    : <div className="ais-media-link">{inner}</div>
+}
 
+function ProjectRow({ project }) {
+  const live = project.to && project.to !== '#'
   const inner = (
     <>
-      <div className="ais-proj-media">
-        <img src={project.img} alt={project.title} loading="lazy" />
-        {!live && <span className="ais-proj-soon">Coming Soon</span>}
-        {live && (
-          <span className="ais-proj-view">
-            View project
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" strokeWidth="1.4" />
-            </svg>
-          </span>
-        )}
-      </div>
-      <div className="ais-proj-head">
-        <span className="ais-proj-title">
-          <span className="ais-proj-num">{project.num}</span>
-          {project.title}
-        </span>
-        <span className="ais-proj-scope">{project.scope}</span>
-      </div>
+      <span className="ais-row-title">
+        <span className="ais-row-num">{project.num}</span>
+        {project.title}
+      </span>
+      <span className="ais-row-scope">{project.scope}</span>
     </>
   )
-
-  return live ? (
-    <Link to={project.to} className="ais-proj ais-proj--live">{inner}</Link>
-  ) : (
-    <div className="ais-proj ais-proj--soon">{inner}</div>
-  )
+  return live
+    ? <Link to={project.to} className="ais-row ais-row--live">{inner}</Link>
+    : <div className="ais-row ais-row--soon">{inner}</div>
 }
 
 export default function AiStorytelling() {
@@ -116,47 +86,41 @@ export default function AiStorytelling() {
         <span className="ais-nav-loc">Digital Twilight · Zürich</span>
       </nav>
 
-      {/* ── Hero ── */}
-      <header className="ais-hero">
-        <div className="ais-hero-inner">
-          <Reveal className="ais-hero-left">
-            <span className="ais-eyebrow">AI · Generative Storytelling</span>
-            <h1 className="ais-title">AI<br />Storytelling</h1>
-          </Reveal>
-          <Reveal className="ais-hero-right" delay={80}>
-            <p className="ais-hero-desc">
-              Projects at the intersection of artificial intelligence and visual narrative.
-              Images, sequences and stories built with — and through — machine perception.
-            </p>
-            <p className="ais-hero-desc ais-hero-desc--muted">
-              Where the prompt is the brief, the model is the collaborator,
-              and the frame is never quite predictable.
-            </p>
-          </Reveal>
-        </div>
-      </header>
+      {/* ── Stage: scrolling images (left) · title + projects (right) ── */}
+      <section className="ais-stage">
 
-      {/* ── Projects (stacked, clickable) ── */}
-      <section className="ais-projects">
-        <Reveal className="ais-projects-header">
-          <span className="ais-label">Selected Projects</span>
-        </Reveal>
-        <div className="ais-projects-viewport">
-          <div className="ais-projects-track">
-            {projects.map((p) => (
-              <ProjectBlock key={p.num} project={p} />
-            ))}
+        {/* LEFT — auto-scrolling image box */}
+        <div className="ais-stage-media">
+          <div className="ais-media-track">
+            {projects.map((p) => <MediaCard key={p.num} project={p} />)}
             {/* Duplicate set for a seamless upward loop */}
-            {projects.map((p) => (
-              <ProjectBlock key={`dup-${p.num}`} project={p} />
-            ))}
+            {projects.map((p) => <MediaCard key={`dup-${p.num}`} project={p} />)}
           </div>
         </div>
+
+        {/* RIGHT — title top, projects below */}
+        <div className="ais-stage-content">
+          <div className="ais-stage-head">
+            <span className="ais-eyebrow">AI · Generative Storytelling</span>
+            <h1 className="ais-title">AI<br />Storytelling</h1>
+            <p className="ais-hero-desc">
+              Projects at the intersection of artificial intelligence and visual
+              narrative — images, sequences and stories built with, and through,
+              machine perception.
+            </p>
+          </div>
+
+          <div className="ais-proj-list">
+            <span className="ais-label">Selected Projects</span>
+            {projects.map((p) => <ProjectRow key={p.num} project={p} />)}
+          </div>
+        </div>
+
       </section>
 
       {/* ── Footer ── */}
       <footer className="ais-footer">
-        <Reveal>
+        <div>
           <p className="ais-footer-label">Explore the featured project</p>
           <Link to="/work/wer-ist-migrant" className="ais-footer-link">
             Wer ist Migrant?
@@ -164,10 +128,8 @@ export default function AiStorytelling() {
               <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" strokeWidth="1.2" />
             </svg>
           </Link>
-        </Reveal>
-        <Reveal delay={100}>
-          <Link to="/" className="ais-foot-back">← Back to all work</Link>
-        </Reveal>
+        </div>
+        <Link to="/" className="ais-foot-back">← Back to all work</Link>
       </footer>
 
     </div>
