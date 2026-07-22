@@ -147,7 +147,18 @@
   flex-direction: column;
   gap: 64px;
 }
-.ais-proj-reveal { display: block; }
+.ais-proj-reveal {
+  display: block;
+  opacity: 0;
+  transform: translateY(90px);
+  transition: opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.ais-proj-reveal.ais-visible {
+  opacity: 1;
+  transform: none;
+}
 .ais-proj {
   display: block;
   text-decoration: none;
