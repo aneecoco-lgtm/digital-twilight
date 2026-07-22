@@ -118,6 +118,11 @@ export default function AiStorytelling() {
               narrative — images, sequences and stories built with, and through,
               machine perception.
             </p>
+            <p className="ais-hero-quote">
+              AI is not the end of human creativity. It is the end of pretending
+              that execution alone was creativity. When everyone can create, the
+              rare skill is no longer making things. It's knowing what deserves to exist.
+            </p>
           </div>
 
           <div className="ais-stage-current" key={active}>
