@@ -54,29 +54,84 @@ function MediaCard({ project, idx }) {
 
 export default function AiStorytelling() {
   const mediaRef = useRef(null)
+  const trackRef = useRef(null)
   const [active, setActive] = useState(0)
 
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
-  // Track which media card is passing the centre of the box and surface its title.
+  // Auto-scroll + drag for the image column, and surface the centred title.
   useEffect(() => {
     const container = mediaRef.current
-    if (!container) return
+    const track = trackRef.current
+    if (!container || !track) return
+
+    const offset = { y: 0 }
+    let loop = track.scrollHeight / 2   // half = one full set (duplicated)
+    const measure = () => { loop = track.scrollHeight / 2 }
+    const ro = new ResizeObserver(measure); ro.observe(track)
+
+    const drag = { active: false, lastY: 0, moved: 0 }
+    const speed = 0.4                   // px/frame auto-scroll
     let raf
-    const tick = () => {
+
+    const frame = () => {
+      if (!drag.active) offset.y -= speed
+      if (loop > 0) {
+        if (offset.y <= -loop) offset.y += loop
+        else if (offset.y > 0) offset.y -= loop
+      }
+      track.style.transform = `translateY(${offset.y}px)`
+
+      // active title = card nearest the box centre
       const box = container.getBoundingClientRect()
       const cy = box.top + box.height / 2
       let best = 0, bestDist = Infinity
-      container.querySelectorAll('[data-idx]').forEach((card) => {
+      track.querySelectorAll('[data-idx]').forEach((card) => {
         const r = card.getBoundingClientRect()
         const d = Math.abs(r.top + r.height / 2 - cy)
         if (d < bestDist) { bestDist = d; best = Number(card.dataset.idx) }
       })
       setActive((prev) => (prev === best ? prev : best))
-      raf = requestAnimationFrame(tick)
+      raf = requestAnimationFrame(frame)
     }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
+    raf = requestAnimationFrame(frame)
+
+    const onDown = (e) => {
+      drag.active = true; drag.moved = 0
+      drag.lastY = e.clientY
+      container.setPointerCapture?.(e.pointerId)
+      container.classList.add('is-dragging')
+    }
+    const onMove = (e) => {
+      if (!drag.active) return
+      const dy = e.clientY - drag.lastY
+      drag.lastY = e.clientY
+      drag.moved += Math.abs(dy)
+      offset.y += dy
+    }
+    const onUp = () => {
+      drag.active = false
+      container.classList.remove('is-dragging')
+    }
+    // Suppress the click that follows a real drag, so it doesn't navigate.
+    const onClickCapture = (e) => {
+      if (drag.moved > 6) { e.preventDefault(); e.stopPropagation() }
+    }
+
+    container.addEventListener('pointerdown', onDown)
+    container.addEventListener('pointermove', onMove)
+    container.addEventListener('pointerup', onUp)
+    container.addEventListener('pointercancel', onUp)
+    container.addEventListener('click', onClickCapture, true)
+
+    return () => {
+      cancelAnimationFrame(raf); ro.disconnect()
+      container.removeEventListener('pointerdown', onDown)
+      container.removeEventListener('pointermove', onMove)
+      container.removeEventListener('pointerup', onUp)
+      container.removeEventListener('pointercancel', onUp)
+      container.removeEventListener('click', onClickCapture, true)
+    }
   }, [])
 
   const current = projects[active]
@@ -101,7 +156,7 @@ export default function AiStorytelling() {
 
         {/* LEFT — auto-scrolling image box */}
         <div className="ais-stage-media" ref={mediaRef}>
-          <div className="ais-media-track">
+          <div className="ais-media-track" ref={trackRef}>
             {projects.map((p, i) => <MediaCard key={p.num} project={p} idx={i} />)}
             {/* Duplicate set for a seamless upward loop */}
             {projects.map((p, i) => <MediaCard key={`dup-${p.num}`} project={p} idx={i} />)}
@@ -113,11 +168,6 @@ export default function AiStorytelling() {
           <div className="ais-stage-head">
             <span className="ais-eyebrow">AI · Generative Storytelling</span>
             <h1 className="ais-title">AI<br />Storytelling</h1>
-            <p className="ais-hero-desc">
-              Projects at the intersection of artificial intelligence and visual
-              narrative — images, sequences and stories built with, and through,
-              machine perception.
-            </p>
             <p className="ais-hero-quote">
               AI is not the end of human creativity. It is the end of pretending
               that execution alone was creativity. When everyone can create, the

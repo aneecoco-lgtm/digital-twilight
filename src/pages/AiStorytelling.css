@@ -104,21 +104,20 @@
   position: relative;
   overflow: hidden;
   border-right: 1px solid rgba(255,255,255,0.06);
+  cursor: grab;
+  touch-action: pan-y;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 92%, transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 92%, transparent 100%);
 }
+.ais-stage-media.is-dragging { cursor: grabbing; }
 .ais-media-track {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 32px;
-  animation: aisScrollUp 34s linear infinite;
+  will-change: transform;
 }
-.ais-stage-media:hover .ais-media-track { animation-play-state: paused; }
-@keyframes aisScrollUp {
-  from { transform: translateY(0); }
-  to   { transform: translateY(calc(-50% - 10px)); } /* half track incl. one gap */
-}
+.ais-media-track img { -webkit-user-drag: none; user-select: none; pointer-events: none; }
 .ais-media-link { display: block; text-decoration: none; }
 .ais-media-card {
   position: relative;
