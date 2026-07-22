@@ -26,9 +26,8 @@ export default function Impressum() {
           <p className="imp-block-body">
             Digital Twilight<br />
             Annalisa Cosentino<br />
-            {/* TODO: replace with the full street address + ZIP (required by Swiss law) */}
-            [Street and number]<br />
-            [ZIP] Zürich<br />
+            Josackerweg 2<br />
+            8135 Langnau am Albis<br />
             Switzerland
           </p>
         </section>
