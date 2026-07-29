@@ -105,7 +105,7 @@
 .ais-feature-video {
   position: relative;
   width: 100%;
-  aspect-ratio: 2.39 / 1;   /* anamorphic — cinematic */
+  aspect-ratio: 16 / 9;   /* matches the 1920x1080 film — no side bars */
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -138,7 +138,7 @@
 .ais-feature-video.is-playing:hover::after { display: none; }
 .ais-feature-video video.ais-feature-poster {
   z-index: 3;
-  object-fit: contain;
+  object-fit: cover;   /* 16:9 film in a 16:9 frame — fills edge to edge */
   background: #000;
 }
 .ais-ph-play {
