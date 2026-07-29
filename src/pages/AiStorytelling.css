@@ -132,6 +132,15 @@
   transition: background 0.4s;
 }
 .ais-feature-video:hover::after { background: rgba(10, 10, 15, 0.18); }
+.ais-feature-video:not(.is-playing) { cursor: pointer; }
+/* When playing, drop the dark tint overlay and show the full film frame */
+.ais-feature-video.is-playing::after { display: none; }
+.ais-feature-video.is-playing:hover::after { display: none; }
+.ais-feature-video video.ais-feature-poster {
+  z-index: 3;
+  object-fit: contain;
+  background: #000;
+}
 .ais-ph-play {
   position: relative;
   z-index: 2;
