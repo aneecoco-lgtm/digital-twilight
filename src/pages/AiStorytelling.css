@@ -109,28 +109,51 @@
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 4px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 18px;
 }
+.ais-feature-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+.ais-feature-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.30);
+  transition: background 0.4s;
+}
+.ais-feature-video:hover::after { background: rgba(10, 10, 15, 0.18); }
 .ais-ph-play {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 76px;
   height: 76px;
   border-radius: 50%;
-  border: 1px solid rgba(10, 10, 10, 0.25);
-  color: rgba(10, 10, 10, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(2px);
 }
 .ais-ph-label {
+  position: relative;
+  z-index: 2;
   font-family: var(--sans);
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: rgba(255, 255, 255, 0.9);
 }
 /* Description below the video */
 .ais-feature-desc {

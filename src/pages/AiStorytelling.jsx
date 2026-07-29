@@ -170,21 +170,23 @@ export default function AiStorytelling() {
       {/* ── Featured most-recent project · video (3/4) + description (1/4) ── */}
       <section className="ais-feature">
         <span className="ais-label">Most Recent Project</span>
-        <div className="ais-feature-video" role="img" aria-label="Project video placeholder">
+        <div className="ais-feature-video" role="img" aria-label="The Last Witness — film still">
+          <img className="ais-feature-poster" src="/images/last-witness/shell.jpg" alt="The Last Witness" loading="lazy" />
           <span className="ais-ph-play">
             <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z" /></svg>
           </span>
-          <span className="ais-ph-label">Video — Placeholder</span>
+          <span className="ais-ph-label">Film — Coming Soon</span>
         </div>
         <div className="ais-feature-desc">
           <div className="ais-feature-desc-head">
-            <span className="ais-feature-tag">Latest</span>
-            <h2 className="ais-feature-title">Project Title</h2>
-            <p className="ais-feature-cat">AI Film · Creative Direction</p>
+            <span className="ais-feature-tag">Latest · 2026</span>
+            <h2 className="ais-feature-title">The Last Witness</h2>
+            <p className="ais-feature-cat">AI Short Film · Creative Direction</p>
           </div>
           <p className="ais-feature-body">
-            Description placeholder — add the summary of the most recent project
-            here: the concept, the tools, and the story behind it.
+            A cinematic AI short about a child who becomes the last witness to a
+            vanished ocean — heard, never shown. Built frame by frame inside a
+            Museum of Extinct Things.
           </p>
         </div>
       </section>
