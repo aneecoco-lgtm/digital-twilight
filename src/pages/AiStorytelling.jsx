@@ -65,36 +65,36 @@ export default function AiStorytelling() {
 
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
-  // Auto-scroll + drag for the image column, and surface the centred title.
+  // Auto-scroll + drag for the image strip, and surface the centred title.
   useEffect(() => {
     const container = mediaRef.current
     const track = trackRef.current
     if (!container || !track) return
 
-    const offset = { y: 0 }
-    let loop = track.scrollHeight / 2   // half = one full set (duplicated)
-    const measure = () => { loop = track.scrollHeight / 2 }
+    const offset = { x: 0 }
+    let loop = track.scrollWidth / 2    // half = one full set (duplicated)
+    const measure = () => { loop = track.scrollWidth / 2 }
     const ro = new ResizeObserver(measure); ro.observe(track)
 
-    const drag = { active: false, lastY: 0, moved: 0 }
-    const speed = 0.75                  // px/frame auto-scroll
+    const drag = { active: false, lastX: 0, moved: 0 }
+    const speed = 0.75                  // px/frame auto-scroll (leftward)
     let raf
 
     const frame = () => {
-      if (!drag.active) offset.y -= speed
+      if (!drag.active) offset.x -= speed
       if (loop > 0) {
-        if (offset.y <= -loop) offset.y += loop
-        else if (offset.y > 0) offset.y -= loop
+        if (offset.x <= -loop) offset.x += loop
+        else if (offset.x > 0) offset.x -= loop
       }
-      track.style.transform = `translateY(${offset.y}px)`
+      track.style.transform = `translateX(${offset.x}px)`
 
       // active title = card nearest the box centre
       const box = container.getBoundingClientRect()
-      const cy = box.top + box.height / 2
+      const cx = box.left + box.width / 2
       let best = 0, bestDist = Infinity
       track.querySelectorAll('[data-idx]').forEach((card) => {
         const r = card.getBoundingClientRect()
-        const d = Math.abs(r.top + r.height / 2 - cy)
+        const d = Math.abs(r.left + r.width / 2 - cx)
         if (d < bestDist) { bestDist = d; best = Number(card.dataset.idx) }
       })
       setActive((prev) => (prev === best ? prev : best))
@@ -104,15 +104,15 @@ export default function AiStorytelling() {
 
     const onDown = (e) => {
       drag.active = true; drag.moved = 0
-      drag.lastY = e.clientY
+      drag.lastX = e.clientX
       container.classList.add('is-dragging')
     }
     const onMove = (e) => {
       if (!drag.active) return
-      const dy = e.clientY - drag.lastY
-      drag.lastY = e.clientY
-      drag.moved += Math.abs(dy)
-      offset.y += dy
+      const dx = e.clientX - drag.lastX
+      drag.lastX = e.clientX
+      drag.moved += Math.abs(dx)
+      offset.x += dx
     }
     const onUp = () => {
       drag.active = false
@@ -170,22 +170,22 @@ export default function AiStorytelling() {
       {/* ── Featured most-recent project · video (3/4) + description (1/4) ── */}
       <section className="ais-feature">
         <span className="ais-label">Most Recent Project</span>
-        <div className="ais-feature-grid">
-          <div className="ais-feature-video" role="img" aria-label="Project video placeholder">
-            <span className="ais-ph-play">
-              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" /></svg>
-            </span>
-            <span className="ais-ph-label">Video — Placeholder</span>
-          </div>
-          <div className="ais-feature-desc">
+        <div className="ais-feature-video" role="img" aria-label="Project video placeholder">
+          <span className="ais-ph-play">
+            <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z" /></svg>
+          </span>
+          <span className="ais-ph-label">Video — Placeholder</span>
+        </div>
+        <div className="ais-feature-desc">
+          <div className="ais-feature-desc-head">
             <span className="ais-feature-tag">Latest</span>
             <h2 className="ais-feature-title">Project Title</h2>
             <p className="ais-feature-cat">AI Film · Creative Direction</p>
-            <p className="ais-feature-body">
-              Description placeholder — add the summary of the most recent project
-              here: the concept, the tools, and the story behind it.
-            </p>
           </div>
+          <p className="ais-feature-body">
+            Description placeholder — add the summary of the most recent project
+            here: the concept, the tools, and the story behind it.
+          </p>
         </div>
       </section>
 
@@ -206,32 +206,23 @@ export default function AiStorytelling() {
               hidden until the reader chooses to keep reading.
             </p>
 
-            {/* Backstage */}
+            {/* The Process — storyboards, test screenshots, iterations */}
             <div className="ais-brief-sub">
-              <span className="ais-label">Backstage</span>
+              <span className="ais-label">The Process</span>
               <p className="ais-brief-body ais-brief-body--tight">
-                Backstage text placeholder — behind-the-scenes notes on how the piece
-                was made: the prompts, the process, the experiments and the outtakes.
+                Storyboards, screenshots of different tries and the process behind the
+                piece — the experiments, iterations and outtakes that led to the final
+                result.
               </p>
-              <div className="ais-brief-images">
-                <div className="ais-brief-img"><span>Backstage</span></div>
-                <div className="ais-brief-img"><span>Backstage</span></div>
-                <div className="ais-brief-img"><span>Backstage</span></div>
-              </div>
-            </div>
-
-            {/* Collage */}
-            <div className="ais-brief-sub">
-              <span className="ais-label">Collage</span>
               <div className="ais-collage">
-                <div className="ais-collage-item ais-collage-item--tall"><span>Image</span></div>
-                <div className="ais-collage-item"><span>Image</span></div>
-                <div className="ais-collage-item"><span>Image</span></div>
-                <div className="ais-collage-item ais-collage-item--wide"><span>Image</span></div>
-                <div className="ais-collage-item"><span>Image</span></div>
-                <div className="ais-collage-item ais-collage-item--tall"><span>Image</span></div>
-                <div className="ais-collage-item ais-collage-item--wide"><span>Image</span></div>
-                <div className="ais-collage-item"><span>Image</span></div>
+                <div className="ais-collage-item ais-collage-item--tall"><span>Storyboard</span></div>
+                <div className="ais-collage-item"><span>Test</span></div>
+                <div className="ais-collage-item"><span>Test</span></div>
+                <div className="ais-collage-item ais-collage-item--wide"><span>Process</span></div>
+                <div className="ais-collage-item"><span>Test</span></div>
+                <div className="ais-collage-item ais-collage-item--tall"><span>Storyboard</span></div>
+                <div className="ais-collage-item ais-collage-item--wide"><span>Process</span></div>
+                <div className="ais-collage-item"><span>Test</span></div>
               </div>
             </div>
 
@@ -254,24 +245,24 @@ export default function AiStorytelling() {
         </button>
       </section>
 
-      {/* ── Auto-scroll stage (kept from before) ── */}
+      {/* ── Auto-scroll stage — horizontal strip ── */}
       <section className="ais-stage">
-        {/* LEFT — auto-scrolling image box */}
-        <div className="ais-stage-media" ref={mediaRef}>
-          <div className="ais-media-track" ref={trackRef}>
-            {projects.map((p, i) => <MediaCard key={p.num} project={p} idx={i} />)}
-            {/* Duplicate set for a seamless upward loop */}
-            {projects.map((p, i) => <MediaCard key={`dup-${p.num}`} project={p} idx={i} />)}
-          </div>
-        </div>
-
-        {/* RIGHT — Selected Projects + live current-project title */}
+        {/* Title bar above the strip */}
         <div className="ais-stage-content">
           <span className="ais-label">Selected Projects</span>
           <div className="ais-stage-current" key={active}>
             <span className="ais-current-num">{current.num}</span>
             <span className="ais-current-title">{current.title}</span>
             <span className="ais-current-scope">{current.scope}</span>
+          </div>
+        </div>
+
+        {/* Full-width horizontal auto-scrolling image strip */}
+        <div className="ais-stage-media" ref={mediaRef}>
+          <div className="ais-media-track" ref={trackRef}>
+            {projects.map((p, i) => <MediaCard key={p.num} project={p} idx={i} />)}
+            {/* Duplicate set for a seamless left-scrolling loop */}
+            {projects.map((p, i) => <MediaCard key={`dup-${p.num}`} project={p} idx={i} />)}
           </div>
         </div>
       </section>

@@ -101,15 +101,11 @@
   border-top: 1px solid var(--line);
 }
 .ais-feature .ais-label { margin-bottom: 24px; }
-.ais-feature-grid {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 40px;
-  align-items: start;
-}
+/* Cinematic full-width video placeholder */
 .ais-feature-video {
   position: relative;
-  aspect-ratio: 16 / 9;
+  width: 100%;
+  aspect-ratio: 2.39 / 1;   /* anamorphic — cinematic */
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -117,14 +113,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 18px;
 }
 .ais-ph-play {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   border: 1px solid rgba(10, 10, 10, 0.25);
   color: rgba(10, 10, 10, 0.5);
@@ -136,7 +132,16 @@
   text-transform: uppercase;
   color: var(--ink-faint);
 }
-.ais-feature-desc { padding-top: 4px; }
+/* Description below the video */
+.ais-feature-desc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
 .ais-feature-tag {
   display: inline-block;
   font-family: var(--sans);
@@ -148,9 +153,9 @@
 }
 .ais-feature-title {
   font-family: var(--display);
-  font-size: clamp(24px, 2.4vw, 34px);
+  font-size: clamp(28px, 3vw, 44px);
   font-weight: 300;
-  line-height: 1.05;
+  line-height: 1.03;
   color: var(--ink);
   margin: 0 0 12px;
 }
@@ -160,14 +165,15 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-faint);
-  margin: 0 0 20px;
+  margin: 0;
 }
 .ais-feature-body {
   font-family: var(--sans);
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 1.85;
   color: var(--ink-dim);
   margin: 0;
+  max-width: 460px;
 }
 
 /* ── Briefing (collapsible) ── */
@@ -287,30 +293,30 @@
 .ais-brief-chevron { transition: transform 0.35s; }
 .ais-brief-chevron.up { transform: rotate(180deg); }
 
-/* ── Auto-scroll stage ── */
+/* ── Auto-scroll stage — horizontal strip ── */
 .ais-stage {
-  display: grid;
-  grid-template-columns: 44% 1fr;
   border-top: 1px solid var(--line);
+  padding: 48px 0 72px;
 }
 .ais-stage-media {
   position: relative;
-  height: 100vh;
+  width: 100%;
   overflow: hidden;
-  border-right: 1px solid var(--line);
   cursor: grab;
   touch-action: pan-y;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 92%, transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
 }
 .ais-stage-media.is-dragging { cursor: grabbing; }
 .ais-media-track {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
   padding: 32px;
+  width: max-content;
   will-change: transform;
 }
+.ais-media-link { flex: 0 0 auto; width: clamp(300px, 30vw, 440px); }
 .ais-media-track img,
 .ais-media-track video { -webkit-user-drag: none; user-select: none; pointer-events: none; }
 .ais-media-link { display: block; text-decoration: none; }
@@ -349,18 +355,16 @@
   pointer-events: none;
 }
 
-/* Right column — dynamic current title */
+/* Title bar above the strip — dynamic current title */
 .ais-stage-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 48px 64px;
+  padding: 0 64px 28px;
 }
-.ais-stage-content .ais-label { margin-bottom: 28px; }
+.ais-stage-content .ais-label { margin-bottom: 14px; }
 .ais-stage-current {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 18px;
   animation: aisCurrentIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @keyframes aisCurrentIn {
@@ -431,10 +435,8 @@
 
 /* ── Responsive ── */
 @media (max-width: 960px) {
-  .ais-feature-grid { grid-template-columns: 1fr; gap: 28px; }
-  .ais-stage { grid-template-columns: 1fr; }
-  .ais-stage-media { height: 62vh; border-right: none; border-bottom: 1px solid var(--line); }
-  .ais-stage-content { padding: 40px 40px 8px; }
+  .ais-feature-desc { grid-template-columns: 1fr; gap: 20px; }
+  .ais-stage-content { padding: 0 40px 28px; }
 }
 @media (max-width: 640px) {
   .ais-nav { padding: 0 24px; }
