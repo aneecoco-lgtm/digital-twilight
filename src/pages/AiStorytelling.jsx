@@ -61,6 +61,7 @@ export default function AiStorytelling() {
   const mediaRef = useRef(null)
   const trackRef = useRef(null)
   const [active, setActive] = useState(0)
+  const [readMore, setReadMore] = useState(false)
 
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
@@ -155,9 +156,82 @@ export default function AiStorytelling() {
         <span className="ais-nav-loc">Digital Twilight · Zürich</span>
       </nav>
 
-      {/* ── Stage: scrolling images (left) · title + projects (right) ── */}
-      <section className="ais-stage">
+      {/* ── Page header ── */}
+      <header className="ais-head">
+        <span className="ais-eyebrow">AI · Generative Storytelling</span>
+        <h1 className="ais-title">AI Storytelling</h1>
+        <p className="ais-hero-quote">
+          AI is not the end of human creativity. It is the end of pretending
+          that execution alone was creativity. When everyone can create, the
+          rare skill is no longer making things. It's knowing what deserves to exist.
+        </p>
+      </header>
 
+      {/* ── Featured most-recent project · video (3/4) + description (1/4) ── */}
+      <section className="ais-feature">
+        <span className="ais-label">Most Recent Project</span>
+        <div className="ais-feature-grid">
+          <div className="ais-feature-video" role="img" aria-label="Project video placeholder">
+            <span className="ais-ph-play">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" /></svg>
+            </span>
+            <span className="ais-ph-label">Video — Placeholder</span>
+          </div>
+          <div className="ais-feature-desc">
+            <span className="ais-feature-tag">Latest</span>
+            <h2 className="ais-feature-title">Project Title</h2>
+            <p className="ais-feature-cat">AI Film · Creative Direction</p>
+            <p className="ais-feature-body">
+              Description placeholder — add the summary of the most recent project
+              here: the concept, the tools, and the story behind it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Briefing + images (collapsible) ── */}
+      <section className="ais-brief">
+        <span className="ais-label">Briefing</span>
+        <p className="ais-brief-lead">
+          Opening paragraph placeholder — this part stays visible. A short intro to
+          the project briefing that gives a taste of the story before the full
+          section is expanded.
+        </p>
+
+        <div className={`ais-brief-more${readMore ? ' open' : ''}`}>
+          <div className="ais-brief-more-inner">
+            <p className="ais-brief-body">
+              Full briefing text placeholder. Replace this with the complete project
+              briefing — the context, objectives, process and outcome. This block is
+              hidden until the reader chooses to keep reading.
+            </p>
+            <div className="ais-brief-images">
+              <div className="ais-brief-img"><span>Image</span></div>
+              <div className="ais-brief-img"><span>Image</span></div>
+              <div className="ais-brief-img"><span>Image</span></div>
+              <div className="ais-brief-img"><span>Image</span></div>
+            </div>
+            <p className="ais-brief-body">
+              Closing briefing text placeholder — final notes, credits or a link to
+              the full case study.
+            </p>
+          </div>
+        </div>
+
+        <button
+          className="ais-brief-toggle"
+          onClick={() => setReadMore((v) => !v)}
+          aria-expanded={readMore}
+        >
+          {readMore ? 'Show Less' : 'Keep Reading'}
+          <svg viewBox="0 0 20 20" width="15" height="15" className={`ais-brief-chevron${readMore ? ' up' : ''}`}>
+            <path d="M5 8l5 5 5-5" stroke="currentColor" strokeWidth="1.5" fill="none" />
+          </svg>
+        </button>
+      </section>
+
+      {/* ── Auto-scroll stage (kept from before) ── */}
+      <section className="ais-stage">
         {/* LEFT — auto-scrolling image box */}
         <div className="ais-stage-media" ref={mediaRef}>
           <div className="ais-media-track" ref={trackRef}>
@@ -167,24 +241,15 @@ export default function AiStorytelling() {
           </div>
         </div>
 
-        {/* RIGHT — title top, live current-project title (centre), projects below */}
+        {/* RIGHT — Selected Projects + live current-project title */}
         <div className="ais-stage-content">
-          <div className="ais-stage-head">
-            <span className="ais-eyebrow">AI · Generative Storytelling</span>
-            <h1 className="ais-title">AI<br />Storytelling</h1>
-            <p className="ais-hero-quote">
-              AI is not the end of human creativity. It is the end of pretending
-              that execution alone was creativity. When everyone can create, the
-              rare skill is no longer making things. It's knowing what deserves to exist.
-            </p>
-          </div>
-
+          <span className="ais-label">Selected Projects</span>
           <div className="ais-stage-current" key={active}>
+            <span className="ais-current-num">{current.num}</span>
             <span className="ais-current-title">{current.title}</span>
             <span className="ais-current-scope">{current.scope}</span>
           </div>
         </div>
-
       </section>
 
       {/* ── Footer ── */}
