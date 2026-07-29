@@ -316,7 +316,7 @@
   width: max-content;
   will-change: transform;
 }
-.ais-media-link { flex: 0 0 auto; width: clamp(300px, 30vw, 440px); }
+.ais-media-link { flex: 0 0 auto; width: clamp(420px, 42vw, 680px); }
 .ais-media-track img,
 .ais-media-track video { -webkit-user-drag: none; user-select: none; pointer-events: none; }
 .ais-media-link { display: block; text-decoration: none; }
