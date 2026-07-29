@@ -189,47 +189,119 @@ export default function AiStorytelling() {
         </div>
       </section>
 
-      {/* ── Briefing + images (collapsible) ── */}
+      {/* ── Briefing — The Last Witness (collapsible) ── */}
       <section className="ais-brief">
         <span className="ais-label">Briefing</span>
+
+        <div className="ais-lw-head">
+          <h2 className="ais-lw-title">The Last Witness</h2>
+          <p className="ais-lw-tag">The ocean is never shown. Sound makes the audience see it.</p>
+        </div>
+
         <p className="ais-brief-lead">
-          Opening paragraph placeholder — this part stays visible. A short intro to
-          the project briefing that gives a taste of the story before the full
-          section is expanded.
+          A cinematic AI short film. A child walks through a Museum of Extinct Things
+          and — through a single shell and a pair of headphones — hears an ocean that
+          no longer exists, becoming its last witness.
         </p>
+
+        {/* Visible teaser frame */}
+        <figure className="ais-lw-full">
+          <img src="/images/last-witness/glass.jpg" alt="The child meets the last shell through the glass" loading="lazy" />
+          <figcaption>The child meets the Last Shell through the glass.</figcaption>
+        </figure>
 
         <div className={`ais-brief-more${readMore ? ' open' : ''}`}>
           <div className="ais-brief-more-inner">
-            <p className="ais-brief-body">
-              Full briefing text placeholder. Replace this with the complete project
-              briefing — the context, objectives, process and outcome. This block is
-              hidden until the reader chooses to keep reading.
-            </p>
 
-            {/* The Process — storyboards, test screenshots, iterations */}
-            <div className="ais-brief-sub">
-              <span className="ais-label">The Process</span>
-              <p className="ais-brief-body ais-brief-body--tight">
-                Storyboards, screenshots of different tries and the process behind the
-                piece — the experiments, iterations and outtakes that led to the final
-                result.
+            {/* Concept & Visual Language */}
+            <div className="ais-lw-block">
+              <span className="ais-label">Concept &amp; Visual Language</span>
+              <p className="ais-brief-body">
+                Premium live-action cinematic realism, shot as if on a physically built
+                set — cool 4300K museum light with a single amber spotlight on the Ocean
+                installation. Pale limestone, optically real glass, a restrained
+                pearl-grey grade, natural film grain. Symmetrical compositions at a
+                child's eye height; locked frames and barely-there dolly moves.
               </p>
-              <div className="ais-collage">
-                <div className="ais-collage-item ais-collage-item--tall"><span>Storyboard</span></div>
-                <div className="ais-collage-item"><span>Test</span></div>
-                <div className="ais-collage-item"><span>Test</span></div>
-                <div className="ais-collage-item ais-collage-item--wide"><span>Process</span></div>
-                <div className="ais-collage-item"><span>Test</span></div>
-                <div className="ais-collage-item ais-collage-item--tall"><span>Storyboard</span></div>
-                <div className="ais-collage-item ais-collage-item--wide"><span>Process</span></div>
-                <div className="ais-collage-item"><span>Test</span></div>
+              <p className="ais-brief-body">
+                Across six acts, the ocean, the waves and the vanished world are never
+                shown. They exist only through sound and through their effect on the
+                child's face — indifference turning slowly into attention, wonder,
+                grief and, finally, understanding.
+              </p>
+            </div>
+
+            {/* The Film in Frames */}
+            <div className="ais-lw-block">
+              <span className="ais-label">The Film in Frames</span>
+              <figure className="ais-lw-full ais-lw-full--strip">
+                <img src="/images/last-witness/corridor-bracket.jpg" alt="Museum corridor and listening bracket" loading="lazy" />
+                <figcaption>The Museum of Extinct Things — corridor and listening bracket.</figcaption>
+              </figure>
+              <div className="ais-lw-masonry">
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/shell.jpg" alt="The Last Shell on its plinth" loading="lazy" />
+                  <figcaption>The Last Shell, preserved on its plinth.</figcaption>
+                </figure>
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/faces.jpg" alt="Close-ups of the child" loading="lazy" />
+                  <figcaption>Emotion in close-up — the film's only true subject.</figcaption>
+                </figure>
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/museum.jpg" alt="Approach and threshold" loading="lazy" />
+                  <figcaption>Approach and threshold.</figcaption>
+                </figure>
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/corridor-frames.jpg" alt="Extinct world establishing frames" loading="lazy" />
+                  <figcaption>Extinct world — establishing frames.</figcaption>
+                </figure>
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/exhibits.jpg" alt="Vitrine typography" loading="lazy" />
+                  <figcaption>The Last Bloom · The Last Rain — vitrine typography.</figcaption>
+                </figure>
               </div>
             </div>
 
-            <p className="ais-brief-body">
-              Closing briefing text placeholder — final notes, credits or a link to
-              the full case study.
-            </p>
+            {/* The Process */}
+            <div className="ais-lw-block">
+              <span className="ais-label">The Process</span>
+              <p className="ais-brief-body ais-brief-body--tight">
+                From a first pencil sketch to the character bible and the shot-by-shot
+                storyboards — the experiments and iterations that fixed the film's
+                language before a single frame was generated.
+              </p>
+              <div className="ais-lw-masonry ais-lw-masonry--3">
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/sketch.jpg" alt="First concept sketch" loading="lazy" />
+                  <figcaption>First concept — pencil on grid.</figcaption>
+                </figure>
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/character-sheet.jpg" alt="Character reference sheet" loading="lazy" />
+                  <figcaption>CHILD-A — character reference.</figcaption>
+                </figure>
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/storyboard-full.jpg" alt="Full sequence storyboard" loading="lazy" />
+                  <figcaption>Full sequence storyboard.</figcaption>
+                </figure>
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/storyboard-a.jpg" alt="Threshold storyboards" loading="lazy" />
+                  <figcaption>Act I — Threshold.</figcaption>
+                </figure>
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/storyboard-b.jpg" alt="Shot continuity boards" loading="lazy" />
+                  <figcaption>Continuity — same girl, same façade.</figcaption>
+                </figure>
+                <figure className="ais-lw-fig">
+                  <img src="/images/last-witness/storyboard-c.jpg" alt="Continuity boards" loading="lazy" />
+                  <figcaption>Fixed screen direction.</figcaption>
+                </figure>
+              </div>
+              <figure className="ais-lw-full ais-lw-full--strip">
+                <img src="/images/last-witness/storyboard-strip.jpg" alt="Opening approach strip" loading="lazy" />
+                <figcaption>Opening strip — approach to the museum.</figcaption>
+              </figure>
+            </div>
+
           </div>
         </div>
 

@@ -234,38 +234,71 @@
   color: var(--ink-faint);
 }
 .ais-brief-body--tight { margin-top: 14px; }
-.ais-brief-sub {
-  margin-top: 48px;
-  padding-top: 32px;
+
+/* ── The Last Witness — editorial briefing ── */
+.ais-lw-head { margin: 22px 0 20px; }
+.ais-lw-title {
+  font-family: var(--display);
+  font-size: clamp(30px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.ais-lw-tag {
+  font-family: var(--display);
+  font-size: clamp(15px, 1.5vw, 20px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-dim);
+  margin: 0;
+}
+
+.ais-lw-block {
+  margin-top: 52px;
+  padding-top: 34px;
   border-top: 1px solid var(--line);
 }
-.ais-brief-sub .ais-label { margin-bottom: 18px; }
+.ais-lw-block .ais-label { margin-bottom: 18px; }
+.ais-lw-block .ais-brief-body:first-of-type { margin-top: 0; }
 
-/* Collage — varied-size masonry grid */
-.ais-collage {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 150px;
-  gap: 12px;
-  margin-top: 24px;
-}
-.ais-collage-item {
-  background: var(--panel);
+/* Full-width cinematic figure */
+.ais-lw-full {
+  margin: 22px 0 0;
+  overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 4px;
+  background: var(--panel);
 }
-.ais-collage-item span {
+.ais-lw-full img { width: 100%; height: auto; display: block; }
+.ais-lw-full--strip { margin-top: 12px; }
+
+/* Masonry gallery — handles mixed aspect ratios */
+.ais-lw-masonry {
+  columns: 2;
+  column-gap: 12px;
+  margin-top: 12px;
+}
+.ais-lw-masonry--3 { columns: 3; }
+.ais-lw-fig {
+  break-inside: avoid;
+  margin: 0 0 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--panel);
+}
+.ais-lw-fig img { width: 100%; height: auto; display: block; }
+
+.ais-lw-full figcaption,
+.ais-lw-fig figcaption {
   font-family: var(--sans);
   font-size: 9px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-faint);
+  padding: 9px 12px 10px;
 }
-.ais-collage-item--tall { grid-row: span 2; }
-.ais-collage-item--wide { grid-column: span 2; }
 
 .ais-brief-toggle {
   display: inline-flex;
@@ -445,8 +478,7 @@
   .ais-stage-content { padding: 32px 24px 8px; }
   .ais-footer { flex-direction: column; gap: 32px; align-items: flex-start; padding: 64px 24px; }
   .ais-brief-images { grid-template-columns: 1fr 1fr; }
-  .ais-collage { grid-template-columns: 1fr 1fr; grid-auto-rows: 120px; }
-  .ais-collage-item--wide { grid-column: span 2; }
+  .ais-lw-masonry, .ais-lw-masonry--3 { columns: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ais-media-track { transform: none !important; }
