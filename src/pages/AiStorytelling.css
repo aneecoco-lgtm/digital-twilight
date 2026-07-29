@@ -227,6 +227,40 @@
   text-transform: uppercase;
   color: var(--ink-faint);
 }
+.ais-brief-body--tight { margin-top: 14px; }
+.ais-brief-sub {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.ais-brief-sub .ais-label { margin-bottom: 18px; }
+
+/* Collage — varied-size masonry grid */
+.ais-collage {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 150px;
+  gap: 12px;
+  margin-top: 24px;
+}
+.ais-collage-item {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ais-collage-item span {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.ais-collage-item--tall { grid-row: span 2; }
+.ais-collage-item--wide { grid-column: span 2; }
+
 .ais-brief-toggle {
   display: inline-flex;
   align-items: center;
@@ -409,6 +443,8 @@
   .ais-stage-content { padding: 32px 24px 8px; }
   .ais-footer { flex-direction: column; gap: 32px; align-items: flex-start; padding: 64px 24px; }
   .ais-brief-images { grid-template-columns: 1fr 1fr; }
+  .ais-collage { grid-template-columns: 1fr 1fr; grid-auto-rows: 120px; }
+  .ais-collage-item--wide { grid-column: span 2; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ais-media-track { transform: none !important; }

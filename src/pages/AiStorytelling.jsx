@@ -205,12 +205,36 @@ export default function AiStorytelling() {
               briefing — the context, objectives, process and outcome. This block is
               hidden until the reader chooses to keep reading.
             </p>
-            <div className="ais-brief-images">
-              <div className="ais-brief-img"><span>Image</span></div>
-              <div className="ais-brief-img"><span>Image</span></div>
-              <div className="ais-brief-img"><span>Image</span></div>
-              <div className="ais-brief-img"><span>Image</span></div>
+
+            {/* Backstage */}
+            <div className="ais-brief-sub">
+              <span className="ais-label">Backstage</span>
+              <p className="ais-brief-body ais-brief-body--tight">
+                Backstage text placeholder — behind-the-scenes notes on how the piece
+                was made: the prompts, the process, the experiments and the outtakes.
+              </p>
+              <div className="ais-brief-images">
+                <div className="ais-brief-img"><span>Backstage</span></div>
+                <div className="ais-brief-img"><span>Backstage</span></div>
+                <div className="ais-brief-img"><span>Backstage</span></div>
+              </div>
             </div>
+
+            {/* Collage */}
+            <div className="ais-brief-sub">
+              <span className="ais-label">Collage</span>
+              <div className="ais-collage">
+                <div className="ais-collage-item ais-collage-item--tall"><span>Image</span></div>
+                <div className="ais-collage-item"><span>Image</span></div>
+                <div className="ais-collage-item"><span>Image</span></div>
+                <div className="ais-collage-item ais-collage-item--wide"><span>Image</span></div>
+                <div className="ais-collage-item"><span>Image</span></div>
+                <div className="ais-collage-item ais-collage-item--tall"><span>Image</span></div>
+                <div className="ais-collage-item ais-collage-item--wide"><span>Image</span></div>
+                <div className="ais-collage-item"><span>Image</span></div>
+              </div>
+            </div>
+
             <p className="ais-brief-body">
               Closing briefing text placeholder — final notes, credits or a link to
               the full case study.
