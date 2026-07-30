@@ -62,7 +62,6 @@ export default function AiStorytelling() {
   const trackRef = useRef(null)
   const [active, setActive] = useState(0)
   const [featurePlaying, setFeaturePlaying] = useState(false)
-  const [readMore, setReadMore] = useState(false)
 
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
@@ -159,8 +158,10 @@ export default function AiStorytelling() {
 
       {/* ── Page header ── */}
       <header className="ais-head">
-        <span className="ais-eyebrow">AI · Generative Storytelling</span>
-        <h1 className="ais-title">AI Storytelling</h1>
+        <div className="ais-head-left">
+          <span className="ais-eyebrow">AI · Generative Storytelling</span>
+          <h1 className="ais-title">AI Storytelling</h1>
+        </div>
         <p className="ais-hero-quote">
           AI is not the end of human creativity. It is the end of pretending
           that execution alone was creativity. When everyone can create, the
@@ -168,47 +169,48 @@ export default function AiStorytelling() {
         </p>
       </header>
 
-      {/* ── Featured most-recent project · video (3/4) + description (1/4) ── */}
+      {/* ── Featured most-recent project · video (left) + description (right) ── */}
       <section className="ais-feature">
         <span className="ais-label">Most Recent Project</span>
-        <div
-          className={`ais-feature-video${featurePlaying ? ' is-playing' : ''}`}
-          onClick={featurePlaying ? undefined : () => setFeaturePlaying(true)}
-          role={featurePlaying ? undefined : 'button'}
-          tabIndex={featurePlaying ? undefined : 0}
-          onKeyDown={featurePlaying ? undefined : (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFeaturePlaying(true) } }}
-          aria-label={featurePlaying ? undefined : 'Play The Last Witness film'}
-        >
-          {featurePlaying ? (
-            <video
-              className="ais-feature-poster"
-              src="/videos/last-witness.mp4"
-              poster="/images/last-witness/shell.jpg"
-              controls
-              autoPlay
-              playsInline
-            />
-          ) : (
-            <>
-              <img className="ais-feature-poster" src="/images/last-witness/shell.jpg" alt="The Last Witness" loading="lazy" />
-              <span className="ais-ph-play">
-                <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z" /></svg>
-              </span>
-              <span className="ais-ph-label">Play Film</span>
-            </>
-          )}
-        </div>
-        <div className="ais-feature-desc">
-          <div className="ais-feature-desc-head">
+        <div className="ais-feature-grid">
+          <div
+            className={`ais-feature-video${featurePlaying ? ' is-playing' : ''}`}
+            onClick={featurePlaying ? undefined : () => setFeaturePlaying(true)}
+            role={featurePlaying ? undefined : 'button'}
+            tabIndex={featurePlaying ? undefined : 0}
+            onKeyDown={featurePlaying ? undefined : (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFeaturePlaying(true) } }}
+            aria-label={featurePlaying ? undefined : 'Play The Last Witness film'}
+          >
+            {featurePlaying ? (
+              <video
+                className="ais-feature-poster"
+                src="/videos/last-witness.mp4"
+                poster="/images/last-witness/shell.jpg"
+                controls
+                autoPlay
+                playsInline
+              />
+            ) : (
+              <>
+                <img className="ais-feature-poster" src="/images/last-witness/shell.jpg" alt="The Last Witness" loading="lazy" />
+                <span className="ais-ph-play">
+                  <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+                <span className="ais-ph-label">Play Film</span>
+              </>
+            )}
+          </div>
+          <div className="ais-feature-desc">
             <span className="ais-feature-tag">Latest · 2026</span>
             <h2 className="ais-feature-title">The Last Witness</h2>
             <p className="ais-feature-cat">AI Short Film · Creative Direction</p>
+            <p className="ais-feature-body">
+              A wordless film in which the ocean is heard but never shown. In a museum
+              of extinct things, a child lifts a shell to her ear and inherits the sound
+              of a world already lost — becoming at once its last witness and its first
+              inheritor. Extinction reframed not as spectacle, but as absence.
+            </p>
           </div>
-          <p className="ais-feature-body">
-            A cinematic AI short about a child who becomes the last witness to a
-            vanished ocean — heard, never shown. Built frame by frame inside a
-            Museum of Extinct Things.
-          </p>
         </div>
       </section>
 
@@ -222,18 +224,20 @@ export default function AiStorytelling() {
           and encounters the last preserved traces of flowers, bees and rain. At the end
           of the gallery, a seashell holds the final recorded memory of the ocean.
         </p>
-        <p className="ais-brief-intro">
-          Through sound, the girl experiences a world she has never known: waves, seabirds
-          and whales gradually consumed by engines, pollution and destruction — until only
-          silence remains. Yet when she lifts the shell to her ear, she discovers that
-          memory can preserve what humanity has failed to protect.
-        </p>
-        <p className="ais-brief-intro">
-          The film explores extinction not as something distant, but as an inherited
-          absence. By becoming the “new witness,” the child represents the responsibility
-          of future generations to listen, remember and perhaps prevent today's living
-          world from becoming tomorrow's museum piece.
-        </p>
+        <div className="ais-brief-intros">
+          <p className="ais-brief-intro">
+            Through sound, the girl experiences a world she has never known: waves, seabirds
+            and whales gradually consumed by engines, pollution and destruction — until only
+            silence remains. Yet when she lifts the shell to her ear, she discovers that
+            memory can preserve what humanity has failed to protect.
+          </p>
+          <p className="ais-brief-intro">
+            The film explores extinction not as something distant, but as an inherited
+            absence. By becoming the “new witness,” the child represents the responsibility
+            of future generations to listen, remember and perhaps prevent today's living
+            world from becoming tomorrow's museum piece.
+          </p>
+        </div>
 
         {/* Visible teaser frame */}
         <figure className="ais-lw-full">
@@ -241,8 +245,32 @@ export default function AiStorytelling() {
           <figcaption>The child meets the Last Shell through the glass.</figcaption>
         </figure>
 
-        <div className={`ais-brief-more${readMore ? ' open' : ''}`}>
-          <div className="ais-brief-more-inner">
+        {/* Six Acts — cinematic structure */}
+        <div className="ais-acts">
+          <div className="ais-acts-head">
+            <span className="ais-label">Structure</span>
+            <h3 className="ais-acts-title">Six Acts</h3>
+          </div>
+          <ol className="ais-acts-list">
+            {[
+              ['I', 'Threshold', 'Approach, read the museum sign, enter.'],
+              ['II', 'Extinct World', 'Detachment, relics, and the shell.'],
+              ['III', 'First Ocean', 'Silence becomes wonder through sound.'],
+              ['IV', 'Archive Dies', 'Interference overwhelms natural sound.'],
+              ['V', 'Search', 'The child searches for the vanished sound.'],
+              ['VI', 'Transmission', 'The shell creates a new witness; memory passes onward.'],
+            ].map(([num, name, beat]) => (
+              <li className="ais-act" key={num}>
+                <span className="ais-act-num">{num}</span>
+                <span className="ais-act-name">{name}</span>
+                <span className="ais-act-beat">{beat}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        {/* Full exhibit — always visible */}
+        <div className="ais-lw-exhibit">
 
             {/* Concept & Visual Language */}
             <div className="ais-lw-block">
@@ -333,19 +361,21 @@ export default function AiStorytelling() {
               </figure>
             </div>
 
-          </div>
-        </div>
+            {/* The Creative Challenge — closes the section */}
+            <div className="ais-challenge">
+              <span className="ais-label">The Creative Challenge</span>
+              <p className="ais-challenge-body">
+                The main challenge was achieving visual continuity across separately
+                generated shots. The character, architecture, lighting and every object
+                had to remain consistent in scale and position. Since AI does not retain a
+                reliable spatial memory, the process demanded detailed storyboards, fixed
+                references and repeated corrections — each failure a technical test that
+                helped transform a series of generated images into one coherent
+                cinematic world.
+              </p>
+            </div>
 
-        <button
-          className="ais-brief-toggle"
-          onClick={() => setReadMore((v) => !v)}
-          aria-expanded={readMore}
-        >
-          {readMore ? 'Show Less' : 'Keep Reading'}
-          <svg viewBox="0 0 20 20" width="15" height="15" className={`ais-brief-chevron${readMore ? ' up' : ''}`}>
-            <path d="M5 8l5 5 5-5" stroke="currentColor" strokeWidth="1.5" fill="none" />
-          </svg>
-        </button>
+        </div>
       </section>
 
       {/* ── Auto-scroll stage — horizontal strip ── */}

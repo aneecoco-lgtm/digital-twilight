@@ -67,10 +67,22 @@
 
 /* ── Header ── */
 .ais-head {
-  padding: 132px 64px 96px;
-  max-width: 1200px;
+  padding: 132px 64px 104px;
+  background: #0a0a0a;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: end;
 }
-.ais-head .ais-eyebrow { margin-bottom: 20px; }
+.ais-head .ais-eyebrow { margin-bottom: 20px; color: rgba(255, 255, 255, 0.4); }
+.ais-head .ais-title { color: #fff; }
+.ais-head .ais-hero-quote {
+  color: rgba(255, 255, 255, 0.68);
+  border-top: none;
+  padding-top: 0;
+  margin: 0 0 10px;
+  max-width: 560px;
+}
 .ais-title {
   font-family: var(--display);
   font-size: clamp(48px, 8vw, 118px);
@@ -105,6 +117,7 @@
 .ais-feature-video {
   position: relative;
   width: 100%;
+  max-width: 820px;   /* keep the player modest, not full-bleed */
   aspect-ratio: 16 / 9;   /* matches the 1920x1080 film — no side bars */
   background: var(--panel);
   border: 1px solid var(--line);
@@ -164,15 +177,15 @@
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
 }
-/* Description below the video */
-.ais-feature-desc {
+/* Video (left) + description (right) */
+.ais-feature-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-  margin-top: 36px;
-  padding-top: 32px;
-  border-top: 1px solid var(--line);
+  grid-template-columns: minmax(0, 600px) 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.ais-feature-desc {
+  align-self: center;
 }
 .ais-feature-tag {
   display: inline-block;
@@ -199,6 +212,16 @@
   color: var(--ink-faint);
   margin: 0;
 }
+.ais-feature-quote {
+  font-family: var(--display);
+  font-size: clamp(19px, 1.9vw, 26px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 22px;
+  max-width: 520px;
+}
 .ais-feature-body {
   font-family: var(--sans);
   font-size: 15px;
@@ -207,14 +230,46 @@
   margin: 0;
   max-width: 460px;
 }
+.ais-feature-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 40px;
+  margin: 32px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.ais-feature-specs dt {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 6px;
+}
+.ais-feature-specs dd {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--ink);
+  margin: 0;
+}
 
 /* ── Briefing (collapsible) ── */
 .ais-brief {
   padding: 40px 64px 72px;
   border-top: 1px solid var(--line);
-  max-width: 1000px;
 }
 .ais-brief .ais-label { margin-bottom: 22px; }
+/* Intro synopsis in two columns to use the full width */
+.ais-brief-lead { max-width: 1100px; }
+.ais-brief-intros {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 28px;
+  max-width: 1100px;
+}
+.ais-brief-intros .ais-brief-intro { margin-top: 0; max-width: none; }
 .ais-brief-lead {
   font-family: var(--display);
   font-size: clamp(18px, 1.8vw, 24px);
@@ -232,6 +287,79 @@
   margin: 22px 0 0;
   max-width: 720px;
 }
+/* ── The Creative Challenge — statement callout ── */
+.ais-challenge {
+  margin-top: 8px;
+  padding: 48px 0 8px;
+  border-top: 1px solid var(--line);
+}
+.ais-challenge .ais-label { margin-bottom: 20px; }
+.ais-challenge-body {
+  font-family: var(--display);
+  font-size: clamp(20px, 2.3vw, 32px);
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0;
+  max-width: 1100px;
+}
+
+/* ── Six Acts timeline ── */
+.ais-acts {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
+}
+.ais-acts-head { margin-bottom: 26px; }
+.ais-acts-head .ais-label { margin-bottom: 14px; }
+.ais-acts-title {
+  font-family: var(--display);
+  font-size: clamp(24px, 2.6vw, 38px);
+  font-weight: 300;
+  color: var(--ink);
+  margin: 0;
+}
+.ais-acts-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ais-act {
+  display: grid;
+  grid-template-columns: 44px minmax(160px, 260px) 1fr;
+  align-items: baseline;
+  gap: 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  transition: padding-left 0.3s;
+}
+.ais-act:hover { padding-left: 10px; }
+.ais-act-num {
+  font-family: var(--display);
+  font-size: 15px;
+  color: var(--ink-faint);
+}
+.ais-act-name {
+  font-family: var(--display);
+  font-size: clamp(18px, 1.7vw, 24px);
+  font-weight: 300;
+  color: var(--ink);
+}
+.ais-act-beat {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+.ais-act-dur {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--ink-faint);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
 /* grid-rows 0fr → 1fr gives a smooth height auto-transition */
 .ais-brief-more {
   display: grid;
@@ -315,11 +443,11 @@
 
 /* Masonry gallery — handles mixed aspect ratios */
 .ais-lw-masonry {
-  columns: 2;
+  columns: 3;
   column-gap: 12px;
   margin-top: 12px;
 }
-.ais-lw-masonry--3 { columns: 3; }
+.ais-lw-masonry--3 { columns: 4; }
 .ais-lw-fig {
   break-inside: avoid;
   margin: 0 0 12px;
@@ -508,17 +636,27 @@
 
 /* ── Responsive ── */
 @media (max-width: 960px) {
-  .ais-feature-desc { grid-template-columns: 1fr; gap: 20px; }
+  .ais-feature-grid { grid-template-columns: 1fr; gap: 28px; }
+  .ais-brief-intros { grid-template-columns: 1fr; gap: 20px; }
   .ais-stage-content { padding: 0 40px 28px; }
+  .ais-head { grid-template-columns: 1fr; gap: 32px; align-items: start; }
+  .ais-head .ais-hero-quote { margin-bottom: 0; max-width: 640px; }
 }
 @media (max-width: 640px) {
   .ais-nav { padding: 0 24px; }
-  .ais-head { padding: 110px 24px 44px; }
+  .ais-head { padding: 110px 24px 64px; }
   .ais-feature, .ais-brief { padding-left: 24px; padding-right: 24px; }
   .ais-stage-content { padding: 32px 24px 8px; }
   .ais-footer { flex-direction: column; gap: 32px; align-items: flex-start; padding: 64px 24px; }
   .ais-brief-images { grid-template-columns: 1fr 1fr; }
   .ais-lw-masonry, .ais-lw-masonry--3 { columns: 1; }
+  .ais-feature-specs { gap: 18px 24px; }
+  .ais-act {
+    grid-template-columns: 32px 1fr auto;
+    gap: 6px 16px;
+    row-gap: 4px;
+  }
+  .ais-act-beat { grid-column: 2 / 4; color: var(--ink-faint); }
 }
 @media (prefers-reduced-motion: reduce) {
   .ais-media-track { transform: none !important; }
