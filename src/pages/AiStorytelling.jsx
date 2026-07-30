@@ -61,6 +61,7 @@ export default function AiStorytelling() {
   const mediaRef = useRef(null)
   const trackRef = useRef(null)
   const [active, setActive] = useState(0)
+  const [featurePlaying, setFeaturePlaying] = useState(false)
   const [readMore, setReadMore] = useState(false)
 
   useEffect(() => { window.scrollTo(0, 0) }, [])
@@ -170,12 +171,32 @@ export default function AiStorytelling() {
       {/* ── Featured most-recent project · video (3/4) + description (1/4) ── */}
       <section className="ais-feature">
         <span className="ais-label">Most Recent Project</span>
-        <div className="ais-feature-video" role="img" aria-label="The Last Witness — film still">
-          <img className="ais-feature-poster" src="/images/last-witness/shell.jpg" alt="The Last Witness" loading="lazy" />
-          <span className="ais-ph-play">
-            <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z" /></svg>
-          </span>
-          <span className="ais-ph-label">Film — Coming Soon</span>
+        <div
+          className={`ais-feature-video${featurePlaying ? ' is-playing' : ''}`}
+          onClick={featurePlaying ? undefined : () => setFeaturePlaying(true)}
+          role={featurePlaying ? undefined : 'button'}
+          tabIndex={featurePlaying ? undefined : 0}
+          onKeyDown={featurePlaying ? undefined : (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFeaturePlaying(true) } }}
+          aria-label={featurePlaying ? undefined : 'Play The Last Witness film'}
+        >
+          {featurePlaying ? (
+            <video
+              className="ais-feature-poster"
+              src="/videos/last-witness.mp4"
+              poster="/images/last-witness/shell.jpg"
+              controls
+              autoPlay
+              playsInline
+            />
+          ) : (
+            <>
+              <img className="ais-feature-poster" src="/images/last-witness/shell.jpg" alt="The Last Witness" loading="lazy" />
+              <span className="ais-ph-play">
+                <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z" /></svg>
+              </span>
+              <span className="ais-ph-label">Play Film</span>
+            </>
+          )}
         </div>
         <div className="ais-feature-desc">
           <div className="ais-feature-desc-head">
