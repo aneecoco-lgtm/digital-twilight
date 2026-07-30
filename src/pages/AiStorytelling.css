@@ -67,7 +67,7 @@
 
 /* ── Header ── */
 .ais-head {
-  padding: 132px 64px 56px;
+  padding: 132px 64px 96px;
   max-width: 1200px;
 }
 .ais-head .ais-eyebrow { margin-bottom: 20px; }
@@ -83,21 +83,21 @@
 }
 .ais-hero-quote {
   font-family: var(--display);
-  font-size: clamp(15px, 1.5vw, 20px);
+  font-size: clamp(20px, 2.5vw, 32px);
   font-weight: 300;
   font-style: italic;
-  line-height: 1.65;
+  line-height: 1.5;
   letter-spacing: 0.01em;
   color: var(--ink-dim);
-  max-width: 620px;
-  margin: 30px 0 0;
-  padding-top: 26px;
+  max-width: 860px;
+  margin: 40px 0 0;
+  padding-top: 34px;
   border-top: 1px solid var(--line);
 }
 
 /* ── Featured (video 3/4 + description 1/4) ── */
 .ais-feature {
-  padding: 40px 64px 72px;
+  padding: 72px 64px 72px;
   border-top: 1px solid var(--line);
 }
 .ais-feature .ais-label { margin-bottom: 24px; }
