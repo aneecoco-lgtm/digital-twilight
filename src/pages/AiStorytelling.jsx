@@ -216,6 +216,25 @@ export default function AiStorytelling() {
       <section className="ais-brief">
         <span className="ais-label">Briefing</span>
 
+        <p className="ais-brief-lead">
+          The Last Witness is a dialogue-free short film set in a future where nature
+          survives only as an exhibit. A young girl enters the Museum of Extinct Things
+          and encounters the last preserved traces of flowers, bees and rain. At the end
+          of the gallery, a seashell holds the final recorded memory of the ocean.
+        </p>
+        <p className="ais-brief-intro">
+          Through sound, the girl experiences a world she has never known: waves, seabirds
+          and whales gradually consumed by engines, pollution and destruction — until only
+          silence remains. Yet when she lifts the shell to her ear, she discovers that
+          memory can preserve what humanity has failed to protect.
+        </p>
+        <p className="ais-brief-intro">
+          The film explores extinction not as something distant, but as an inherited
+          absence. By becoming the “new witness,” the child represents the responsibility
+          of future generations to listen, remember and perhaps prevent today's living
+          world from becoming tomorrow's museum piece.
+        </p>
+
         {/* Visible teaser frame */}
         <figure className="ais-lw-full">
           <img src="/images/last-witness/glass.jpg" alt="The child meets the last shell through the glass" loading="lazy" />

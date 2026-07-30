@@ -224,6 +224,14 @@
   margin: 0;
   max-width: 760px;
 }
+.ais-brief-intro {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--ink-dim);
+  margin: 22px 0 0;
+  max-width: 720px;
+}
 /* grid-rows 0fr → 1fr gives a smooth height auto-transition */
 .ais-brief-more {
   display: grid;
