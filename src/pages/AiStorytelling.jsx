@@ -195,17 +195,6 @@ export default function AiStorytelling() {
       <section className="ais-brief">
         <span className="ais-label">Briefing</span>
 
-        <div className="ais-lw-head">
-          <h2 className="ais-lw-title">The Last Witness</h2>
-          <p className="ais-lw-tag">The ocean is never shown. Sound makes the audience see it.</p>
-        </div>
-
-        <p className="ais-brief-lead">
-          A cinematic AI short film. A child walks through a Museum of Extinct Things
-          and — through a single shell and a pair of headphones — hears an ocean that
-          no longer exists, becoming its last witness.
-        </p>
-
         {/* Visible teaser frame */}
         <figure className="ais-lw-full">
           <img src="/images/last-witness/glass.jpg" alt="The child meets the last shell through the glass" loading="lazy" />
