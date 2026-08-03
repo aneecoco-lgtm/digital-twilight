@@ -185,14 +185,14 @@ export default function AiStorytelling() {
               <video
                 className="ais-feature-poster"
                 src="/videos/last-witness.mp4"
-                poster="/images/last-witness/shell.jpg"
+                poster="/images/last-witness/glass.jpg"
                 controls
                 autoPlay
                 playsInline
               />
             ) : (
               <>
-                <img className="ais-feature-poster" src="/images/last-witness/shell.jpg" alt="The Last Witness" loading="lazy" />
+                <img className="ais-feature-poster" src="/images/last-witness/glass.jpg" alt="The Last Witness" loading="lazy" />
                 <span className="ais-ph-play">
                   <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z" /></svg>
                 </span>
@@ -205,45 +205,60 @@ export default function AiStorytelling() {
             <h2 className="ais-feature-title">The Last Witness</h2>
             <p className="ais-feature-cat">AI Short Film · Creative Direction</p>
             <p className="ais-feature-body">
-              A wordless film in which the ocean is heard but never shown. In a museum
-              of extinct things, a child lifts a shell to her ear and inherits the sound
-              of a world already lost — becoming at once its last witness and its first
-              inheritor. Extinction reframed not as spectacle, but as absence.
+              The Last Witness imagines a future in which humanity has preserved the
+              memory of nature more successfully than nature itself. Flowers, rain,
+              animals and oceans have become cultural artefacts: carefully classified,
+              beautifully displayed and completely absent from everyday life.
+            </p>
+            <p className="ais-feature-body">
+              At the centre of the film is the difference between recording something
+              and saving it. An archive can preserve an image or a sound, but it cannot
+              reproduce the experience of encountering something alive. By placing a child
+              inside this world, the film considers what extinction means to those born
+              after it: not the loss of something remembered, but the discovery of
+              something they were never given the chance to know.
+            </p>
+            <p className="ais-feature-body">
+              The museum becomes both a monument to human knowledge and evidence of its
+              failure. The Last Witness asks a simple question: if we document everything
+              but protect nothing, what exactly have we preserved?
             </p>
           </div>
         </div>
       </section>
 
-      {/* ── Briefing — The Last Witness (collapsible) ── */}
+      {/* ── Briefing — The Last Witness ── */}
       <section className="ais-brief">
         <span className="ais-label">Briefing</span>
 
-        <p className="ais-brief-lead">
-          The Last Witness is a dialogue-free short film set in a future where nature
-          survives only as an exhibit. A young girl enters the Museum of Extinct Things
-          and encounters the last preserved traces of flowers, bees and rain. At the end
-          of the gallery, a seashell holds the final recorded memory of the ocean.
-        </p>
-        <div className="ais-brief-intros">
-          <p className="ais-brief-intro">
-            Through sound, the girl experiences a world she has never known: waves, seabirds
-            and whales gradually consumed by engines, pollution and destruction — until only
-            silence remains. Yet when she lifts the shell to her ear, she discovers that
-            memory can preserve what humanity has failed to protect.
-          </p>
-          <p className="ais-brief-intro">
-            The film explores extinction not as something distant, but as an inherited
-            absence. By becoming the “new witness,” the child represents the responsibility
-            of future generations to listen, remember and perhaps prevent today's living
-            world from becoming tomorrow's museum piece.
-          </p>
-        </div>
+        <div className="ais-brief-top">
+          <div className="ais-brief-text">
+            <p className="ais-brief-lead">
+              The Last Witness is a dialogue-free short film set in a future where nature
+              survives only as an exhibit. A young girl enters the Museum of Extinct Things
+              and encounters the last preserved traces of flowers, bees and rain. At the end
+              of the gallery, a seashell holds the final recorded memory of the ocean.
+            </p>
+            <p className="ais-brief-intro">
+              Through sound, the girl experiences a world she has never known: waves, seabirds
+              and whales gradually consumed by engines, pollution and destruction — until only
+              silence remains. Yet when she lifts the shell to her ear, she discovers that
+              memory can preserve what humanity has failed to protect.
+            </p>
+            <p className="ais-brief-intro">
+              The film explores extinction not as something distant, but as an inherited
+              absence. By becoming the “new witness,” the child represents the responsibility
+              of future generations to listen, remember and perhaps prevent today's living
+              world from becoming tomorrow's museum piece.
+            </p>
+          </div>
 
-        {/* Visible teaser frame */}
-        <figure className="ais-lw-full">
-          <img src="/images/last-witness/glass.jpg" alt="The child meets the last shell through the glass" loading="lazy" />
-          <figcaption>The child meets the Last Shell through the glass.</figcaption>
-        </figure>
+          {/* Reduced teaser frame — right of the briefing text */}
+          <figure className="ais-lw-full ais-brief-aside">
+            <img src="/images/last-witness/glass.jpg" alt="The child meets the last shell through the glass" loading="lazy" />
+            <figcaption>The child meets the Last Shell through the glass.</figcaption>
+          </figure>
+        </div>
 
         {/* Six Acts — cinematic structure */}
         <div className="ais-acts">

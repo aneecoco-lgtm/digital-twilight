@@ -228,8 +228,9 @@
   line-height: 1.85;
   color: var(--ink-dim);
   margin: 0;
-  max-width: 460px;
+  max-width: 520px;
 }
+.ais-feature-body + .ais-feature-body { margin-top: 15px; }
 .ais-feature-specs {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -260,16 +261,17 @@
   border-top: 1px solid var(--line);
 }
 .ais-brief .ais-label { margin-bottom: 22px; }
-/* Intro synopsis in two columns to use the full width */
-.ais-brief-lead { max-width: 1100px; }
-.ais-brief-intros {
+/* Briefing text (left) + reduced still (right) */
+.ais-brief-top {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-top: 28px;
-  max-width: 1100px;
+  grid-template-columns: 1fr minmax(0, 430px);
+  gap: 56px;
+  align-items: start;
 }
-.ais-brief-intros .ais-brief-intro { margin-top: 0; max-width: none; }
+.ais-brief-aside {
+  margin: 0;
+  align-self: start;
+}
 .ais-brief-lead {
   font-family: var(--display);
   font-size: clamp(18px, 1.8vw, 24px);
@@ -637,7 +639,8 @@
 /* ── Responsive ── */
 @media (max-width: 960px) {
   .ais-feature-grid { grid-template-columns: 1fr; gap: 28px; }
-  .ais-brief-intros { grid-template-columns: 1fr; gap: 20px; }
+  .ais-brief-top { grid-template-columns: 1fr; gap: 28px; }
+  .ais-brief-aside { max-width: 520px; }
   .ais-stage-content { padding: 0 40px 28px; }
   .ais-head { grid-template-columns: 1fr; gap: 32px; align-items: start; }
   .ais-head .ais-hero-quote { margin-bottom: 0; max-width: 640px; }
