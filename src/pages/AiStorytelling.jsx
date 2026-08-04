@@ -227,61 +227,43 @@ export default function AiStorytelling() {
         </div>
       </section>
 
-      {/* ── Briefing — The Last Witness ── */}
+      {/* ── The Last Witness — structure & exhibit ── */}
       <section className="ais-brief">
-        <span className="ais-label">Briefing</span>
 
-        <div className="ais-brief-top">
-          <div className="ais-brief-text">
-            <p className="ais-brief-lead">
-              The Last Witness is a dialogue-free short film set in a future where nature
-              survives only as an exhibit. A young girl enters the Museum of Extinct Things
-              and encounters the last preserved traces of flowers, bees and rain. At the end
-              of the gallery, a seashell holds the final recorded memory of the ocean.
-            </p>
-            <p className="ais-brief-intro">
-              Through sound, the girl experiences a world she has never known: waves, seabirds
-              and whales gradually consumed by engines, pollution and destruction — until only
-              silence remains. Yet when she lifts the shell to her ear, she discovers that
-              memory can preserve what humanity has failed to protect.
-            </p>
-            <p className="ais-brief-intro">
-              The film explores extinction not as something distant, but as an inherited
-              absence. By becoming the “new witness,” the child represents the responsibility
-              of future generations to listen, remember and perhaps prevent today's living
-              world from becoming tomorrow's museum piece.
-            </p>
-          </div>
-
-          {/* Reduced teaser frame — right of the briefing text */}
-          <figure className="ais-lw-full ais-brief-aside">
-            <img src="/images/last-witness/glass.jpg" alt="The child meets the last shell through the glass" loading="lazy" />
-            <figcaption>The child meets the Last Shell through the glass.</figcaption>
-          </figure>
-        </div>
-
-        {/* Six Acts — cinematic structure */}
+        {/* Six Acts — cinematic structure + vertical scroll video */}
         <div className="ais-acts">
-          <div className="ais-acts-head">
-            <span className="ais-label">Structure</span>
-            <h3 className="ais-acts-title">Six Acts</h3>
+          <div className="ais-acts-main">
+            <div className="ais-acts-head">
+              <span className="ais-label">Structure</span>
+              <h3 className="ais-acts-title">Six Acts</h3>
+            </div>
+            <ol className="ais-acts-list">
+              {[
+                ['I', 'Threshold', 'Approach, read the museum sign, enter.'],
+                ['II', 'Extinct World', 'Detachment, relics, and the shell.'],
+                ['III', 'First Ocean', 'Silence becomes wonder through sound.'],
+                ['IV', 'Archive Dies', 'Interference overwhelms natural sound.'],
+                ['V', 'Search', 'The child searches for the vanished sound.'],
+                ['VI', 'Transmission', 'The shell creates a new witness; memory passes onward.'],
+              ].map(([num, name, beat]) => (
+                <li className="ais-act" key={num}>
+                  <span className="ais-act-num">{num}</span>
+                  <span className="ais-act-name">{name}</span>
+                  <span className="ais-act-beat">{beat}</span>
+                </li>
+              ))}
+            </ol>
           </div>
-          <ol className="ais-acts-list">
-            {[
-              ['I', 'Threshold', 'Approach, read the museum sign, enter.'],
-              ['II', 'Extinct World', 'Detachment, relics, and the shell.'],
-              ['III', 'First Ocean', 'Silence becomes wonder through sound.'],
-              ['IV', 'Archive Dies', 'Interference overwhelms natural sound.'],
-              ['V', 'Search', 'The child searches for the vanished sound.'],
-              ['VI', 'Transmission', 'The shell creates a new witness; memory passes onward.'],
-            ].map(([num, name, beat]) => (
-              <li className="ais-act" key={num}>
-                <span className="ais-act-num">{num}</span>
-                <span className="ais-act-name">{name}</span>
-                <span className="ais-act-beat">{beat}</span>
-              </li>
-            ))}
-          </ol>
+          <div className="ais-acts-video">
+            <video
+              src="/videos/last-witness-scroll.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          </div>
         </div>
 
         {/* Full exhibit — always visible */}
@@ -305,37 +287,6 @@ export default function AiStorytelling() {
               </p>
             </div>
 
-            {/* The Film in Frames */}
-            <div className="ais-lw-block">
-              <span className="ais-label">The Film in Frames</span>
-              <figure className="ais-lw-full ais-lw-full--strip">
-                <img src="/images/last-witness/corridor-bracket.jpg" alt="Museum corridor and listening bracket" loading="lazy" />
-                <figcaption>The Museum of Extinct Things — corridor and listening bracket.</figcaption>
-              </figure>
-              <div className="ais-lw-masonry">
-                <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/shell.jpg" alt="The Last Shell on its plinth" loading="lazy" />
-                  <figcaption>The Last Shell, preserved on its plinth.</figcaption>
-                </figure>
-                <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/faces.jpg" alt="Close-ups of the child" loading="lazy" />
-                  <figcaption>Emotion in close-up — the film's only true subject.</figcaption>
-                </figure>
-                <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/museum.jpg" alt="Approach and threshold" loading="lazy" />
-                  <figcaption>Approach and threshold.</figcaption>
-                </figure>
-                <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/corridor-frames.jpg" alt="Extinct world establishing frames" loading="lazy" />
-                  <figcaption>Extinct world — establishing frames.</figcaption>
-                </figure>
-                <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/exhibits.jpg" alt="Vitrine typography" loading="lazy" />
-                  <figcaption>The Last Bloom · The Last Rain — vitrine typography.</figcaption>
-                </figure>
-              </div>
-            </div>
-
             {/* The Process */}
             <div className="ais-lw-block">
               <span className="ais-label">The Process</span>
@@ -346,34 +297,18 @@ export default function AiStorytelling() {
               </p>
               <div className="ais-lw-masonry ais-lw-masonry--3">
                 <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/sketch.jpg" alt="First concept sketch" loading="lazy" />
-                  <figcaption>First concept — pencil on grid.</figcaption>
-                </figure>
-                <figure className="ais-lw-fig">
                   <img src="/images/last-witness/character-sheet.jpg" alt="Character reference sheet" loading="lazy" />
-                  <figcaption>CHILD-A — character reference.</figcaption>
+                  <figcaption>CHILD-A — character reference bible.</figcaption>
+                </figure>
+                <figure className="ais-lw-fig ais-lw-fig--wide">
+                  <img src="/images/last-witness/storyboard-full.jpg" alt="Full visual storyboard" loading="lazy" />
+                  <figcaption>The Last Witness — visual storyboard.</figcaption>
                 </figure>
                 <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/storyboard-full.jpg" alt="Full sequence storyboard" loading="lazy" />
-                  <figcaption>Full sequence storyboard.</figcaption>
-                </figure>
-                <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/storyboard-a.jpg" alt="Threshold storyboards" loading="lazy" />
-                  <figcaption>Act I — Threshold.</figcaption>
-                </figure>
-                <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/storyboard-b.jpg" alt="Shot continuity boards" loading="lazy" />
-                  <figcaption>Continuity — same girl, same façade.</figcaption>
-                </figure>
-                <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/storyboard-c.jpg" alt="Continuity boards" loading="lazy" />
-                  <figcaption>Fixed screen direction.</figcaption>
+                  <img src="/images/last-witness/faces.jpg" alt="Facial expression study" loading="lazy" />
+                  <figcaption>Expression study — indifference to understanding.</figcaption>
                 </figure>
               </div>
-              <figure className="ais-lw-full ais-lw-full--strip">
-                <img src="/images/last-witness/storyboard-strip.jpg" alt="Opening approach strip" loading="lazy" />
-                <figcaption>Opening strip — approach to the museum.</figcaption>
-              </figure>
             </div>
 
             {/* The Creative Challenge — closes the section */}

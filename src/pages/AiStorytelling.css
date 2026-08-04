@@ -177,10 +177,10 @@
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
 }
-/* Video (left) + description (right) */
+/* Video (left half) + description (right half) */
 .ais-feature-grid {
   display: grid;
-  grid-template-columns: minmax(0, 600px) 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
 }
@@ -257,7 +257,7 @@
 
 /* ── Briefing (collapsible) ── */
 .ais-brief {
-  padding: 40px 64px 72px;
+  padding: 8px 64px 72px;
   border-top: 1px solid var(--line);
 }
 .ais-brief .ais-label { margin-bottom: 22px; }
@@ -306,11 +306,32 @@
   max-width: 1100px;
 }
 
-/* ── Six Acts timeline ── */
+/* ── Six Acts timeline (list left · scroll video right) ── */
 .ais-acts {
   margin-top: 56px;
   padding-top: 36px;
   border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 56px;
+  align-items: start;
+}
+.ais-acts-main { min-width: 0; }
+.ais-acts-video {
+  position: sticky;
+  top: 88px;
+  width: 100%;
+  aspect-ratio: 1080 / 1920;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #000;
+  border: 1px solid var(--line);
+}
+.ais-acts-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .ais-acts-head { margin-bottom: 26px; }
 .ais-acts-head .ais-label { margin-bottom: 14px; }
@@ -450,6 +471,7 @@
   margin-top: 12px;
 }
 .ais-lw-masonry--3 { columns: 4; }
+.ais-lw-fig--wide { column-span: all; break-inside: avoid; }
 .ais-lw-fig {
   break-inside: avoid;
   margin: 0 0 12px;
