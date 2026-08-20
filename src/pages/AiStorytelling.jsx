@@ -295,19 +295,21 @@ export default function AiStorytelling() {
                 storyboards — the experiments and iterations that fixed the film's
                 language before a single frame was generated.
               </p>
-              <div className="ais-lw-masonry ais-lw-masonry--3">
-                <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/character-sheet.jpg" alt="Character reference sheet" loading="lazy" />
-                  <figcaption>CHILD-A — character reference bible.</figcaption>
-                </figure>
-                <figure className="ais-lw-fig ais-lw-fig--wide">
+              <div className="ais-process-media">
+                <figure className="ais-lw-fig ais-process-hero">
                   <img src="/images/last-witness/storyboard-full.jpg" alt="Full visual storyboard" loading="lazy" />
                   <figcaption>The Last Witness — visual storyboard.</figcaption>
                 </figure>
-                <figure className="ais-lw-fig">
-                  <img src="/images/last-witness/faces.jpg" alt="Facial expression study" loading="lazy" />
-                  <figcaption>Expression study — indifference to understanding.</figcaption>
-                </figure>
+                <div className="ais-process-row">
+                  <figure className="ais-lw-fig">
+                    <img src="/images/last-witness/character-sheet.jpg" alt="Character reference sheet" loading="lazy" />
+                    <figcaption>CHILD-A — character reference bible.</figcaption>
+                  </figure>
+                  <figure className="ais-lw-fig">
+                    <img src="/images/last-witness/faces.jpg" alt="Facial expression study" loading="lazy" />
+                    <figcaption>Expression study — indifference to understanding.</figcaption>
+                  </figure>
+                </div>
               </div>
             </div>
 

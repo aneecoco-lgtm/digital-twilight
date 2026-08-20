@@ -349,8 +349,10 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .cs-nav { padding: 0 24px; }
-  .cs-hero-content { left: 24px; bottom: 60px; }
+  .cs-nav { padding: 0 24px; background: #fff; }
+  .cs-hero { margin-top: 64px; height: calc(100vh - 64px); min-height: 500px; }
+  .cs-hero-content { left: 24px; right: 24px; bottom: 40px; }
+  .cs-hero-title { font-size: clamp(48px, 15vw, 96px); }
   .cs-intro {
     grid-template-columns: 1fr;
     gap: 48px;

@@ -464,6 +464,8 @@
   .evo-footer { flex-direction: column; gap: 32px; align-items: flex-start; }
 }
 @media (max-width: 600px) {
+  .evo-nav { background: #0a0a0a; }
+  .evo-hero { padding-top: 64px; }
   .evo-hero-content { padding: 0 24px 60px; }
   .evo-intro { padding: 64px 24px; }
   .evo-film-section { padding: 0 24px 64px; }

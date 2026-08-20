@@ -754,6 +754,13 @@
   bottom: 48px;
   left: 48px;
 }
+/* Mobile: keep the fixed nav from covering the hero image */
+@media (max-width: 700px) {
+  .ycs-nav { background: #fff; }
+  .ycs-hero--contain { padding-top: 64px; }
+  .ycs-hero--contain .ycs-hero-content { bottom: 20px; left: 24px; right: 24px; }
+  .ycs-hero-title { font-size: clamp(40px, 13vw, 68px); }
+}
 
 /* ── Yoga Mat horizontal strip — 6 equal columns, no crop ── */
 .ycs-mat-strip {

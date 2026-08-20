@@ -472,6 +472,18 @@
 }
 .ais-lw-masonry--3 { columns: 4; }
 .ais-lw-fig--wide { column-span: all; break-inside: avoid; }
+
+/* The Process — big storyboard first, two smaller below */
+.ais-process-media { margin-top: 20px; }
+.ais-process-hero { margin: 0 0 12px; }
+.ais-process-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .ais-process-row { grid-template-columns: 1fr; }
+}
 .ais-lw-fig {
   break-inside: avoid;
   margin: 0 0 12px;

@@ -563,8 +563,10 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .ecs-nav { padding: 0 24px; }
-  .ecs-hero-content { left: 24px; bottom: 60px; }
+  .ecs-nav { padding: 0 24px; background: #fff; }
+  .ecs-hero { margin-top: 64px; height: calc(100vh - 64px); min-height: 500px; }
+  .ecs-hero-content { left: 24px; right: 24px; bottom: 40px; }
+  .ecs-hero-title { font-size: clamp(40px, 12vw, 96px); }
   .ecs-intro { grid-template-columns: 1fr; gap: 48px; padding: 64px 24px; }
   .ecs-intro-left { flex-direction: row; flex-wrap: wrap; gap: 20px 40px; }
   .ecs-text-block { padding: 64px 24px; }

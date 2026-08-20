@@ -197,7 +197,7 @@ export default function YoaCaseStudy() {
 
       {/* ── Yoga Mat collection — horizontal strip ── */}
       <section className="ycs-mat-strip">
-        {['mat-01','mat-02','mat-05','mat-06'].map((name, i) => (
+        {['mat-01','mat-02','mat-03','mat-04','mat-05','mat-06'].map((name, i) => (
           <Reveal key={name} delay={i * 60} className="ycs-mat-item">
             <img src={`/images/yoa/${name}.jpg`} alt={`Yoga on Art mat ${i + 1}`} loading="lazy" />
           </Reveal>
