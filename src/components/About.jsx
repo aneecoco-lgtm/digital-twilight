@@ -28,9 +28,10 @@ export default function About() {
       <div className="about-text reveal" ref={textRef}>
         <span className="label" style={{ display: 'block', marginBottom: 32 }}>About</span>
         <h2 className="about-name">Annalisa<br /><em>Cosentino</em></h2>
-        <p>I work with brands, research institutions and European organisations that need their visual communication to be as sharp as their thinking. Strategy and image, together.</p>
-        <p>My background spans graphic design, photography, videography and brand strategy. From first brief to final file. No handoffs, no dilution.</p>
-        <p>I founded Digital Twilight as an independent practice to give every project the full weight of my attention, working directly with the people who care most about the outcome.</p>
+        <p>I have a small problem with obvious answers.</p>
+        <p>It has led me through photography, design, film, branding and whatever comes next.</p>
+        <p>Digital Twilight is where I put all of that to work.</p>
+        <p>No fixed medium. Just the right one.</p>
         <div className="about-facts">
           <div className="fact">
             <span className="fact-k label">Based</span>
