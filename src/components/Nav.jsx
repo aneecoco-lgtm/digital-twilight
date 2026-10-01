@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Nav.css'
 
 export default function Nav() {
@@ -29,6 +30,7 @@ export default function Nav() {
         <li><a href="#work">Work</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><Link to="/mompreneur">Mompreneur</Link></li>
       </ul>
 
       <div className="nav-status">
@@ -48,6 +50,7 @@ export default function Nav() {
         <a href="#work" onClick={() => setOpen(false)}>Work</a>
         <a href="#about" onClick={() => setOpen(false)}>About</a>
         <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
+        <Link to="/mompreneur" onClick={() => setOpen(false)}>Mompreneur</Link>
       </div>
     </nav>
   )
