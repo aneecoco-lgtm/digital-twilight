@@ -195,7 +195,7 @@ export default function Mompreneur() {
       {/* ── About ── */}
       <section className="mp-section mp-about">
         <div className="mp-about-img">
-          <img src="/images/portrait-of-me.jpg" alt="Annalisa Cosentino" loading="lazy" />
+          <img src="/images/portrait-of-me.jpg" alt="Annalisa Cosentino" width="1200" height="1600" loading="lazy" />
         </div>
         <div>
           <span className="mp-label">Hi, I'm Annalisa, or Anee</span>
