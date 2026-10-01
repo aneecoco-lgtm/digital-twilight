@@ -156,20 +156,6 @@ export default function Mompreneur() {
         </section>
       )}
 
-      {/* ── Work gallery ── */}
-      <section className="mp-section mp-gallery-section">
-        <div className="mp-head">
-          <span className="mp-label">Recent work</span>
-          <h2 className="mp-title">Brands I've<br /><em>brought to life.</em></h2>
-        </div>
-        <div className="mp-gallery">
-          <img src="/images/mompreneur/gallery-smida.jpg" alt="Business card design for a biotech founder" loading="lazy" width="1400" height="840" />
-          <img src="/images/mompreneur/week2-products.jpg" alt="Product photography for Evolve Hair Atelier" loading="lazy" width="1400" height="788" />
-          <img src="/images/mompreneur/gallery-bags.jpg" alt="Branded paper bags" loading="lazy" width="1400" height="933" />
-          <img src="/images/mompreneur/gallery-website.jpg" alt="Website for United Counsel shown on a screen" loading="lazy" width="1400" height="934" />
-        </div>
-      </section>
-
       {/* ── Who it's for ── */}
       <section className="mp-section">
         <div className="mp-head">

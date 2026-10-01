@@ -233,21 +233,6 @@
   border-radius: 4px;
 }
 
-/* ── Gallery ── */
-.mp-gallery-section { background: var(--mp-soft); border-top: none; }
-.mp-gallery {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
-.mp-gallery img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
 /* ── Fit ── */
 .mp-who-img {
   width: 100%;
@@ -420,7 +405,6 @@
 @media (max-width: 1100px) {
   .mp-week { grid-template-columns: 120px minmax(0, 1fr); }
   .mp-week-img { grid-column: 2; max-width: 480px; }
-  .mp-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 900px) {
   .mp-nav { padding: 0 20px; }
