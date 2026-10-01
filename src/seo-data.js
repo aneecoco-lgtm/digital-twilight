@@ -73,7 +73,7 @@ export const pages = {
   '/mompreneur': {
     title: 'Mompreneur Power Package — Brand, Photos & Website in 3 Weeks | Digital Twilight',
     description: 'A done-for-you 3-week launch for moms in Zürich with a clear business idea: logo and brand identity, professional photos and a 3-page website.',
-    image: '/images/portrait.jpg',
+    image: '/images/mompreneur/hero.jpg',
   },
   '/impressum': {
     title: 'Impressum — Digital Twilight',

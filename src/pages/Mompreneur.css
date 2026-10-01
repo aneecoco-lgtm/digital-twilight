@@ -159,6 +159,7 @@
 .mp-proof li::before { content: '— '; color: var(--mp-accent); }
 .mp-hero-img img {
   width: 100%;
+  height: auto;
   max-height: 640px;
   object-fit: cover;
   border-radius: 4px;
@@ -248,6 +249,16 @@
 }
 
 /* ── Fit ── */
+.mp-who-img {
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: 4px;
+  margin-bottom: 56px;
+}
 .mp-fit {
   display: grid;
   grid-template-columns: 1fr 1fr;

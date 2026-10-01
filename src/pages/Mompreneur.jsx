@@ -24,8 +24,8 @@ const weeks = [
   {
     week: 'Week 2',
     title: 'Visual content',
-    image: '/images/mompreneur/week2-photos.jpg',
-    alt: 'Food photography printed for a restaurant brand',
+    image: '/images/mompreneur/week2-studio.jpg',
+    alt: 'Annalisa photographing in a white studio',
     items: [
       'A photo session for your products, services or personal brand',
       '20 high-quality photos and images for your website and social media',
@@ -91,7 +91,7 @@ export default function Mompreneur() {
           </ul>
         </div>
         <div className="mp-hero-img">
-          <img src="/images/portrait.jpg" alt="Annalisa Cosentino, founder of Digital Twilight" />
+          <img src="/images/mompreneur/hero.jpg" alt="Annalisa Cosentino, founder of Digital Twilight" width="1050" height="1400" />
         </div>
       </header>
 
@@ -152,7 +152,7 @@ export default function Mompreneur() {
             <span className="mp-label">The process</span>
             <h2 className="mp-title">See how it works<br /><em>in a few minutes.</em></h2>
           </div>
-          <video src={PROCESS_VIDEO} controls playsInline preload="metadata" poster="/images/portrait.jpg" />
+          <video src={PROCESS_VIDEO} controls playsInline preload="metadata" poster="/images/mompreneur/video-poster.jpg" />
         </section>
       )}
 
@@ -176,6 +176,7 @@ export default function Mompreneur() {
           <span className="mp-label">Who it's for</span>
           <h2 className="mp-title">For moms with a clear idea<br /><em>and a busy life.</em></h2>
         </div>
+        <img className="mp-who-img" src="/images/mompreneur/who.jpg" alt="Three women entrepreneurs smiling together" loading="lazy" width="1800" height="1120" />
         <div className="mp-fit">
           <div>
             <h3>This is for you if</h3>
@@ -231,7 +232,7 @@ export default function Mompreneur() {
       {/* ── About ── */}
       <section className="mp-section mp-about">
         <div className="mp-about-img">
-          <img src="/images/portrait-of-me.jpg" alt="Annalisa Cosentino" width="1200" height="1600" />
+          <img src="/images/mompreneur/about.jpg" alt="Annalisa with her camera, surrounded by design books" width="1200" height="1200" />
         </div>
         <div>
           <span className="mp-label">Hi, I'm Annalisa, or Anee</span>
@@ -250,7 +251,7 @@ export default function Mompreneur() {
 
       {/* ── Testimonial ── */}
       <section className="mp-section mp-testimonial">
-        <img className="mp-testimonial-img" src="/images/mompreneur/enrieta-power.jpg" alt="Enrieta Power working on her laptop with her daughter" width="307" height="448" />
+        <img className="mp-testimonial-img" src="/images/mompreneur/enrieta-power.jpg" alt="Enrieta Power" width="600" height="900" />
         <figure className="mp-quote">
           <span className="mp-label">Kind words</span>
           <blockquote>
