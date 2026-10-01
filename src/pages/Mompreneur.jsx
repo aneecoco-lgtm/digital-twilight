@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom'
 import './Mompreneur.css'
 
+// Set to the video's path (e.g. '/videos/mompreneur-process.mp4') once it's uploaded;
+// the video section stays hidden until then.
+const PROCESS_VIDEO = null
+
 const BOOK_MAIL = 'mailto:info@digital-twilight.com?subject=Mompreneur%20Power%20Package%20%E2%80%94%20free%2015-minute%20call'
 
 const weeks = [
   {
     week: 'Week 1',
     title: 'Logo & brand identity',
+    image: '/images/mompreneur/week1-logo.jpg',
+    alt: 'Logo design for the Moonbrè hair brand',
     items: [
       '2 unique logo concepts and 2 rounds of changes',
       'Final logo files for web and print, in colour, grayscale and a version for coloured backgrounds',
@@ -18,6 +24,8 @@ const weeks = [
   {
     week: 'Week 2',
     title: 'Visual content',
+    image: '/images/mompreneur/week2-photos.jpg',
+    alt: 'Food photography printed for a restaurant brand',
     items: [
       'A photo session for your products, services or personal brand',
       '20 high-quality photos and images for your website and social media',
@@ -27,6 +35,8 @@ const weeks = [
   {
     week: 'Week 3',
     title: 'Your website',
+    image: '/images/mompreneur/week3-website.jpg',
+    alt: 'Website design shown on a laptop',
     items: [
       '3 pages: Home, About, and Services or Products',
       'Designed for phones, tablets and computers',
@@ -129,9 +139,35 @@ export default function Mompreneur() {
                   {w.items.map(item => <li key={item}>{item}</li>)}
                 </ul>
               </div>
+              <img className="mp-week-img" src={w.image} alt={w.alt} loading="lazy" width="1400" height="945" />
             </li>
           ))}
         </ol>
+      </section>
+
+      {/* ── Process video (shown once PROCESS_VIDEO is set) ── */}
+      {PROCESS_VIDEO && (
+        <section className="mp-section mp-video">
+          <div className="mp-head">
+            <span className="mp-label">The process</span>
+            <h2 className="mp-title">See how it works<br /><em>in a few minutes.</em></h2>
+          </div>
+          <video src={PROCESS_VIDEO} controls playsInline preload="metadata" poster="/images/portrait.jpg" />
+        </section>
+      )}
+
+      {/* ── Work gallery ── */}
+      <section className="mp-section mp-gallery-section">
+        <div className="mp-head">
+          <span className="mp-label">Recent work</span>
+          <h2 className="mp-title">Brands I've<br /><em>brought to life.</em></h2>
+        </div>
+        <div className="mp-gallery">
+          <img src="/images/mompreneur/gallery-smida.jpg" alt="Business card design for a biotech founder" loading="lazy" width="1400" height="840" />
+          <img src="/images/mompreneur/week2-products.jpg" alt="Product photography for Evolve Hair Atelier" loading="lazy" width="1400" height="788" />
+          <img src="/images/mompreneur/gallery-bags.jpg" alt="Branded paper bags" loading="lazy" width="1400" height="933" />
+          <img src="/images/mompreneur/gallery-website.jpg" alt="Website for United Counsel shown on a screen" loading="lazy" width="1400" height="934" />
+        </div>
       </section>
 
       {/* ── Who it's for ── */}
@@ -213,16 +249,15 @@ export default function Mompreneur() {
       </section>
 
       {/* ── Testimonial ── */}
-      <section className="mp-section">
-        <span className="mp-label">Kind words</span>
+      <section className="mp-section mp-testimonial">
+        <img className="mp-testimonial-img" src="/images/mompreneur/enrieta-power.jpg" alt="Enrieta Power working on her laptop with her daughter" width="307" height="448" />
         <figure className="mp-quote">
+          <span className="mp-label">Kind words</span>
           <blockquote>
-            "Annalisa has supported ShePro for the last 3 years. She is incredibly creative and
-            supportive. If you have an idea, she gives her suggestions to make it perfect and
-            delivers it. Working with her is effortless because she is a professional and cares
-            about her clients with no exceptions."
+            <p>"I am deeply grateful to Annalisa for her exceptional support as a filmmaker and graphic designer. Despite being a mother of four (with another on the way), her flexibility and accommodating nature were invaluable. In under a month, she recorded my video courses with professionalism and helped me confidently engage my audience.</p>
+            <p>She crafted a perfect logo, an extraordinary ebook, and numerous graphic elements that enhanced my project. Her creativity, expertise, and dedication were crucial to my success, transforming my ideas into reality and exceeding all expectations."</p>
           </blockquote>
-          <figcaption>Liis Reitz · ShePro</figcaption>
+          <figcaption>Enrieta Power</figcaption>
         </figure>
       </section>
 
