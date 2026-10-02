@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import './WorkMarquee.css'
 
 const marqueeImages = [
@@ -30,21 +29,8 @@ const marqueeImages = [
 ]
 
 export default function WorkMarquee() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const onWheel = (e) => {
-      e.preventDefault()
-      el.scrollLeft += e.deltaY + e.deltaX
-    }
-    el.addEventListener('wheel', onWheel, { passive: false })
-    return () => el.removeEventListener('wheel', onWheel)
-  }, [])
-
   return (
-    <div className="wm-strip" ref={ref}>
+    <div className="wm-strip">
       <div className="wm-track">
         {[...marqueeImages, ...marqueeImages].map((src, i) => (
           <div className="wm-item" key={i}>
