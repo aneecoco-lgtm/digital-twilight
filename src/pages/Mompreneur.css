@@ -297,6 +297,23 @@
 }
 .mp-about-img img { width: 100%; height: auto; border-radius: 4px; }
 
+/* ── Packages + About side by side ── */
+@media (min-width: 1101px) {
+  .mp-duo {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 64px;
+    padding: 96px 64px;
+    border-top: 1px solid var(--mp-line);
+    align-items: start;
+  }
+  .mp-duo > .mp-section { padding: 0; border-top: none; }
+  .mp-duo .mp-packages { max-width: none; }
+  .mp-duo .mp-price { white-space: nowrap; font-size: clamp(36px, 3.4vw, 56px); }
+  .mp-duo .mp-about { grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: start; }
+  .mp-duo .mp-about-img img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 20%; }
+}
+
 /* ── Testimonial ── */
 .mp-testimonial { background: var(--mp-soft); border-top: none; }
 .mp-story-photos {

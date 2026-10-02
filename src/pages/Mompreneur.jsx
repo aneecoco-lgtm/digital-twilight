@@ -201,55 +201,58 @@ export default function Mompreneur() {
         </div>
       </section>
 
-      {/* ── Packages ── */}
-      <section className="mp-section" id="packages">
-        <div className="mp-head">
-          <span className="mp-label">Packages</span>
-          <h2 className="mp-title">Pick your package,<br /><em>I'll do the rest.</em></h2>
-        </div>
-        <div className="mp-packages">
-          <div className="mp-package mp-package--main">
-            <span className="mp-label">Power Package 1</span>
-            <p className="mp-price">CHF 4,580</p>
-            <ul>
-              <li>Logo and brand identity</li>
-              <li>Photo session and 20 photos</li>
-              <li>3-page website</li>
-            </ul>
-            <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
+      {/* ── Packages + About, side by side on wide screens ── */}
+      <div className="mp-duo">
+        {/* ── Packages ── */}
+        <section className="mp-section" id="packages">
+          <div className="mp-head">
+            <span className="mp-label">Packages</span>
+            <h2 className="mp-title">Pick your package,<br /><em>I'll do the rest.</em></h2>
           </div>
-          <div className="mp-package mp-package--main">
-            <span className="mp-label">Power Package 2</span>
-            <p className="mp-price">CHF 5,480</p>
-            <ul>
-              <li>Everything in Package 1</li>
-              <li>A branding promo video for your website and social media</li>
-            </ul>
-            <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
+          <div className="mp-packages">
+            <div className="mp-package mp-package--main">
+              <span className="mp-label">Power Package 1</span>
+              <p className="mp-price">CHF 4,580</p>
+              <ul>
+                <li>Logo and brand identity</li>
+                <li>Photo session and 20 photos</li>
+                <li>3-page website</li>
+              </ul>
+              <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
+            </div>
+            <div className="mp-package mp-package--main">
+              <span className="mp-label">Power Package 2</span>
+              <p className="mp-price">CHF 5,480</p>
+              <ul>
+                <li>Everything in Package 1</li>
+                <li>A branding promo video for your website and social media</li>
+              </ul>
+              <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
+            </div>
           </div>
-        </div>
-        <p className="mp-note">Instalment payments possible. Website hosting and domain not included.</p>
-      </section>
+          <p className="mp-note">Instalment payments possible. Website hosting and domain not included.</p>
+        </section>
 
-      {/* ── About ── */}
-      <section className="mp-section mp-about">
-        <div className="mp-about-img">
-          <img src="/images/mompreneur/about-bw.jpg" alt="Annalisa Cosentino in a black and white portrait" width="1080" height="1350" />
-        </div>
-        <div className="mp-about-text">
-          <span className="mp-label">Hi, I'm Annalisa</span>
-          <h2 className="mp-title">One creative,<br /><em>three skills, your brand.</em></h2>
-          <p className="mp-lede">
-            I'm Italian, and I studied Performing Arts before moving to London for a degree in
-            Photography, working in the city's galleries and museums along the way. After 11 years
-            I moved to Zürich and started Digital Twilight, working with organisations and small businesses.
-          </p>
-          <p className="mp-lede">
-            Today I bring film, photography and graphic design together to help mompreneurs
-            launch with a warm, personal approach.
-          </p>
-        </div>
-      </section>
+        {/* ── About ── */}
+        <section className="mp-section mp-about">
+          <div className="mp-about-img">
+            <img src="/images/mompreneur/about-bw.jpg" alt="Annalisa Cosentino in a black and white portrait" width="1080" height="1350" />
+          </div>
+          <div className="mp-about-text">
+            <span className="mp-label">Hi, I'm Annalisa</span>
+            <h2 className="mp-title">One creative,<br /><em>three skills, your brand.</em></h2>
+            <p className="mp-lede">
+              I'm Italian, and I studied Performing Arts before moving to London for a degree in
+              Photography, working in the city's galleries and museums along the way. After 11 years
+              I moved to Zürich and started Digital Twilight, working with organisations and small businesses.
+            </p>
+            <p className="mp-lede">
+              Today I bring film, photography and graphic design together to help mompreneurs
+              launch with a warm, personal approach.
+            </p>
+          </div>
+        </section>
+      </div>
 
       {/* ── Testimonial ── */}
       <section className="mp-section mp-testimonial">
