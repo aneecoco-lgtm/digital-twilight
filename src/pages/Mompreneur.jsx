@@ -5,6 +5,13 @@ import './Mompreneur.css'
 // the video section stays hidden until then.
 const PROCESS_VIDEO = null
 
+const WORK = [
+  { src: '/images/mompreneur/work-1.jpg', alt: 'Sunnely business cards in a gift box' },
+  { src: '/images/mompreneur/work-2.jpg', alt: 'La Fabbrica di Zurigo brand identity, winner of a brand identity contest' },
+  { src: '/images/mompreneur/work-3.jpg', alt: 'Rezzonico branded paper bags' },
+  { src: '/images/mompreneur/work-4.jpg', alt: 'Borgia-Art catalogue and Cacao Rocks magazine design' },
+]
+
 const BOOK_MAIL = 'mailto:info@digital-twilight.com?subject=Mompreneur%20Power%20Package%20%E2%80%94%20free%2015-minute%20call'
 
 // WhatsApp number, international format, digits only, stored REVERSED so it never
@@ -231,6 +238,14 @@ export default function Mompreneur() {
             </div>
           </div>
           <p className="mp-note">Instalment payments possible. Website hosting and domain not included.</p>
+          <div className="mp-work">
+            <span className="mp-label">Brands I've built</span>
+            <div className="mp-work-strip">
+              {WORK.map(w => (
+                <img key={w.src} src={w.src} alt={w.alt} loading="lazy" width="800" height="600" />
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* ── About ── */}

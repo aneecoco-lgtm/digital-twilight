@@ -299,6 +299,24 @@
 }
 .mp-about-img img { width: 100%; height: auto; border-radius: 4px; }
 
+.mp-work { margin-top: 56px; }
+.mp-work .mp-label { display: block; margin-bottom: 16px; }
+.mp-work-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.mp-work-strip img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+}
+@media (max-width: 600px) {
+  .mp-work-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+}
+
 /* ── Packages + About side by side ── */
 @media (min-width: 1101px) {
   .mp-duo {
