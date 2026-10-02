@@ -318,10 +318,9 @@
 .mp-testimonial { background: var(--mp-soft); border-top: none; }
 .mp-story-photos {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  max-width: 620px;
-  margin: 0 auto 96px;
+  margin-bottom: 96px;
 }
 .mp-story-photos img {
   width: 100%;
@@ -330,7 +329,6 @@
   object-fit: cover;
   border-radius: 4px;
 }
-.mp-story-photos img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; object-position: center 12%; }
 .mp-quote {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -473,8 +471,8 @@
   .mp-quote { grid-template-columns: 1fr; }
   .mp-who-img { min-height: 0; aspect-ratio: 16 / 10; order: -1; }
   .mp-pull { grid-row: auto; }
-  .mp-story-photos { gap: 10px; margin-bottom: 56px; }
-  .mp-story-photos img:first-child { aspect-ratio: 4 / 3; }
+  .mp-story-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 56px; }
+  .mp-story-photos img:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; object-position: center 25%; }
   .mp-week { grid-template-columns: 1fr; gap: 16px; }
   .mp-week-img { grid-column: auto; }
   .mp-package { padding: 28px; }
