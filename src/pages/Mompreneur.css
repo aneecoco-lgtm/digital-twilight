@@ -94,6 +94,8 @@
   border-top: 1px solid var(--mp-line);
 }
 .mp-head { max-width: 720px; margin-bottom: 56px; }
+.mp-head--wide { max-width: none; }
+@media (min-width: 901px) { .mp-nowrap { white-space: nowrap; } }
 .mp h3 {
   font-size: 12px;
   font-weight: 600;

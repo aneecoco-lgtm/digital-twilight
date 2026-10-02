@@ -158,9 +158,9 @@ export default function Mompreneur() {
 
       {/* ── Who it's for ── */}
       <section className="mp-section">
-        <div className="mp-head">
+        <div className="mp-head mp-head--wide">
           <span className="mp-label">Who it's for</span>
-          <h2 className="mp-title">For moms with a clear idea<br /><em>and a busy life.</em></h2>
+          <h2 className="mp-title"><span className="mp-nowrap">For moms with a clear idea</span><br /><em>and a busy life.</em></h2>
         </div>
         <img className="mp-who-img" src="/images/mompreneur/who.jpg" alt="Three women entrepreneurs smiling together" loading="lazy" width="1800" height="1120" />
         <div className="mp-fit">
