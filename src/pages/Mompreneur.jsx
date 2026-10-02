@@ -235,7 +235,7 @@ export default function Mompreneur() {
           <img src="/images/mompreneur/about-bw.jpg" alt="Annalisa Cosentino in a black and white portrait" width="1080" height="1350" />
         </div>
         <div className="mp-about-text">
-          <span className="mp-label">Hi, I'm Annalisa, or Anee</span>
+          <span className="mp-label">Hi, I'm Annalisa</span>
           <h2 className="mp-title">One creative,<br /><em>three skills, your brand.</em></h2>
           <p className="mp-lede">
             I'm Italian, and I studied Performing Arts before moving to London for a degree in

@@ -10,6 +10,7 @@ import Seo from './components/Seo'
 import Testimonials from './components/Testimonials'
 import WorkMarquee from './components/WorkMarquee'
 import ServicesTicker from './components/ServicesTicker'
+import MompreneurTeaser from './components/MompreneurTeaser'
 import HswissCaseStudy from './pages/HswissCaseStudy'
 import EsnrCaseStudy from './pages/EsnrCaseStudy'
 import YoaCaseStudy from './pages/YoaCaseStudy'
@@ -35,6 +36,7 @@ function Home() {
       <Tagline />
       <ServicesTicker />
       <SelectedWork />
+      <MompreneurTeaser />
       <About />
       <WorkMarquee />
       <Testimonials />
