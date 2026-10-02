@@ -7,14 +7,19 @@ const PROCESS_VIDEO = null
 
 const BOOK_MAIL = 'mailto:info@digital-twilight.com?subject=Mompreneur%20Power%20Package%20%E2%80%94%20free%2015-minute%20call'
 
-// WhatsApp number in international format, digits only (e.g. '41791234567').
-// While empty, every booking button falls back to email.
-const WHATSAPP_NUMBER = ''
+// WhatsApp number, international format, digits only, stored REVERSED so it never
+// appears in the page HTML or source as-is (keeps it away from spam scrapers).
+// The link is only built when a visitor clicks. Empty = buttons fall back to email.
+const WHATSAPP_REVERSED = '82866376714'
 const WHATSAPP_TEXT = "Hi Anee, I'd like to book my free 15-minute call about the Mompreneur Power Package."
-const BOOK_LINK = WHATSAPP_NUMBER
-  ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_TEXT)}`
-  : BOOK_MAIL
-const BOOK_LINK_PROPS = WHATSAPP_NUMBER ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+const openWhatsApp = e => {
+  e.preventDefault()
+  const number = WHATSAPP_REVERSED.split('').reverse().join('')
+  window.open(`https://wa.me/${number}?text=${encodeURIComponent(WHATSAPP_TEXT)}`, '_blank', 'noopener')
+}
+const WHATSAPP_NUMBER = WHATSAPP_REVERSED !== ''
+const BOOK_LINK = WHATSAPP_NUMBER ? '#book' : BOOK_MAIL
+const BOOK_LINK_PROPS = WHATSAPP_NUMBER ? { onClick: openWhatsApp } : {}
 
 const weeks = [
   {
