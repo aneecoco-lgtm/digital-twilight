@@ -70,6 +70,11 @@ export const pages = {
       uploadDate: '2026-06-01',
     },
   },
+  '/mompreneur': {
+    title: 'Mompreneur Power Package — Brand, Photos & Website in 3 Weeks | Digital Twilight',
+    description: 'A done-for-you 3-week launch for moms in Zürich with a clear business idea: logo and brand identity, professional photos and a 3-page website.',
+    image: '/images/mompreneur/hero.jpg',
+  },
   '/impressum': {
     title: 'Impressum — Digital Twilight',
     description: 'Legal notice and contact details for Digital Twilight, the independent creative practice of Annalisa Cosentino in Zürich.',

@@ -10,6 +10,7 @@ import Seo from './components/Seo'
 import Testimonials from './components/Testimonials'
 import WorkMarquee from './components/WorkMarquee'
 import ServicesTicker from './components/ServicesTicker'
+import MompreneurTeaser from './components/MompreneurTeaser'
 import HswissCaseStudy from './pages/HswissCaseStudy'
 import EsnrCaseStudy from './pages/EsnrCaseStudy'
 import YoaCaseStudy from './pages/YoaCaseStudy'
@@ -17,6 +18,7 @@ import EvolveCaseStudy from './pages/EvolveCaseStudy'
 import WerIstMigrantCaseStudy from './pages/WerIstMigrantCaseStudy'
 import AiStorytelling from './pages/AiStorytelling'
 import Impressum from './pages/Impressum'
+import Mompreneur from './pages/Mompreneur'
 import './App.css'
 
 // Reset scroll when navigating between pages (hash links within a page are unaffected)
@@ -33,9 +35,10 @@ function Home() {
       <Carousel />
       <Tagline />
       <ServicesTicker />
-      <SelectedWork />
-      <About />
       <WorkMarquee />
+      <SelectedWork />
+      <MompreneurTeaser />
+      <About />
       <Testimonials />
       <SiteFooter />
     </>
@@ -55,6 +58,7 @@ export default function App() {
         <Route path="/work/evolve" element={<EvolveCaseStudy />} />
         <Route path="/work/wer-ist-migrant" element={<WerIstMigrantCaseStudy />} />
         <Route path="/work/ai-storytelling" element={<AiStorytelling />} />
+        <Route path="/mompreneur" element={<Mompreneur />} />
         <Route path="/impressum" element={<Impressum />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

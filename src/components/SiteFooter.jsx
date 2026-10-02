@@ -25,6 +25,7 @@ export default function SiteFooter() {
             <a href="#work">Work</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
+            <Link to="/mompreneur">Mompreneur</Link>
           </div>
           <div className="footer-col">
             <span className="label footer-col-title">Follow</span>
