@@ -146,8 +146,8 @@ export default function Mompreneur() {
         <ol className="mp-weeks">
           {weeks.map(w => (
             <li className="mp-week" key={w.week}>
-              <span className="mp-week-num">{w.week}</span>
               <div>
+                <span className="mp-week-num">{w.week}</span>
                 <h3>{w.title}</h3>
                 <ul>
                   {w.items.map(item => <li key={item}>{item}</li>)}

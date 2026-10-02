@@ -182,12 +182,12 @@
 .mp-benefits p { font-size: 14px; line-height: 1.8; color: var(--mp-muted); }
 
 /* ── Weeks ── */
-.mp-weeks { max-width: 1200px; }
+.mp-weeks { max-width: none; }
 .mp-week {
   display: grid;
-  grid-template-columns: 140px minmax(0, 1fr) minmax(0, 420px);
-  gap: 40px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
   padding: 40px 0;
   border-bottom: 1px solid var(--mp-line);
 }
@@ -198,6 +198,8 @@
   font-size: 34px;
   line-height: 1;
   color: var(--mp-accent-text);
+  display: block;
+  margin-bottom: 20px;
 }
 .mp-week-img {
   width: 100%;
@@ -456,8 +458,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
-  .mp-week { grid-template-columns: 120px minmax(0, 1fr); }
-  .mp-week-img { grid-column: 2; max-width: 480px; }
+  .mp-week { gap: 32px; }
 }
 @media (max-width: 900px) {
   .mp-nav { padding: 0 20px; }
