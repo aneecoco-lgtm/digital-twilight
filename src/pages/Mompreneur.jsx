@@ -222,7 +222,7 @@ export default function Mompreneur() {
         </div>
         <div className="mp-about-text">
           <span className="mp-label">Hi, I'm Annalisa, or Anee</span>
-          <h2 className="mp-title">Your one-stop shop<br /><em>for your brand.</em></h2>
+          <h2 className="mp-title">One creative,<br /><em>three skills, your brand.</em></h2>
           <p className="mp-lede">
             I'm Italian, and I studied Performing Arts before moving to London for a degree in
             Photography, working in the city's galleries and museums along the way. After 11 years
