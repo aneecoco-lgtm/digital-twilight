@@ -21,7 +21,7 @@ const weeks = [
     week: 'Week 1',
     title: 'Logo & brand identity',
     image: '/images/mompreneur/week1-logo.jpg',
-    alt: 'Logo design for the Moonbrè hair brand',
+    alt: 'Brand identity for La Fabbrica di Zurigo: logo, business cards, flyers and brochure',
     items: [
       '2 unique logo concepts and 2 rounds of changes',
       'Final logo files for web and print, in colour, grayscale and a version for coloured backgrounds',
