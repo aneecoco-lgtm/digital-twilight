@@ -256,10 +256,10 @@ export default function Mompreneur() {
         </div>
         <div className="mp-faq">
           {faqs.map(([q, a]) => (
-            <details key={q}>
-              <summary>{q}</summary>
+            <div className="mp-faq-item" key={q}>
+              <h3>{q}</h3>
               <p>{a}</p>
-            </details>
+            </div>
           ))}
         </div>
       </section>
