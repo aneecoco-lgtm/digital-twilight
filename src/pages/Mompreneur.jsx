@@ -264,6 +264,9 @@ export default function Mompreneur() {
             <li>Ebook</li>
             <li>Video courses</li>
             <li>Graphics</li>
+            <li>Brand photography</li>
+            <li className="mp-made-break" aria-hidden="true" />
+            <li>Customized packages</li>
           </ul>
         </figure>
       </section>
