@@ -218,9 +218,9 @@ export default function Mompreneur() {
       {/* ── About ── */}
       <section className="mp-section mp-about">
         <div className="mp-about-img">
-          <img src="/images/mompreneur/about.jpg" alt="Annalisa with her camera, surrounded by design books" width="1200" height="1200" />
+          <img src="/images/mompreneur/about-yellow.jpg" alt="Annalisa Cosentino in a yellow halftone portrait" width="1080" height="1350" />
         </div>
-        <div>
+        <div className="mp-about-text">
           <span className="mp-label">Hi, I'm Annalisa, or Anee</span>
           <h2 className="mp-title">Your one-stop shop<br /><em>for your brand.</em></h2>
           <p className="mp-lede">
@@ -232,6 +232,7 @@ export default function Mompreneur() {
             Today I bring film, photography and graphic design together to help mompreneurs
             launch with a warm, personal approach.
           </p>
+          <img className="mp-about-img2" src="/images/mompreneur/about-portrait.jpg" alt="Annalisa Cosentino at a table, arms crossed" loading="lazy" width="1080" height="1350" />
         </div>
       </section>
 
