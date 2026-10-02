@@ -189,7 +189,7 @@ export default function Mompreneur() {
       <section className="mp-section" id="packages">
         <div className="mp-head">
           <span className="mp-label">Packages</span>
-          <h2 className="mp-title">Everything<br /><em>under one roof.</em></h2>
+          <h2 className="mp-title">Pick your package,<br /><em>I'll do the rest.</em></h2>
         </div>
         <div className="mp-packages">
           <div className="mp-package mp-package--main">
