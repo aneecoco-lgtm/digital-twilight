@@ -299,8 +299,7 @@
 }
 .mp-about-img img { width: 100%; height: auto; border-radius: 4px; }
 
-.mp-work { margin-top: 56px; }
-.mp-work .mp-label { display: block; margin-bottom: 16px; }
+.mp-work { margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--mp-line); }
 .mp-work-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
