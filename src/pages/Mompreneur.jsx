@@ -7,6 +7,15 @@ const PROCESS_VIDEO = null
 
 const BOOK_MAIL = 'mailto:info@digital-twilight.com?subject=Mompreneur%20Power%20Package%20%E2%80%94%20free%2015-minute%20call'
 
+// WhatsApp number in international format, digits only (e.g. '41791234567').
+// While empty, every booking button falls back to email.
+const WHATSAPP_NUMBER = ''
+const WHATSAPP_TEXT = "Hi Anee, I'd like to book my free 15-minute call about the Mompreneur Power Package."
+const BOOK_LINK = WHATSAPP_NUMBER
+  ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_TEXT)}`
+  : BOOK_MAIL
+const BOOK_LINK_PROPS = WHATSAPP_NUMBER ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+
 const weeks = [
   {
     week: 'Week 1',
@@ -66,7 +75,7 @@ export default function Mompreneur() {
           </svg>
           Digital Twilight
         </Link>
-        <a href={BOOK_MAIL} className="mp-nav-cta">Book a free call</a>
+        <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-nav-cta">Book a free call</a>
       </nav>
 
       {/* ── Hero ── */}
@@ -81,7 +90,7 @@ export default function Mompreneur() {
             who works around your family's schedule.
           </p>
           <div className="mp-actions">
-            <a href={BOOK_MAIL} className="mp-btn mp-btn--solid">Book a free 15-min call</a>
+            <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free 15-min call</a>
             <a href="#weeks" className="mp-btn">See the 3 weeks</a>
           </div>
           <ul className="mp-proof">
@@ -200,7 +209,7 @@ export default function Mompreneur() {
               <li>Photo session and 20 photos</li>
               <li>3-page website</li>
             </ul>
-            <a href={BOOK_MAIL} className="mp-btn mp-btn--solid">Book a free call</a>
+            <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
           </div>
           <div className="mp-package">
             <span className="mp-label">Power Package 2</span>
@@ -209,7 +218,7 @@ export default function Mompreneur() {
               <li>Everything in Package 1</li>
               <li>A branding promo video for your website and social media</li>
             </ul>
-            <a href={BOOK_MAIL} className="mp-btn">Book a free call</a>
+            <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn">Book a free call</a>
           </div>
         </div>
         <p className="mp-note">Instalment payments possible. Website hosting and domain not included.</p>
@@ -289,14 +298,27 @@ export default function Mompreneur() {
 
       {/* ── Final CTA ── */}
       <section className="mp-section mp-final" id="book">
-        <span className="mp-label">Start a conversation</span>
+        <span className="mp-label">Book your free call</span>
         <h2 className="mp-final-title">Let's talk about<br /><em>your vision.</em></h2>
-        <p className="mp-lede">
-          Email me a few lines about your idea and two times that suit you.
-          I'll confirm your free 15-minute call. No pressure, just a chat.
-        </p>
-        <a href={BOOK_MAIL} className="mp-btn mp-btn--solid">Email me to book your call</a>
-        <a href="mailto:info@digital-twilight.com" className="mp-email">info@digital-twilight.com</a>
+        {WHATSAPP_NUMBER ? (
+          <>
+            <p className="mp-lede">
+              Send me a WhatsApp with a few words about your idea. I'll reply personally
+              and we'll pick a time for your free 15-minute call. No pressure, just a chat.
+            </p>
+            <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Message me on WhatsApp</a>
+            <a href={BOOK_MAIL} className="mp-email">Prefer email? info@digital-twilight.com</a>
+          </>
+        ) : (
+          <>
+            <p className="mp-lede">
+              Email me a few lines about your idea and two times that suit you.
+              I'll confirm your free 15-minute call. No pressure, just a chat.
+            </p>
+            <a href={BOOK_MAIL} className="mp-btn mp-btn--solid">Email me to book your call</a>
+            <a href="mailto:info@digital-twilight.com" className="mp-email">info@digital-twilight.com</a>
+          </>
+        )}
       </section>
 
       <footer className="mp-footer">
