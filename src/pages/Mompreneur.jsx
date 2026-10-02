@@ -46,7 +46,7 @@ const weeks = [
     week: 'Week 2',
     title: 'Visual content',
     image: '/images/mompreneur/week2-studio.jpg',
-    alt: 'Annalisa in her photo studio with camera and lights',
+    alt: 'A Digital Twilight studio desk with a camera, laptop and business cards',
     items: [
       'A photo session for your products, services or personal brand',
       '20 high-quality photos and images for your website and social media',
