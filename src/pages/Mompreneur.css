@@ -163,10 +163,12 @@
 }
 .mp-proof li::before { content: '— '; color: var(--mp-accent-text); }
 .mp-hero-img img {
-  width: 100%;
+  display: block;
+  width: auto;
+  max-width: 100%;
   height: auto;
-  max-height: 640px;
-  object-fit: cover;
+  max-height: min(640px, 80vh);
+  margin-left: auto;
   border-radius: 4px;
 }
 
@@ -180,12 +182,12 @@
 .mp-benefits p { font-size: 14px; line-height: 1.8; color: var(--mp-muted); }
 
 /* ── Weeks ── */
-.mp-weeks { max-width: 1200px; }
+.mp-weeks { max-width: none; }
 .mp-week {
   display: grid;
-  grid-template-columns: 140px minmax(0, 1fr) minmax(0, 420px);
-  gap: 40px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
   padding: 40px 0;
   border-bottom: 1px solid var(--mp-line);
 }
@@ -196,6 +198,8 @@
   font-size: 34px;
   line-height: 1;
   color: var(--mp-accent-text);
+  display: block;
+  margin-bottom: 20px;
 }
 .mp-week-img {
   width: 100%;
@@ -239,22 +243,21 @@
 }
 
 /* ── Fit ── */
+.mp-who {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 64px;
+  align-items: center;
+}
 .mp-who-img {
   width: 100%;
-  max-width: 960px;
-  height: auto;
-  aspect-ratio: 16 / 7;
+  height: 100%;
+  min-height: 420px;
   object-fit: cover;
   object-position: 50% 30%;
   border-radius: 4px;
-  margin-bottom: 56px;
 }
-.mp-fit {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  max-width: 960px;
-}
+.mp-fit { display: grid; gap: 40px; }
 .mp-fit-no h3 { color: var(--mp-muted); }
 .mp-fit-no li::before { background: var(--mp-line); }
 
@@ -296,14 +299,30 @@
 }
 .mp-about-img img { width: 100%; height: auto; border-radius: 4px; }
 
+/* ── Packages + About side by side ── */
+@media (min-width: 1101px) {
+  .mp-duo {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 64px;
+    padding: 96px 64px;
+    border-top: 1px solid var(--mp-line);
+    align-items: start;
+  }
+  .mp-duo > .mp-section { padding: 0; border-top: none; }
+  .mp-duo .mp-packages { max-width: none; }
+  .mp-duo .mp-price { white-space: nowrap; font-size: clamp(36px, 3.4vw, 56px); }
+  .mp-duo .mp-about { grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: start; }
+  .mp-duo .mp-about-img img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 20%; }
+}
+
 /* ── Testimonial ── */
 .mp-testimonial { background: var(--mp-soft); border-top: none; }
 .mp-story-photos {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  max-width: 620px;
-  margin: 0 auto 96px;
+  margin-bottom: 96px;
 }
 .mp-story-photos img {
   width: 100%;
@@ -312,7 +331,6 @@
   object-fit: cover;
   border-radius: 4px;
 }
-.mp-story-photos img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; object-position: center 12%; }
 .mp-quote {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -440,8 +458,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
-  .mp-week { grid-template-columns: 120px minmax(0, 1fr); }
-  .mp-week-img { grid-column: 2; max-width: 480px; }
+  .mp-week { gap: 32px; }
 }
 @media (max-width: 900px) {
   .mp-nav { padding: 0 20px; }
@@ -449,13 +466,14 @@
   .mp-hero { grid-template-columns: 1fr; gap: 40px; padding: 112px 20px 64px; }
   .mp-hero-img { max-width: 420px; }
   .mp-benefits,
-  .mp-fit,
+  .mp-who,
   .mp-packages,
   .mp-about { grid-template-columns: 1fr; gap: 32px; }
   .mp-quote { grid-template-columns: 1fr; }
+  .mp-who-img { min-height: 0; aspect-ratio: 16 / 10; order: -1; }
   .mp-pull { grid-row: auto; }
-  .mp-story-photos { gap: 10px; margin-bottom: 56px; }
-  .mp-story-photos img:first-child { aspect-ratio: 4 / 3; }
+  .mp-story-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 56px; }
+  .mp-story-photos img:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; object-position: center 25%; }
   .mp-week { grid-template-columns: 1fr; gap: 16px; }
   .mp-week-img { grid-column: auto; }
   .mp-package { padding: 28px; }
