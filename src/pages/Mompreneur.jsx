@@ -232,7 +232,6 @@ export default function Mompreneur() {
             Today I bring film, photography and graphic design together to help mompreneurs
             launch with a warm, personal approach.
           </p>
-          <img className="mp-about-img2" src="/images/mompreneur/about-portrait.jpg" alt="Annalisa Cosentino, founder of Digital Twilight" loading="lazy" width="1050" height="1400" />
         </div>
       </section>
 
