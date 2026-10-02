@@ -237,14 +237,34 @@ export default function Mompreneur() {
 
       {/* ── Testimonial ── */}
       <section className="mp-section mp-testimonial">
-        <img className="mp-testimonial-img" src="/images/mompreneur/enrieta-power.jpg" alt="Enrieta Power" width="600" height="900" />
+        <div className="mp-head">
+          <span className="mp-label">Client story</span>
+          <h2 className="mp-title">Enrieta Power,<br /><em>mother of four.</em></h2>
+          <p className="mp-lede">
+            With four children and another on the way, Enrieta needed help that fit around
+            her family. In under a month we created her logo, an ebook, her graphics and her video courses.
+          </p>
+        </div>
+
+        <div className="mp-story-photos">
+          {[1, 2, 3].map(n => (
+            <img key={n} src={`/images/mompreneur/enrieta-${n}.jpg`} alt={`Enrieta Power, photo ${n} of 3`} loading="lazy" width="1080" height="1350" />
+          ))}
+        </div>
+
         <figure className="mp-quote">
-          <span className="mp-label">Kind words</span>
+          <p className="mp-pull">"Her flexibility and accommodating nature were invaluable."</p>
           <blockquote>
             <p>"I am deeply grateful to Annalisa for her exceptional support as a filmmaker and graphic designer. Despite being a mother of four (with another on the way), her flexibility and accommodating nature were invaluable. In under a month, she recorded my video courses with professionalism and helped me confidently engage my audience.</p>
             <p>She crafted a perfect logo, an extraordinary ebook, and numerous graphic elements that enhanced my project. Her creativity, expertise, and dedication were crucial to my success, transforming my ideas into reality and exceeding all expectations."</p>
           </blockquote>
           <figcaption>Enrieta Power</figcaption>
+          <ul className="mp-made">
+            <li>Logo</li>
+            <li>Ebook</li>
+            <li>Video courses</li>
+            <li>Graphics</li>
+          </ul>
         </figure>
       </section>
 
