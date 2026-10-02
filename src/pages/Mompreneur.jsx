@@ -194,7 +194,7 @@ export default function Mompreneur() {
         <div className="mp-packages">
           <div className="mp-package mp-package--main">
             <span className="mp-label">Power Package 1</span>
-            <p className="mp-price">CHF 3,950</p>
+            <p className="mp-price">CHF 4,600</p>
             <ul>
               <li>Logo and brand identity</li>
               <li>Photo session and 20 photos</li>
@@ -204,7 +204,7 @@ export default function Mompreneur() {
           </div>
           <div className="mp-package">
             <span className="mp-label">Power Package 2</span>
-            <p className="mp-price">CHF 4,450</p>
+            <p className="mp-price">CHF 5,480</p>
             <ul>
               <li>Everything in Package 1</li>
               <li>A branding promo video for your website and social media</li>
