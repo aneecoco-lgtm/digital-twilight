@@ -2,12 +2,12 @@
 /* Light page with one violet accent, kept separate from the dark main site. */
 .mp {
   --mp-bg: #ffffff;
-  --mp-soft: #f4f1fb;
-  --mp-ink: #17141f;
-  --mp-muted: #5c5770;
-  --mp-line: #e7e3ef;
-  --mp-accent: #5b3fbf;
-  --mp-accent-deep: #452e99;
+  --mp-soft: #fbf2f1;
+  --mp-ink: #1a1414;
+  --mp-muted: #5f5656;
+  --mp-line: #ede4e3;
+  --mp-accent: #c80e0e;
+  --mp-accent-deep: #9c0a0a;
   --mp-serif: 'Cormorant Garamond', Georgia, serif;
   background: var(--mp-bg);
   color: var(--mp-ink);
