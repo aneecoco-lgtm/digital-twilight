@@ -266,7 +266,7 @@ export default function Mompreneur() {
             <li>Graphics</li>
             <li>Brand photography</li>
             <li className="mp-made-break" aria-hidden="true" />
-            <li>Customized packages</li>
+            <li>Package 2, tailored to her needs</li>
           </ul>
         </figure>
       </section>
