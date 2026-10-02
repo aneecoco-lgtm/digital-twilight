@@ -455,15 +455,11 @@
   .mp-quote { grid-template-columns: 1fr; }
   .mp-pull { grid-row: auto; }
   .mp-story-photos {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 12px;
-    margin-inline: -20px;
-    padding-inline: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
     margin-bottom: 56px;
   }
-  .mp-story-photos img { flex: 0 0 72%; width: 72%; scroll-snap-align: start; }
+  .mp-story-photos img:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; object-position: center 25%; }
   .mp-story-photos img:nth-child(2) { transform: none; }
   .mp-week { grid-template-columns: 1fr; gap: 16px; }
   .mp-week-img { grid-column: auto; }
