@@ -54,7 +54,7 @@
   transition: color 0.2s;
 }
 .mp-back:hover { color: var(--mp-ink); }
-.mp-nav-cta { color: var(--mp-ink); background: var(--mp-accent); padding: 9px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; }
+.mp-nav-cta { color: #fff; background: var(--mp-accent); padding: 9px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; }
 .mp-nav-cta:hover { background: var(--mp-accent-deep); }
 
 /* ── Shared ── */
@@ -117,8 +117,8 @@
   color: var(--mp-ink);
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
-.mp-btn:hover { background: var(--mp-accent); border-color: var(--mp-accent); }
-.mp-btn--solid { background: var(--mp-accent); border-color: var(--mp-accent); color: var(--mp-ink); }
+.mp-btn:hover { background: var(--mp-accent); border-color: var(--mp-accent); color: #fff; }
+.mp-btn--solid { background: var(--mp-accent); border-color: var(--mp-accent); color: #fff; }
 .mp-btn--solid:hover { background: var(--mp-accent-deep); border-color: var(--mp-accent-deep); }
 .mp-btn:focus-visible,
 .mp summary:focus-visible { outline: 2px solid var(--mp-ink); outline-offset: 4px; }
@@ -355,7 +355,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--mp-ink);
+  color: #fff;
 }
 
 /* ── FAQ ── */
