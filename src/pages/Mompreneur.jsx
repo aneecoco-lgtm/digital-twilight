@@ -91,7 +91,7 @@ export default function Mompreneur() {
           </ul>
         </div>
         <div className="mp-hero-img">
-          <img src="/images/mompreneur/hero.jpg" alt="Annalisa Cosentino, founder of Digital Twilight" width="1050" height="1400" />
+          <img src="/images/mompreneur/hero.jpg" alt="Annalisa Cosentino, founder of Digital Twilight, at a table with arms crossed" width="1080" height="1350" />
         </div>
       </header>
 
@@ -232,7 +232,7 @@ export default function Mompreneur() {
             Today I bring film, photography and graphic design together to help mompreneurs
             launch with a warm, personal approach.
           </p>
-          <img className="mp-about-img2" src="/images/mompreneur/about-portrait.jpg" alt="Annalisa Cosentino at a table, arms crossed" loading="lazy" width="1080" height="1350" />
+          <img className="mp-about-img2" src="/images/mompreneur/about-portrait.jpg" alt="Annalisa Cosentino, founder of Digital Twilight" loading="lazy" width="1050" height="1400" />
         </div>
       </section>
 
