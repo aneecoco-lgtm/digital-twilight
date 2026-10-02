@@ -241,22 +241,21 @@
 }
 
 /* ── Fit ── */
+.mp-who {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 64px;
+  align-items: center;
+}
 .mp-who-img {
   width: 100%;
-  max-width: 960px;
-  height: auto;
-  aspect-ratio: 16 / 7;
+  height: 100%;
+  min-height: 420px;
   object-fit: cover;
   object-position: 50% 30%;
   border-radius: 4px;
-  margin-bottom: 56px;
 }
-.mp-fit {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  max-width: 960px;
-}
+.mp-fit { display: grid; gap: 40px; }
 .mp-fit-no h3 { color: var(--mp-muted); }
 .mp-fit-no li::before { background: var(--mp-line); }
 
@@ -451,10 +450,11 @@
   .mp-hero { grid-template-columns: 1fr; gap: 40px; padding: 112px 20px 64px; }
   .mp-hero-img { max-width: 420px; }
   .mp-benefits,
-  .mp-fit,
+  .mp-who,
   .mp-packages,
   .mp-about { grid-template-columns: 1fr; gap: 32px; }
   .mp-quote { grid-template-columns: 1fr; }
+  .mp-who-img { min-height: 0; aspect-ratio: 16 / 10; order: -1; }
   .mp-pull { grid-row: auto; }
   .mp-story-photos { gap: 10px; margin-bottom: 56px; }
   .mp-story-photos img:first-child { aspect-ratio: 4 / 3; }

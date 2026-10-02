@@ -176,8 +176,8 @@ export default function Mompreneur() {
           <span className="mp-label">Who it's for</span>
           <h2 className="mp-title"><span className="mp-nowrap">For moms with a clear idea</span><br /><em>and a busy life.</em></h2>
         </div>
-        <img className="mp-who-img" src="/images/mompreneur/who.jpg" alt="Three women entrepreneurs smiling together" loading="lazy" width="1800" height="1120" />
-        <div className="mp-fit">
+        <div className="mp-who">
+          <div className="mp-fit">
           <div>
             <h3>This is for you if</h3>
             <ul>
@@ -195,8 +195,10 @@ export default function Mompreneur() {
               <li>You'd rather do all the design yourself</li>
             </ul>
           </div>
+          <p className="mp-note">Not a mom? If you're busy and have a clear idea, this works for you too.</p>
         </div>
-        <p className="mp-note">Not a mom? If you're busy and have a clear idea, this works for you too.</p>
+          <img className="mp-who-img" src="/images/mompreneur/who.jpg" alt="Three women entrepreneurs smiling together" loading="lazy" width="1800" height="1120" />
+        </div>
       </section>
 
       {/* ── Packages ── */}
@@ -216,14 +218,14 @@ export default function Mompreneur() {
             </ul>
             <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
           </div>
-          <div className="mp-package">
+          <div className="mp-package mp-package--main">
             <span className="mp-label">Power Package 2</span>
             <p className="mp-price">CHF 5,480</p>
             <ul>
               <li>Everything in Package 1</li>
               <li>A branding promo video for your website and social media</li>
             </ul>
-            <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn">Book a free call</a>
+            <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
           </div>
         </div>
         <p className="mp-note">Instalment payments possible. Website hosting and domain not included.</p>
