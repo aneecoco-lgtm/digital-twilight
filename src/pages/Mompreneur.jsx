@@ -105,7 +105,7 @@ export default function Mompreneur() {
           </ul>
         </div>
         <div className="mp-hero-img">
-          <img src="/images/mompreneur/hero.jpg" alt="Annalisa Cosentino, founder of Digital Twilight, smiling in a black and white portrait" width="1080" height="1350" />
+          <img src="/images/mompreneur/hero.jpg" alt="Annalisa Cosentino, founder of Digital Twilight, in a black and white studio portrait" width="1080" height="1528" />
         </div>
       </header>
 
