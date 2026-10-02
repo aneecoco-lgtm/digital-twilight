@@ -2,12 +2,13 @@
 /* Light page with one violet accent, kept separate from the dark main site. */
 .mp {
   --mp-bg: #ffffff;
-  --mp-soft: #fbf2f1;
+  --mp-soft: #fff8dc;
   --mp-ink: #1a1414;
   --mp-muted: #5f5656;
   --mp-line: #ede4e3;
-  --mp-accent: #c80e0e;
-  --mp-accent-deep: #9c0a0a;
+  --mp-accent: #facf1e;       /* yellow: fills, highlights */
+  --mp-accent-deep: #e8b800;
+  --mp-accent-text: #7a5c00;  /* dark gold: readable text on white */
   --mp-serif: 'Cormorant Garamond', Georgia, serif;
   background: var(--mp-bg);
   color: var(--mp-ink);
@@ -20,7 +21,9 @@
   font-style: italic;
   text-transform: none;
   letter-spacing: 0;
-  color: var(--mp-accent);
+  color: var(--mp-ink);
+  background: linear-gradient(transparent 58%, var(--mp-accent) 58%, var(--mp-accent) 92%, transparent 92%);
+  padding-inline: 0.06em;
 }
 
 /* ── Nav ── */
@@ -51,8 +54,8 @@
   transition: color 0.2s;
 }
 .mp-back:hover { color: var(--mp-ink); }
-.mp-nav-cta { color: var(--mp-accent); }
-.mp-nav-cta:hover { color: var(--mp-accent-deep); }
+.mp-nav-cta { color: var(--mp-ink); background: var(--mp-accent); padding: 8px 14px; }
+.mp-nav-cta:hover { background: var(--mp-accent-deep); }
 
 /* ── Shared ── */
 .mp-label {
@@ -61,7 +64,7 @@
   font-weight: 600;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--mp-accent);
+  color: var(--mp-accent-text);
   margin-bottom: 18px;
 }
 .mp-title {
@@ -105,20 +108,20 @@
 .mp-btn {
   display: inline-block;
   padding: 16px 28px;
-  border: 1px solid var(--mp-accent);
+  border: 1px solid var(--mp-ink);
   border-radius: 2px;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--mp-accent);
+  color: var(--mp-ink);
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
-.mp-btn:hover { background: var(--mp-soft); }
-.mp-btn--solid { background: var(--mp-accent); color: #fff; }
+.mp-btn:hover { background: var(--mp-accent); border-color: var(--mp-accent); }
+.mp-btn--solid { background: var(--mp-accent); border-color: var(--mp-accent); color: var(--mp-ink); }
 .mp-btn--solid:hover { background: var(--mp-accent-deep); border-color: var(--mp-accent-deep); }
 .mp-btn:focus-visible,
-.mp summary:focus-visible { outline: 2px solid var(--mp-accent); outline-offset: 4px; }
+.mp summary:focus-visible { outline: 2px solid var(--mp-ink); outline-offset: 4px; }
 
 /* ── Hero ── */
 .mp-hero {
@@ -156,7 +159,7 @@
   text-transform: uppercase;
   color: var(--mp-muted);
 }
-.mp-proof li::before { content: '— '; color: var(--mp-accent); }
+.mp-proof li::before { content: '— '; color: var(--mp-accent-text); }
 .mp-hero-img img {
   width: 100%;
   height: auto;
@@ -171,7 +174,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
 }
-.mp-benefits > div { border-top: 2px solid var(--mp-accent); padding-top: 24px; }
+.mp-benefits > div { border-top: 4px solid var(--mp-accent); padding-top: 24px; }
 .mp-benefits p { font-size: 14px; line-height: 1.8; color: var(--mp-muted); }
 
 /* ── Weeks ── */
@@ -190,7 +193,7 @@
   font-style: italic;
   font-size: 34px;
   line-height: 1;
-  color: var(--mp-accent);
+  color: var(--mp-accent-text);
 }
 .mp-week-img {
   width: 100%;
@@ -220,7 +223,7 @@
   top: 0.8em;
   width: 8px;
   height: 2px;
-  background: var(--mp-accent);
+  background: var(--mp-accent-text);
 }
 
 /* ── Video ── */
@@ -320,7 +323,7 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--mp-accent);
+  color: var(--mp-accent-text);
 }
 .mp-quote figcaption::before { content: '— '; }
 
@@ -344,7 +347,7 @@
   top: 18px;
   font-size: 20px;
   font-weight: 300;
-  color: var(--mp-accent);
+  color: var(--mp-accent-text);
   transition: transform 0.2s;
 }
 .mp-faq details[open] summary::after { transform: rotate(45deg); }
@@ -361,9 +364,9 @@
   padding-block: 120px;
   background: var(--mp-accent);
   border-top: none;
-  color: #fff;
+  color: var(--mp-ink);
 }
-.mp-final .mp-label { color: rgba(255,255,255,0.7); }
+.mp-final .mp-label { color: var(--mp-ink); opacity: 0.7; }
 .mp-final-title {
   font-family: var(--display);
   font-size: clamp(40px, 5vw, 80px);
@@ -371,22 +374,23 @@
   line-height: 0.95;
   letter-spacing: var(--display-tracking);
   text-transform: uppercase;
-  color: #fff;
+  color: var(--mp-ink);
   margin-bottom: 28px;
 }
-.mp-final-title em { color: rgba(255,255,255,0.8); }
-.mp-final .mp-lede { margin-bottom: 36px; color: rgba(255,255,255,0.85); }
-.mp-final .mp-btn--solid { background: #fff; color: var(--mp-accent); border-color: #fff; }
-.mp-final .mp-btn--solid:hover { background: var(--mp-soft); }
-.mp-final .mp-btn:focus-visible { outline-color: #fff; }
+.mp-final-title em { color: var(--mp-ink); background: none; padding: 0; }
+.mp-final .mp-lede { margin-bottom: 36px; color: var(--mp-ink); }
+.mp-final .mp-btn--solid { background: var(--mp-ink); color: var(--mp-accent); border-color: var(--mp-ink); }
+.mp-final .mp-btn--solid:hover { background: #000; }
+.mp-final .mp-btn:focus-visible { outline-color: var(--mp-ink); }
 .mp-email {
   display: block;
   margin-top: 24px;
   font-size: 13px;
   letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.8);
+  color: var(--mp-ink);
+  text-decoration: underline;
 }
-.mp-email:hover { color: #fff; }
+.mp-email:hover { color: #000; }
 
 .mp-footer {
   display: flex;
