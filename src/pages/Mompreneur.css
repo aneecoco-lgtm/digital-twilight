@@ -163,10 +163,12 @@
 }
 .mp-proof li::before { content: '— '; color: var(--mp-accent-text); }
 .mp-hero-img img {
-  width: 100%;
+  display: block;
+  width: auto;
+  max-width: 100%;
   height: auto;
-  max-height: 640px;
-  object-fit: cover;
+  max-height: min(640px, 80vh);
+  margin-left: auto;
   border-radius: 4px;
 }
 
