@@ -35,10 +35,10 @@ function Home() {
       <Carousel />
       <Tagline />
       <ServicesTicker />
+      <WorkMarquee />
       <SelectedWork />
       <MompreneurTeaser />
       <About />
-      <WorkMarquee />
       <Testimonials />
       <SiteFooter />
     </>
