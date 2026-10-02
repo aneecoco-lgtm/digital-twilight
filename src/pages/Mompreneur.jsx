@@ -238,8 +238,7 @@ export default function Mompreneur() {
             </div>
           </div>
           <p className="mp-note">Instalment payments possible. Website hosting and domain not included.</p>
-          <div className="mp-work">
-            <span className="mp-label">Brands I've built</span>
+          <div className="mp-work" aria-label="Brands I've built">
             <div className="mp-work-strip">
               {WORK.map(w => (
                 <img key={w.src} src={w.src} alt={w.alt} loading="lazy" width="800" height="600" />
