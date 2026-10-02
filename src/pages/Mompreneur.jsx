@@ -311,9 +311,9 @@ export default function Mompreneur() {
         ) : (
           <>
             <p className="mp-lede">
-              Write to me anytime, and we'll find a moment for an informal 15-minute chat.
+              Text me anytime, and we'll find a moment for an informal 15-minute chat.
             </p>
-            <a href={BOOK_MAIL} className="mp-btn mp-btn--solid">Write to me</a>
+            <a href={BOOK_MAIL} className="mp-btn mp-btn--solid">Text me</a>
             <a href="mailto:info@digital-twilight.com" className="mp-email">info@digital-twilight.com</a>
           </>
         )}
