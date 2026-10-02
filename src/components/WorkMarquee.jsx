@@ -25,7 +25,6 @@ const marqueeImages = [
   '/images/cs/mock-EVOLVE_moonbre__logo_mock_up.jpg',
   '/images/cs/mock-Screenshot_2026-03-26_at_12.27.43.png',
   '/images/cs/mock-Screenshot_2026-03-26_at_12.27.53.png',
-  '/images/cs/mock-Screenshot_2026-06-12_at_17.43.43.png',
 ]
 
 export default function WorkMarquee() {
