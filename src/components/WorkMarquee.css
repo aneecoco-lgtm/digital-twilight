@@ -20,8 +20,6 @@
   width: max-content;
 }
 
-.wm-strip:hover .wm-track { animation-play-state: paused; }
-
 .wm-item {
   flex-shrink: 0;
   aspect-ratio: 16 / 9;
