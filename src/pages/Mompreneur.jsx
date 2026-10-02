@@ -303,17 +303,15 @@ export default function Mompreneur() {
         {WHATSAPP_NUMBER ? (
           <>
             <p className="mp-lede">
-              Send me a text first, just a few words about your idea. I'll write back,
-              and when you're ready we can set up a free 15-minute call.
+              Text me anytime, and we'll find a moment for an informal 15-minute chat.
             </p>
-            <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Send me a text on WhatsApp</a>
+            <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Text me on WhatsApp</a>
             <a href={BOOK_MAIL} className="mp-email">Prefer email? info@digital-twilight.com</a>
           </>
         ) : (
           <>
             <p className="mp-lede">
-              Write to me first, just a few words about your idea. I'll write back,
-              and when you're ready we can set up a free 15-minute call.
+              Write to me anytime, and we'll find a moment for an informal 15-minute chat.
             </p>
             <a href={BOOK_MAIL} className="mp-btn mp-btn--solid">Write to me</a>
             <a href="mailto:info@digital-twilight.com" className="mp-email">info@digital-twilight.com</a>
