@@ -117,7 +117,7 @@ export default function Mompreneur() {
           </div>
           <div>
             <h3>Affordable</h3>
-            <p>Everything under one roof for one price, with instalment payments possible.</p>
+            <p>Logo, photos and website for one price, with instalment payments possible.</p>
           </div>
         </div>
       </section>
