@@ -326,17 +326,30 @@
 
 /* ── FAQ ── */
 .mp-faq { max-width: 860px; border-top: 1px solid var(--mp-line); }
-.mp-faq-item { padding-block: 22px; border-bottom: 1px solid var(--mp-line); }
-.mp-faq-item h3 {
-  text-transform: none;
-  letter-spacing: 0;
-  font-family: inherit;
-  margin-bottom: 8px;
+.mp-faq details { border-bottom: 1px solid var(--mp-line); }
+.mp-faq summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  padding: 22px 40px 22px 0;
   font-size: 15px;
   font-weight: 500;
   color: var(--mp-ink);
 }
-.mp-faq-item p {
+.mp-faq summary::-webkit-details-marker { display: none; }
+.mp-faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 4px;
+  top: 18px;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--mp-accent);
+  transition: transform 0.2s;
+}
+.mp-faq details[open] summary::after { transform: rotate(45deg); }
+.mp-faq details p {
+  padding-bottom: 22px;
   font-size: 14px;
   line-height: 1.8;
   color: var(--mp-muted);
