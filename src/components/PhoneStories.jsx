@@ -3,7 +3,7 @@ import './PhoneStories.css'
 
 const phones = [
   { src: '/videos/x1.mp4', fallback: '/videos/x3.mp4', label: 'Brand Identity' },
-  { src: '/videos/x2.mp4', fallback: '/videos/x3.mp4', label: 'Yoga on Art' },
+  { src: '/videos/x2.mp4', fallback: '/videos/x3.mp4', label: 'ESNR Fetal Course' },
   { src: '/videos/x3.mp4', fallback: '/videos/x3.mp4', label: 'Motion & Film' },
 ]
 
