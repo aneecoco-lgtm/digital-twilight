@@ -162,15 +162,127 @@
   color: var(--mp-muted);
 }
 .mp-proof li::before { content: '— '; color: var(--mp-accent-text); }
-.mp-hero-img img {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: min(640px, 80vh);
-  margin-left: auto;
-  border-radius: 4px;
+
+/* Small founder byline, tucked under the proof points */
+.mp-byline {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--mp-line);
+  max-width: 520px;
 }
+.mp-byline img {
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.mp-byline p { display: flex; flex-direction: column; gap: 3px; }
+.mp-byline strong { font-size: 16px; font-weight: 500; color: var(--mp-ink); }
+.mp-byline span {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mp-muted);
+}
+
+/* ── Phone mockups (hero) ── */
+.mp-phones {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+}
+.mp-phones-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.mp-phone {
+  --w: 250px;
+  flex: 0 0 auto;
+  width: var(--w);
+}
+.mp-phone-shell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16.6;
+  padding: calc(var(--w) * 0.032);
+  background: #111;
+  border-radius: calc(var(--w) * 0.17);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08) inset,
+    0 28px 60px -18px rgba(26,20,20,0.45),
+    0 10px 24px -10px rgba(26,20,20,0.35);
+}
+.mp-phone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0a0a0a;
+  border-radius: calc(var(--w) * 0.14);
+}
+.mp-phone-screen video,
+.mp-phone-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mp-phone-notch {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--w) * 0.062);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--w) * 0.3);
+  height: calc(var(--w) * 0.085);
+  background: #0a0a0a;
+  border-radius: 999px;
+}
+.mp-phone-bar {
+  position: absolute;
+  z-index: 2;
+  bottom: calc(var(--w) * 0.062);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--w) * 0.34);
+  height: 4px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 999px;
+}
+
+/* Trio: centre leads, the two side phones tilt away behind it */
+.mp-phone--center { position: relative; z-index: 2; --w: min(300px, 46cqw); }
+.mp-phone--left,
+.mp-phone--right { --w: min(236px, 36cqw); position: relative; z-index: 1; }
+.mp-phone--left  { margin-right: calc(var(--w) * -0.12); transform: translateY(8%) rotate(-5deg); }
+.mp-phone--right { margin-left:  calc(var(--w) * -0.12); transform: translateY(8%) rotate(5deg); }
+
+.mp-phones-toggle {
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mp-muted);
+  background: transparent;
+  border: 1px solid var(--mp-line);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.mp-phones-toggle:hover { color: var(--mp-ink); border-color: var(--mp-ink); }
+.mp-phones-toggle:focus-visible { outline: 2px solid var(--mp-ink); outline-offset: 3px; }
 
 /* ── Benefits ── */
 .mp-benefits {
@@ -481,7 +593,8 @@
   .mp-nav { padding: 0 20px; }
   .mp-section { padding: 72px 20px; }
   .mp-hero { grid-template-columns: 1fr; gap: 40px; padding: 112px 20px 64px; }
-  .mp-hero-img { max-width: 420px; }
+  .mp-phones { max-width: 300px; margin: 0 auto; }
+  .mp-phone--center { --w: min(240px, 78cqw); }
   .mp-benefits,
   .mp-who,
   .mp-packages,

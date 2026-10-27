@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import MompreneurPhones from '../components/MompreneurPhones'
 import './Mompreneur.css'
 
 // Set to the video's path (e.g. '/videos/mompreneur-process.mp4') once it's uploaded;
@@ -110,10 +111,15 @@ export default function Mompreneur() {
             <li>Flexible around nap times and evenings</li>
             <li>Instalments possible</li>
           </ul>
+          <div className="mp-byline">
+            <img src="/images/mompreneur/annalisa-avatar.jpg" alt="Annalisa Cosentino" width="240" height="240" />
+            <p>
+              <strong>Annalisa Cosentino</strong>
+              <span>Founder, Digital Twilight · Zürich</span>
+            </p>
+          </div>
         </div>
-        <div className="mp-hero-img">
-          <img src="/images/mompreneur/hero.jpg" alt="Annalisa Cosentino, founder of Digital Twilight, in a black and white studio portrait" width="1080" height="1528" />
-        </div>
+        <MompreneurPhones />
       </header>
 
       {/* ── Problem + benefits ── */}
