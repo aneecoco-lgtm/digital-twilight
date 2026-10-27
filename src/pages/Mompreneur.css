@@ -267,7 +267,17 @@
 .mp-phone--left  { margin-right: calc(var(--w) * -0.12); transform: translateY(8%) rotate(-5deg); }
 .mp-phone--right { margin-left:  calc(var(--w) * -0.12); transform: translateY(8%) rotate(5deg); }
 
+.mp-phones-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 .mp-phones-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 14px;
   font: inherit;
   font-size: 11px;

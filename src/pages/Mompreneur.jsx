@@ -126,11 +126,11 @@ export default function Mompreneur() {
       <section className="mp-section">
         <div className="mp-head">
           <span className="mp-label">Sound familiar?</span>
-          <h2 className="mp-title">The idea is clear.<br /><em>The time, tools and help are not.</em></h2>
+          <h2 className="mp-title">How long has your idea been waiting?<br /><em>And how much longer should it?</em></h2>
           <p className="mp-lede">
-            You know what you want to sell. But learning logo design, photography and website
-            builders takes months you don't have, and most agencies work office hours on their
-            schedule, not yours.
+            You don't need another motivational quote telling you to follow your dreams.
+            You need a realistic way to get started, one that fits around the life you
+            already have.
           </p>
         </div>
         <div className="mp-benefits">
