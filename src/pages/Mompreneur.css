@@ -556,6 +556,29 @@
   border-top: none;
   color: var(--mp-ink);
 }
+/* Text on the left, portrait on the right */
+.mp-final {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 64px;
+  align-items: center;
+}
+.mp-final-photo {
+  width: clamp(240px, 26vw, 380px);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--mp-ink);
+  box-shadow: 0 24px 48px -24px rgba(26, 20, 20, 0.5);
+}
+.mp-final-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 14%;
+  filter: grayscale(1) contrast(1.04);
+}
 .mp-final .mp-label { color: var(--mp-ink); font-size: 12px; font-weight: 700; }
 .mp-final-title {
   font-family: var(--display);
@@ -604,6 +627,8 @@
   .mp-section { padding: 72px 20px; }
   .mp-hero { grid-template-columns: 1fr; gap: 40px; padding: 112px 20px 64px; }
   .mp-phones { max-width: 300px; margin: 0 auto; }
+  .mp-final { grid-template-columns: 1fr; gap: 48px; }
+  .mp-final-photo { width: min(300px, 100%); }
   .mp-phone--center { --w: min(240px, 78cqw); }
   .mp-benefits,
   .mp-who,

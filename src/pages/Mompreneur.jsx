@@ -328,6 +328,7 @@ export default function Mompreneur() {
 
       {/* ── Final CTA ── */}
       <section className="mp-section mp-final" id="book">
+        <div className="mp-final-text">
         <span className="mp-label">Get in touch</span>
         <h2 className="mp-final-title">Tell me<br /><em>about your idea.</em></h2>
         {WHATSAPP_NUMBER ? (
@@ -347,6 +348,16 @@ export default function Mompreneur() {
             <a href="mailto:info@digital-twilight.com" className="mp-email">info@digital-twilight.com</a>
           </>
         )}
+        </div>
+        <figure className="mp-final-photo">
+          <img
+            src="/images/mompreneur/hero.jpg"
+            alt="Annalisa Cosentino, founder of Digital Twilight, in a black and white portrait"
+            width="1080"
+            height="1528"
+            loading="lazy"
+          />
+        </figure>
       </section>
 
       <footer className="mp-footer">
