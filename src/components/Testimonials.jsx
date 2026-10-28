@@ -44,6 +44,13 @@ const testimonials = [
     company: "Evolve Hair Atelier · Zürich",
     avatar: "/images/testimonials/avatar-stefano.png",
   },
+  {
+    quote: "I have collaborated with Annalisa and Digital Twilight on corporate events and complex communication projects. What sets her apart is her strategic vision for branding: she brings identity, graphics, photography and video together under one cohesive creative direction, with the skills of a seasoned Creative Director. She is professional, calm under pressure, and working with her is a genuine pleasure.",
+    name: "Antonio Manco",
+    role: "Collaborator",
+    company: "Sapiens Production",
+    avatar: "/images/testimonials/avatar-antonio.jpg",
+  },
 ]
 
 export default function Testimonials() {
