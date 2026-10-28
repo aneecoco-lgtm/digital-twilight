@@ -29,7 +29,7 @@
   font-weight: 600;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: #ff4937;
+  color: #e8401c;
 }
 .mpt-title {
   font-family: var(--display);
@@ -41,8 +41,8 @@
   margin-bottom: 18px;
 }
 .mpt-title em {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
   text-transform: none;
   letter-spacing: 0;
 }
@@ -56,7 +56,7 @@
 .mpt-cta {
   display: inline-block;
   padding: 14px 24px;
-  background: #ff4937;
+  background: #e8401c;
   color: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -64,8 +64,8 @@
   text-transform: uppercase;
   transition: background 0.2s;
 }
-.mpt-card:hover .mpt-cta { background: #e8392a; }
-.mpt-card:focus-visible { outline: 2px solid #ff4937; outline-offset: 8px; }
+.mpt-card:hover .mpt-cta { background: #c33618; }
+.mpt-card:focus-visible { outline: 2px solid #e8401c; outline-offset: 8px; }
 
 @media (max-width: 900px) {
   .mpt { padding: 48px 20px; }

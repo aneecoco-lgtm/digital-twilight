@@ -1,15 +1,15 @@
 /* ─── Mompreneur Power Package ───────────────────────────────── */
-/* Light page with one violet accent, kept separate from the dark main site. */
+/* Light page with one Vermilion accent, kept separate from the dark main site. */
 .mp {
   --mp-bg: #ffffff;
-  --mp-soft: #fff1ee;
+  --mp-soft: #fff2ed;
   --mp-ink: #1a1414;
   --mp-muted: #5f5656;
   --mp-line: #ede4e3;
-  --mp-accent: #ff4937;       /* coral: fills, highlights */
-  --mp-accent-deep: #e8392a;
-  --mp-accent-text: #b8261a;  /* dark coral: readable text on white */
-  --mp-serif: 'Cormorant Garamond', Georgia, serif;
+  --mp-accent: #e8401c;       /* vermilion: fills, dot, buttons */
+  --mp-accent-deep: #c33618;
+  --mp-accent-text: #c33618;  /* deep vermilion: readable text on white */
+  --mp-serif: 'Cabinet Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: var(--mp-bg);
   color: var(--mp-ink);
   min-height: 100vh;
@@ -17,13 +17,30 @@
 }
 
 .mp em {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
   font-family: var(--mp-serif);
-  font-style: italic;
+  font-style: normal;
+  font-weight: 600;
   text-transform: none;
   letter-spacing: 0;
-  color: var(--mp-ink);
-  background: linear-gradient(transparent 58%, var(--mp-accent) 58%, var(--mp-accent) 92%, transparent 92%);
-  padding-inline: 0.06em;
+  color: #fff;
+  background: var(--mp-ink);
+  line-height: 1.1;
+  padding: 0.1em 0.32em 0.14em;
+  margin-block: 0.12em 0.06em;
+}
+/* The dot sits on the label's corner, anywhere is fine: it is the brand mark. */
+.mp em::after {
+  content: '';
+  position: absolute;
+  left: -0.16em;
+  bottom: -0.12em;
+  width: 0.34em;
+  height: 0.34em;
+  border-radius: 50%;
+  background: var(--mp-accent);
 }
 
 /* ── Nav ── */
@@ -71,7 +88,7 @@
   font-family: var(--display);
   font-size: clamp(32px, 3.5vw, 56px);
   font-weight: 300;
-  line-height: 1.05;
+  line-height: 1.12;
   letter-spacing: var(--display-tracking);
   text-transform: uppercase;
   color: var(--mp-ink);
@@ -79,7 +96,7 @@
 }
 .mp-lede {
   font-size: 15px;
-  line-height: 1.85;
+  line-height: 1.6;
   color: var(--mp-muted);
   max-width: 620px;
 }
@@ -138,15 +155,21 @@
   font-family: var(--display);
   font-size: clamp(44px, 6.5vw, 104px);
   font-weight: 300;
-  line-height: 0.95;
+  line-height: 1.12;
   letter-spacing: var(--display-tracking);
   text-transform: uppercase;
   color: var(--mp-ink);
   margin-bottom: 28px;
 }
+/* The highlighted line is a little wider than the old serif, so set it slightly smaller to stay on one line */
+.mp-hero-title em { font-size: 0.8em; }
+
+/* Titles break evenly; paragraphs avoid a stranded last word */
+.mp-hero-title, .mp-title, .mp-final-title, .mp-pull { text-wrap: balance; }
+.mp p, .mp li, .mp blockquote { text-wrap: pretty; }
 .mp-hero-sub {
   font-size: clamp(15px, 1.2vw, 17px);
-  line-height: 1.8;
+  line-height: 1.6;
   color: var(--mp-muted);
   max-width: 520px;
   margin-bottom: 36px;
@@ -301,7 +324,7 @@
   gap: 48px;
 }
 .mp-benefits > div { border-top: 4px solid var(--mp-accent); padding-top: 24px; }
-.mp-benefits p { font-size: 14px; line-height: 1.8; color: var(--mp-muted); }
+.mp-benefits p { font-size: 14px; line-height: 1.6; color: var(--mp-muted); }
 
 /* ── Weeks ── */
 .mp-weeks { max-width: none; }
@@ -316,7 +339,7 @@
 .mp-week:first-child { border-top: 1px solid var(--mp-line); }
 .mp-week-num {
   font-family: var(--mp-serif);
-  font-style: italic;
+  font-style: normal;
   font-size: 34px;
   line-height: 1;
   color: var(--mp-accent-text);
@@ -336,12 +359,14 @@
   position: relative;
   padding-left: 20px;
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 1.6;
   color: var(--mp-muted);
 }
 .mp-week li + li,
-.mp-fit li + li,
-.mp-package li + li { margin-top: 6px; }
+.mp-fit li + li { margin-top: 6px; }
+.mp-package li + li { margin-top: 16px; }
+.mp-package li strong { display: block; font-size: 15px; font-weight: 600; color: var(--mp-ink); }
+.mp-package li span { display: block; margin-top: 2px; font-size: 13px; line-height: 1.5; }
 .mp-week li::before,
 .mp-fit li::before,
 .mp-package li::before {
@@ -400,7 +425,35 @@
   background: var(--mp-bg);
 }
 .mp-package .mp-label { margin-bottom: 0; }
-.mp-package ul { flex: 1; }
+.mp-package .mp-incl { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+.mp-included {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mp-ink);
+  padding-top: 20px;
+  border-top: 1px solid var(--mp-line);
+}
+.mp-price-block { display: flex; flex-direction: column; gap: 10px; }
+.mp-instalment {
+  position: relative;
+  padding-left: 18px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--mp-accent-text);
+}
+.mp-instalment::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mp-accent);
+}
 .mp-package .mp-btn { align-self: flex-start; }
 .mp-package--main { border: 2px solid var(--mp-accent); background: var(--mp-soft); }
 .mp-price {
@@ -479,16 +532,16 @@
 .mp-pull {
   grid-row: span 3;
   font-family: var(--mp-serif);
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(30px, 3.2vw, 46px);
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--mp-ink);
   padding-left: 24px;
   border-left: 4px solid var(--mp-accent);
 }
 .mp-quote blockquote {
   font-family: var(--mp-serif);
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(18px, 1.5vw, 21px);
   line-height: 1.6;
   color: var(--mp-ink);
@@ -544,7 +597,7 @@
 .mp-faq details p {
   padding-bottom: 22px;
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 1.6;
   color: var(--mp-muted);
   max-width: 680px;
 }
@@ -584,13 +637,13 @@
   font-family: var(--display);
   font-size: clamp(40px, 5vw, 80px);
   font-weight: 300;
-  line-height: 0.95;
+  line-height: 1.1;
   letter-spacing: var(--display-tracking);
   text-transform: uppercase;
   color: var(--mp-ink);
   margin-bottom: 28px;
 }
-.mp-final-title em { color: var(--mp-ink); background: none; padding: 0; }
+.mp-final-title em::after { background: var(--mp-bg); }
 .mp-final .mp-lede { margin-bottom: 36px; color: var(--mp-ink); font-size: 17px; font-weight: 500; }
 .mp-final .mp-btn--solid { background: var(--mp-ink); color: var(--mp-accent); border-color: var(--mp-ink); }
 .mp-final .mp-btn--solid:hover { background: #000; }

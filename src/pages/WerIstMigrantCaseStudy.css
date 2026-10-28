@@ -195,16 +195,16 @@
   margin: 0;
 }
 .wim-body-lg em {
-  font-style: italic;
+  font-style: normal;
   color: rgba(0,0,0,0.75);
 }
 .wim-body-lg--narrow {
   max-width: 560px;
 }
 .wim-body-italic {
-  font-family: Georgia, serif;
+  font-family: var(--display);
   font-size: 19px;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.65;
   color: rgba(0,0,0,0.7);
   margin: 24px 0 0;
@@ -276,10 +276,10 @@
 
 /* ── Pull quote ── */
 .wim-quote {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--display);
   font-size: clamp(28px, 4vw, 56px);
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.22;
   color: #0a0a0a;
   margin: 0 auto 20px;

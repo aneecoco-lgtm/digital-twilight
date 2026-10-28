@@ -1,9 +1,17 @@
+/* Cabinet Grotesk (variable, weights 100–900), hosted with the site */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 /*
-  Neue Haas Grotesk Display — Weight 45 Light / 55 Roman
-  Load from Adobe Fonts if available; falls back to Helvetica Neue.
-  Apply the brand type specs globally:
+  Cabinet Grotesk is the site typeface for both display and text.
+  Type specs kept from the brand spec:
     tracking  : +20  → letter-spacing: 0.02em
     line-height: 85–90% → 0.87
 */
@@ -14,13 +22,10 @@
   --fg-dim: rgba(255,255,255,0.45);
   --fg-muted: rgba(255,255,255,0.25);
 
-  /* Display font — Neue Haas Grotesk Display with system fallbacks */
-  --display: "Neue Haas Grotesk Display Pro", "NeueHaasGroteskDisplayPro",
-             "Neue Haas Grotesk Display", "HelveticaNeue-Light",
-             "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  /* Body font — stays Inter for legibility at small sizes */
-  --sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* Display and body font: Cabinet Grotesk, with system fallbacks */
+  --display: 'Cabinet Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --serif: var(--display);
+  --sans: 'Cabinet Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
   /* Type spec tokens */
   --display-tracking: 0.02em;    /* +20 tracking */
@@ -33,7 +38,7 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
@@ -51,3 +56,6 @@ ul, ol { list-style: none; }
   text-transform: uppercase;
   color: var(--fg-dim);
 }
+
+/* No italics: emphasis comes from colour and weight */
+em { font-style: normal; }

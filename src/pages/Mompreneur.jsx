@@ -32,7 +32,7 @@ const BOOK_LINK_PROPS = WHATSAPP_NUMBER ? { onClick: openWhatsApp } : {}
 const weeks = [
   {
     week: 'Week 1',
-    title: 'Logo & brand identity',
+    title: 'Logo & brand identity foundation',
     image: '/images/mompreneur/week1-logo.jpg',
     alt: 'Logo design for the Moonbrè hair brand',
     items: [
@@ -224,26 +224,38 @@ export default function Mompreneur() {
           </div>
           <div className="mp-packages">
             <div className="mp-package mp-package--main">
-              <span className="mp-label">Power Package 1</span>
-              <p className="mp-price">CHF 4,580</p>
-              <ul>
-                <li>Logo and brand identity</li>
-                <li>Photo session and 20 photos</li>
-                <li>3-page website</li>
-              </ul>
+              <span className="mp-label">Brand Launch</span>
+              <div className="mp-price-block">
+                <p className="mp-price">CHF 4,580</p>
+                <p className="mp-instalment">Instalments possible</p>
+              </div>
+              <div className="mp-incl">
+                <span className="mp-included">What's included</span>
+                <ul>
+                  <li><strong>Logo and brand identity foundation</strong><span>A look that is clearly yours, ready for your website, social media and print.</span></li>
+                  <li><strong>Photo session and 20 photos</strong><span>Professional photos of you and your work, edited and ready to use.</span></li>
+                  <li><strong>3-page website</strong><span>Your online home, so clients can find you and get in touch.</span></li>
+                </ul>
+              </div>
               <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
             </div>
             <div className="mp-package mp-package--main">
-              <span className="mp-label">Power Package 2</span>
-              <p className="mp-price">CHF 5,480</p>
-              <ul>
-                <li>Everything in Package 1</li>
-                <li>A branding promo video for your website and social media</li>
-              </ul>
+              <span className="mp-label">Brand Launch + Film</span>
+              <div className="mp-price-block">
+                <p className="mp-price">CHF 5,480</p>
+                <p className="mp-instalment">Instalments possible</p>
+              </div>
+              <div className="mp-incl">
+                <span className="mp-included">What's included</span>
+                <ul>
+                  <li><strong>Everything in Brand Launch</strong><span>Logo and brand identity foundation, photo session and 3-page website.</span></li>
+                  <li><strong>A branding promo video</strong><span>A short film that introduces you and your brand, for your website and social media.</span></li>
+                </ul>
+              </div>
               <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
             </div>
           </div>
-          <p className="mp-note">Instalment payments possible. Website hosting and domain not included.</p>
+          <p className="mp-note">One price per package. Website hosting and domain are not included.</p>
           <div className="mp-work" aria-label="Brands I've built">
             <div className="mp-work-strip">
               {WORK.map(w => (
@@ -262,13 +274,13 @@ export default function Mompreneur() {
             <span className="mp-label">Hi, I'm Annalisa</span>
             <h2 className="mp-title">One creative,<br /><em>three skills, your brand.</em></h2>
             <p className="mp-lede">
-              I'm Italian, and I studied Performing Arts before moving to London for a degree in
-              Photography, working in the city's galleries and museums along the way. After 11 years
-              I moved to Zürich and started Digital Twilight, working with organisations and small businesses.
+              Your logo, your photos and your website should feel like one brand, not three separate
+              jobs. I design the identity, shoot the photos and build the site, so everything looks
+              and sounds like you.
             </p>
             <p className="mp-lede">
-              Today I bring film, photography and graphic design together to help mompreneurs
-              launch with a warm, personal approach.
+              Film, photography and graphic design are the tools I work with every day. For you, that
+              means one person to talk to and a result that feels warm, personal and ready to launch.
             </p>
           </div>
         </section>
@@ -305,7 +317,7 @@ export default function Mompreneur() {
             <li>Graphics</li>
             <li>Brand photography</li>
             <li className="mp-made-break" aria-hidden="true" />
-            <li>Package 2, tailored to her needs</li>
+            <li>Brand Launch + Film, tailored to her needs</li>
           </ul>
         </figure>
       </section>

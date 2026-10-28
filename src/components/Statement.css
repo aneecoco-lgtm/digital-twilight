@@ -12,7 +12,7 @@
 }
 
 .statement em {
-  font-style: italic;
+  font-style: normal;
   color: var(--fg-dim);
 }
 
