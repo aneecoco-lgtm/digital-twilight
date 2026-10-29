@@ -293,7 +293,7 @@ export default function Mompreneur() {
           </div>
           <div className="mp-about-text">
             <span className="mp-label">Hi, I'm Annalisa</span>
-            <h2 className="mp-title">One creative,<br /><em>three skills, your brand.</em></h2>
+            <h2 className="mp-title">One creative,<br /><em className="mp-oneline">three skills, your brand.</em></h2>
             <p className="mp-lede">
               Your logo, your photos and your website should feel like one brand, not three separate
               jobs. I design the identity, shoot the photos and build the site, so everything looks
