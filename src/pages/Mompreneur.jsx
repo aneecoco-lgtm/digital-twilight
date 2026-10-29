@@ -13,6 +13,27 @@ const WORK = [
   { src: '/images/mompreneur/work-4.jpg', alt: 'Borgia-Art catalogue and Cacao Rocks magazine design' },
 ]
 
+const ENRIETA_GFX = [
+  'Enrieta Power logo',
+  'Enrieta Power portrait in red',
+  'Enrieta Power heart mark in blue',
+  'Enrieta Power black and white portrait with laptop',
+  'Enrieta Power portrait in orange',
+  'Enrieta Power portrait in magenta',
+  'Enrieta Power portrait in teal with laptop',
+  'Enrieta Power heart mark in pink',
+  'Enrieta Power portrait in purple and blue',
+  'Enrieta Power logo on cream',
+  'Enrieta Power portrait in green',
+  'Enrieta Power portrait in lavender',
+  'Enrieta Power portrait in salmon',
+  'Enrieta Power logo on mint',
+  'Enrieta Power portrait in purple',
+  'Enrieta Power logo on light blue',
+  'Enrieta Power portrait in dark blue',
+  'Enrieta Power portrait in peach with laptop',
+]
+
 const BOOK_MAIL = 'mailto:info@digital-twilight.com?subject=Mompreneur%20Power%20Package%20%E2%80%94%20free%2015-minute%20call'
 
 // WhatsApp number, international format, digits only, stored REVERSED so it never
@@ -289,6 +310,7 @@ export default function Mompreneur() {
       {/* ── Testimonial ── */}
       <section className="mp-section mp-testimonial">
         <div className="mp-head">
+          <img className="mp-heart" src="/images/mompreneur/enrieta-heart.svg" alt="" aria-hidden="true" width="739" height="556" />
           <span className="mp-label">Client story</span>
           <h2 className="mp-title">Enrieta Power,<br /><em>mother of four.</em></h2>
           <p className="mp-lede">
@@ -297,29 +319,38 @@ export default function Mompreneur() {
           </p>
         </div>
 
-        <div className="mp-story-photos">
-          {[1, 2, 3].map(n => (
-            <img key={n} src={`/images/mompreneur/enrieta-${n}.jpg`} alt={`Enrieta Power, photo ${n} of 3`} loading="lazy" width="1080" height="1350" />
-          ))}
-        </div>
+        <div className="mp-story">
+          <div className="mp-story-main">
+            <div className="mp-story-photos">
+              {[1, 2, 3].map(n => (
+                <img key={n} src={`/images/mompreneur/enrieta-${n}.jpg`} alt={`Enrieta Power, photo ${n} of 3`} loading="lazy" width="1080" height="1350" />
+              ))}
+            </div>
 
-        <figure className="mp-quote">
-          <p className="mp-pull">"Her flexibility and accommodating nature were invaluable."</p>
-          <blockquote>
-            <p>"I am deeply grateful to Annalisa for her exceptional support as a filmmaker and graphic designer. Despite being a mother of four (with another on the way), her flexibility and accommodating nature were invaluable. In under a month, she recorded my video courses with professionalism and helped me confidently engage my audience.</p>
-            <p>She crafted a perfect logo, an extraordinary ebook, and numerous graphic elements that enhanced my project. Her creativity, expertise, and dedication were crucial to my success, transforming my ideas into reality and exceeding all expectations."</p>
-          </blockquote>
-          <figcaption>Enrieta Power</figcaption>
-          <ul className="mp-made">
-            <li>Logo</li>
-            <li>Ebook</li>
-            <li>Video courses</li>
-            <li>Graphics</li>
-            <li>Brand photography</li>
-            <li className="mp-made-break" aria-hidden="true" />
-            <li>Brand Launch + Film, tailored to her needs</li>
-          </ul>
-        </figure>
+            <figure className="mp-quote">
+              <p className="mp-pull">"Her flexibility and accommodating nature were invaluable."</p>
+              <blockquote>
+                <p>"I am deeply grateful to Annalisa for her exceptional support as a filmmaker and graphic designer. Despite being a mother of four (with another on the way), her flexibility and accommodating nature were invaluable. In under a month, she recorded my video courses with professionalism and helped me confidently engage my audience.</p>
+                <p>She crafted a perfect logo, an extraordinary ebook, and numerous graphic elements that enhanced my project. Her creativity, expertise, and dedication were crucial to my success, transforming my ideas into reality and exceeding all expectations."</p>
+              </blockquote>
+              <figcaption>Enrieta Power</figcaption>
+              <ul className="mp-made">
+                <li>Logo</li>
+                <li>Ebook</li>
+                <li>Video courses</li>
+                <li>Graphics</li>
+                <li>Brand photography</li>
+                <li className="mp-made-break" aria-hidden="true" />
+                <li>Brand Launch + Film, tailored to her needs</li>
+              </ul>
+            </figure>
+          </div>
+          <aside className="mp-story-gfx" role="group" aria-label="Graphics created for Enrieta Power">
+            {ENRIETA_GFX.map((alt, i) => (
+              <img key={i} src={`/images/mompreneur/enrieta-gfx-${i + 1}.jpg`} alt={alt} loading="lazy" width="190" height="190" />
+            ))}
+          </aside>
+        </div>
       </section>
 
       {/* ── FAQ ── */}
