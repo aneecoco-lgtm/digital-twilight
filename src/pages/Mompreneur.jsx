@@ -237,6 +237,18 @@ export default function Mompreneur() {
         </div>
       </section>
 
+      {/* ── Free checklist ── */}
+      <section className="mp-section mp-checklist">
+        <div className="mp-head">
+          <span className="mp-label">Free checklist</span>
+          <h2 className="mp-title">Not sure you're ready?</h2>
+          <p className="mp-lede">Tick 8 boxes and see what's missing before you launch. Takes 2 minutes.</p>
+        </div>
+        <div className="mp-actions">
+          <a href="/idea-to-launch-checklist.pdf" target="_blank" rel="noopener" className="mp-btn">Download the checklist</a>
+        </div>
+      </section>
+
       {/* ── Packages + About, side by side on wide screens ── */}
       <div className="mp-duo">
         {/* ── Packages ── */}
