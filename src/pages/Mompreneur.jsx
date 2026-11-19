@@ -245,8 +245,9 @@ export default function Mompreneur() {
           <p className="mp-lede">Tick 8 boxes and see what's missing before you launch. Takes 2 minutes.</p>
         </div>
         <div className="mp-actions">
-          <a href="/idea-to-launch-checklist.pdf" target="_blank" rel="noopener" className="mp-btn">Download the checklist</a>
+          <a href="/idea-to-launch-checklist.pdf" download="idea-to-launch-checklist.pdf" target="_blank" rel="noopener" className="mp-btn">Download the checklist</a>
         </div>
+        <p className="mp-note">Tip: open it in Adobe Acrobat, Chrome or Preview to tick the boxes.</p>
       </section>
 
       {/* ── Packages + About, side by side on wide screens ── */}
