@@ -84,6 +84,7 @@ const weeks = [
       '3 pages: Home, About, and Services or Products',
       'Designed for phones, tablets and computers',
       'Ready to launch with your new brand and photos',
+      'Your Keep-It-Running Kit: a 90-minute hand-over session, your personal AI brand-voice prompt and a one-page cheat sheet',
     ],
   },
 ]
@@ -93,8 +94,9 @@ const faqs = [
   ['Where do you work?', 'In Zürich and the surroundings. Photo sessions happen in person, and calls can be online.'],
   ["What if I don't have a business name yet?", "That's fine, as long as you know what you want to offer. We can shape the name during week 1."],
   ['Can I pay in instalments?', "Yes. We'll agree on a payment plan on the free call."],
-  ["What's not included?", 'Website hosting and the domain name, which you pay directly to the provider.'],
+  ["What's not included?", "Website hosting and the domain name are not included, but I'll help you choose and set them up. Online shops with many products and ongoing monthly content are also not part of the packages. If you need more help after launch, just ask and we'll find what fits."],
   ['What happens on the free call?', "We talk for 15 minutes about your vision and what you need. If the package is a good fit, I'll explain the next steps."],
+  ['What happens after my brand is launched?', "You won't be left alone with it. Every package includes the Keep-It-Running Kit: a 90-minute session where I show you how to write posts in your brand voice with AI, make new graphics from your brand templates in Canva, update your website and answer client emails. You also get your personal AI brand-voice prompt and a one-page cheat sheet with everything in one place."],
 ]
 
 export default function Mompreneur() {
@@ -256,6 +258,7 @@ export default function Mompreneur() {
                   <li><strong>Logo and brand identity foundation</strong><span>A look that is clearly yours, ready for your website, social media and print.</span></li>
                   <li><strong>Photo session and 20 photos</strong><span>Professional photos of you and your work, edited and ready to use.</span></li>
                   <li><strong>3-page website</strong><span>Your online home, so clients can find you and get in touch.</span></li>
+                  <li><strong>Keep-It-Running Kit</strong><span>A 90-minute session and your personal AI toolkit, so you can create posts, update your website and answer clients on your own after launch.</span></li>
                 </ul>
               </div>
               <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
@@ -269,14 +272,15 @@ export default function Mompreneur() {
               <div className="mp-incl">
                 <span className="mp-included">What's included</span>
                 <ul>
-                  <li><strong>Everything in Brand Launch</strong><span>Logo and brand identity foundation, photo session and 3-page website.</span></li>
+                  <li><strong>Everything in Brand Launch</strong><span>Logo and brand identity foundation, photo session, 3-page website and the Keep-It-Running Kit.</span></li>
                   <li><strong>A branding promo video</strong><span>A short film that introduces you and your brand, for your website and social media.</span></li>
+                  <li><strong>Keep-It-Running Kit</strong><span>A 90-minute session and your personal AI toolkit, so you can create posts, update your website and answer clients on your own after launch.</span></li>
                 </ul>
               </div>
               <a href={BOOK_LINK} {...BOOK_LINK_PROPS} className="mp-btn mp-btn--solid">Book a free call</a>
             </div>
           </div>
-          <p className="mp-note">One price per package. Website hosting and domain are not included.</p>
+          <p className="mp-note"><strong>Good to know:</strong> website hosting and domain are not included. I'll help you choose and set them up. Want more help after launch, like monthly content, an extra photo session or a new web page? Just ask on our call, and we'll find what fits.</p>
           <div className="mp-work" aria-label="Brands I've built">
             <div className="mp-work-strip">
               {WORK.map(w => (
