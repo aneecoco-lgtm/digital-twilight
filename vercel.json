@@ -1,5 +1,13 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/idea-to-launch-checklist.pdf",
+      "headers": [
+        { "key": "Content-Type", "value": "application/pdf" }
+      ]
+    }
   ]
 }

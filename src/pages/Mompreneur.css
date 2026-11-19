@@ -114,6 +114,7 @@
 .mp-head--wide { max-width: none; }
 .mp-checklist .mp-head { margin-bottom: 32px; }
 .mp-checklist .mp-actions { margin-bottom: 0; }
+.mp-checklist .mp-note { margin-top: 16px; }
 @media (min-width: 901px) { .mp-nowrap { white-space: nowrap; } }
 .mp h3 {
   font-size: 12px;
